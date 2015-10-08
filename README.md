@@ -8,8 +8,9 @@ To be able to compile the code, you need to install libserial-dev and
 python-sip-dev. They are available through ubuntu's synaptic or package
 manager.
 
-You will need to compile it using the following command:
-g++ -o readAndSave readAndSave.cpp -L/usr/local/lib -lserial -lpthread
+The "Angle output" folder contain the code for writing the Angle output packet, and the "Time output" folder contain the code for writing the time of the packet.
 
-You may need to change the "/usr/local/lib" to where you installed
+To compile the codes you need to be in the folder that you want to use and write into the command : make
+
+**You may need to change the "/usr/local/lib" to where you installed
 seriallib on your machine.
