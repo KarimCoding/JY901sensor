@@ -14,10 +14,10 @@ using namespace std;
 bool flagA(false);
 int iA = 1;
 unsigned char angle[11];
-long double roll;
-long double pitch;
-long double yaw;
-long double temperature;
+double roll;
+double pitch;
+double yaw;
+double temperature;
 
 void AngleOutput(unsigned char uc)
 {
@@ -68,10 +68,10 @@ void AngleOutput(unsigned char uc)
 	//
 	if ( int(sumCA) == int(angle[10]))
 	  {
-	    roll=((((int)(((int)(angle[3])) << 8)) + ((int)(angle[2])))/32768)*180; // the x-axis in degrees
-	    pitch=((((int)(((int)(angle[5])) << 8)) + ((int)(angle[4])))/32768)*180;// the y-axis in degrees
-	    yaw=((((int)(((int)(angle[7])) << 8)) + ((int)(angle[6])))/32768)*180; // the z-axis in degrees
-	    temperature=(((int)(((int)(angle[9])) << 8)) + ((int)(angle[8])))/100; // temperature is in C 
+	    roll = (  (((int)(angle[3])) << 8) + ((int)(angle[2])) ) / 32768.0 * 180.0 ;
+	    pitch = (  (((int)(angle[5])) << 8) + ((int)(angle[4])) ) / 32768.0 * 180.0 ;
+	    yaw = (  (((int)(angle[7])) << 8) + ((int)(angle[6])) ) / 32768.0 * 180.0 ;
+	    temperature = (  (((int)(angle[9])) << 8) + ((int)(angle[8])) ) /100.0 ;
 	    for(iA=0; iA < 11 ; iA++)
 	      {
 		file << std::setw(2) << std::setfill('0')<< std::hex <<(int)(angle[iA])<<" ";
