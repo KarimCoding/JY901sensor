@@ -15,7 +15,8 @@
 //#define 	MAXBUFLEN	189
 #define 	MAXBUFLEN	378
 #define 	MAXBUFSIZE	4
-
+#define		GBUFFSIZE	200
+#define		BBUFFSIZE	50
 //COMMANDS
 #define     SAVE    	0x00;
 #define     CALSW   	0x01;

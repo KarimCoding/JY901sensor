@@ -8,8 +8,9 @@ unsigned char saveArray[22]; // an array to save the packets in it
 unsigned char packetArray[22]; // an array to get the bytes coming from the sensor
 unsigned char sumCAC;
 
-void packetIdentifier2(unsigned char uc, std::vector<string> &goodData,std::vector<string> &badData)
-//void packetIdentifier2 (unsigned char uc, std::ofstream& outF,std::ofstream& badData)
+void packetIdentifier2(unsigned char uc, std::vector<string> &goodData,std::vector<string> &badData,std::string &head)
+
+//void packetIdentifier2(unsigned char uc, std::vector<string> &goodData,std::vector<string> &badData)
 {
     bool flagon(true); 
 	packetArray[i]= uc; // push the bytes coming from the sensor into the packetArray
@@ -43,8 +44,8 @@ void packetIdentifier2(unsigned char uc, std::vector<string> &goodData,std::vect
 			savePacket(saveArray,std::ref(goodData));
 	    }
 		else{
-			printf("\n Bad data! \n");
-			write_bad_dat(saveArray,std::ref(badData));
+			savePacket(1,saveArray,std::ref(goodData));
+			write_bad_dat(saveArray,std::ref(badData),std::ref(head));
 			//outF<<"bad checksum \n";
         	//write_bad_dat(std::ref(badData),saveArray);
 //			write_bad_dat(saveArray);

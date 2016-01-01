@@ -52,34 +52,50 @@ void savePacket(unsigned char saveArray[],std::vector<string> &data)
 //        cout<<buf<<"\n";
         data.push_back(buf); 
 }
-
-
-/*//void write_bad_dat(std::ofstream& badData, unsigned char uc)
-void write_bad_dat(unsigned char uc)
+void savePacket(bool check,unsigned char saveArray[],std::vector<string> &data)
 {
-	ofstream badData;
-	badData.open("/home/udooer/Logs/badData.txt", std::ofstream::out | std::ofstream::app);
-  badData << uc<<" "<<endl;
-
-  badData.close();
+	//data.push_back("bad check sum");
+    char printStr[999];
+    string buf;
+	buf="****";
+        for(int x=0; x <numberOfBytes ; x++)
+        {
+//                printf("%02x ",array[x]);
+                sprintf(printStr,"%02x ",saveArray[x]);
+                buf=buf + string(printStr);
+        }
+	buf = buf + "****";
+	data.push_back(buf);
+		
 }
-*/
-void write_bad_dat(unsigned char array[],std::vector<string> &data)
-//void write_bad_dat(unsigned char saveArray[])
+
+void write_bad_dat(unsigned char array[],std::vector<string> &data,std::string &head)
 {
-//check if a stream is open. if so close it and open for bad data
-//    printf("write bad data\n");
-	printf("Write bad data \n");
     char printStr[999];
 	string buf;
+	buf = "****";
+	data.push_back(head);
         for(int x=0; x <numberOfBytes ; x++)
         {
                 sprintf(printStr,"%02x ",array[x]);
                 buf=buf + string(printStr);
         }
-		buf= buf + "\n";
+		buf= buf + "****";
 //		cout<<buf;
   		data.push_back(buf);   
 //		cout<<data.front();
 
 }
+
+
+/*//void write_bad_dat(std::ofstream& badData, unsigned char uc)
+void write_bad_dat(unsigned char uc)
+{
+    ofstream badData;
+    badData.open("/home/udooer/Logs/badData.txt", std::ofstream::out | std::ofstream::app);
+  badData << uc<<" "<<endl;
+
+  badData.close();
+}
+*/
+

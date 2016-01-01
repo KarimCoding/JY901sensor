@@ -46,11 +46,26 @@ int wifi::listener(dataStick& pkt,udp::socket& socket)
 		cout<<pkt_header<<endl;
         for(int i = 0;i<len;i++){
             printf("%02x ",output[i]);
-        if(i>0&&i%12==0)
+        if(i>0&&i%20==0)
             printf("\n");
         }
 		printf("\n");
 */
+/*		rawData.push_back(pkt_header);
+        for(int x=0; x <len ; x++)
+        {
+//                printf("%02x ",array[x]);
+                sprintf(printStr,"%02x ",output[x]);
+                buf=buf + string(printStr);
+       		if(x>0&&x%20==0)
+            	buf = buf+ "\n";
+        }
+
+		rawData.push_back(buf);
+*/
+
+
+
         return 0;
 }
 
