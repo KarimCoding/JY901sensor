@@ -1,0 +1,46 @@
+
+	roll is: 0.587769 pitch is: 0.000000 yaw is: 7.536621 temperature is: 12.920000
+
+
+	20173/1/235  00:169:251:3087
+
+
+
+	roll is: 0.488892 pitch is: 0.000000 yaw is: 7.520142 temperature is: 13.100000
+
+
+	20173/1/239  00:184:251:3087
+
+
+
+	roll is: 0.620728 pitch is: 0.000000 yaw is: 7.531128 temperature is: 13.000000
+
+
+	20172/1/244  00:181:251:3087
+
+
+
+	roll is: 0.582275 pitch is: 0.000000 yaw is: 7.531128 temperature is: 12.860000
+
+
+	20168/1/237  00:186:251:3087
+
+
+
+	roll is: 0.615234 pitch is: 0.000000 yaw is: 7.481689 temperature is: 13.020000
+
+
+	20165/1/229  00:185:251:3087
+
+
+
+	roll is: 0.593262 pitch is: 0.000000 yaw is: 7.542114 temperature is: 12.930000
+
+
+	20160/1/225  00:190:251:3087
+
+
+
+	roll is: 0.609741 pitch is: 0.000000 yaw is: 7.503662 temperature is: 12.740000
+
+

@@ -13,13 +13,13 @@ void collect(wifi& port,dataStick& packet){
 	mtx.unlock();
 }
 
-//void process(dataStick& packet,std::ofstream& outF, std::ofstream& badD){
-void process(dataStick& packet,char *fName){
+void process(dataStick& pkt,std::ofstream& outF, std::ofstream& badD){
+//void process(dataStick& packet,char *fName){
 
 	mtx.lock();
-	printf("going to handle dat\n");
-	//handleData(packet,outF,badD);
-	handleData(packet,fName);
+	handleData(std::ref(pkt),std::ref(outF),std::ref(badD));
+//	handleData(packet,outF,VERBOSITY, badD);
+	//handleData(packet,fName);
 	mtx.unlock();
 }
 
@@ -37,9 +37,9 @@ int main(){
 
 	//Create filename for logfile
     strftime(fName,30,"[%Y%m%d_%H:%M:%S].txt",localtime(&ctime));
-	 /*std::ofstream outF(fName);
+	 std::ofstream outF(fName);
 	std::ofstream badD("badData.txt");
-*/
+
 	dataStick pkt;
 	wifi port1;
 	std::thread coll(collect,std::ref(port1),std::ref(pkt));
@@ -50,8 +50,8 @@ int main(){
 	if(pkt.numbytes==0)
 		printf("joining\n");
 	else{
-//		  std::thread proc(process,std::ref(pkt),std::ref(outF),std::ref(badD));
-		std::thread proc(process,std::ref(pkt),std::ref(fName));
+		  std::thread proc(process,std::ref(pkt),std::ref(outF),std::ref(badD));
+//		std::thread proc(process,std::ref(pkt),std::ref(fName));
 
 		proc.join();
 	}

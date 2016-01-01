@@ -14,6 +14,6 @@
 
 using namespace std;
 
-//void packetIdentifier2 (unsigned char uc, ofstream& outF,bool verbosity,std::ofstream& badData);
-void packetIdentifier2 (unsigned char uc,bool verbosity,char *fName);
+void packetIdentifier2 (unsigned char uc, ofstream& outF,std::ofstream& badData);
+//void packetIdentifier2 (unsigned char uc,char *fName);
 

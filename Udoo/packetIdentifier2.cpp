@@ -26,8 +26,8 @@ unsigned char saveArray[22]; // an array to save the packets in it
 unsigned char packetArray[22]; // an array to get the bytes coming from the sensor
 unsigned char sumCAC;
 
-//void packetIdentifier2 (unsigned char uc, std::ofstream& outF,bool verbosity,std::ofstream& badData)
-void packetIdentifier2 (unsigned char uc, bool verbosity,char *fName)
+void packetIdentifier2 (unsigned char uc, std::ofstream& outF,std::ofstream& badData)
+//void packetIdentifier2 (unsigned char uc,char *fName)
 {
     bool flagon(true); 
 	 packetArray[i]= uc; // push the bytes coming from the sensor into the packetArray
@@ -57,17 +57,21 @@ void packetIdentifier2 (unsigned char uc, bool verbosity,char *fName)
         } //End brace for for(int p...
 
         // performing a check Sum
-        if( checkSum(saveArray))
-//			savePacket(saveArray,std::ref(outF),verbosity);
-			 savePacket(saveArray,verbosity,fName);
-	    else{
+        if( checkSum(saveArray)){
+			//outF.close();
+			savePacket(saveArray,std::ref(outF));
+//			 savePacket(saveArray,verbosity,fName);
+
+	    }
+		else{
+//			outF.close();
         	//write_bad_dat(std::ref(badData),saveArray);
-			write_bad_dat(saveArray);
+//			write_bad_dat(saveArray);
 
 		}
     }   // End brace for if(result ...
     else{
-			write_bad_dat(uc);
+//			write_bad_dat(uc);
 
 //            write_bad_dat(std::ref(badData),uc);
 	}

@@ -10,27 +10,30 @@
 #include <cstdlib>
 #include <iterator>
 #include <stdio.h>
+#include "consts.h"
 using namespace std;
 
 int numberOfBytes = 11;
 
-//void savePacket(unsigned char saveArray[], std::ofstream& outF,bool verbosity)
-void savePacket(unsigned char saveArray[],bool verbosity,char *fName)
+void savePacket(unsigned char saveArray[], std::ofstream& outF)
+//void savePacket(unsigned char saveArray[],bool verbosity,char *fName)
 {
-	ofstream outF;
+/*	ofstream outF;
 	outF.open(fName, std::ofstream::out | std::ofstream::app);
-
+*/
 	char printStr[999];
         for(int x=0; x <numberOfBytes ; x++)
     	{
-				sprintf(printStr,"%02x ",(int)saveArray[x]);
+				printf("%02x ",saveArray[x]);
+				sprintf(printStr,"%02x ",saveArray[x]);
+				outF<<printStr;
 		
     	}
-
-		if(saveArray[1] ==0x51 && verbosity)
+		outF<<printStr;
+		if(saveArray[1] ==0x51 && VERBOSITY)
 			sprintf(printStr,"\t20%d/%d/%d  %02d:%02d:%02d:%03d\n",(int)(saveArray[2]),(int)(saveArray[3]),(int)saveArray[4],(int)saveArray[5],(int)saveArray[6],(int)saveArray[7],(saveArray[9]<<8)|saveArray[8]); 
 
-        else if(saveArray[1] ==0x55 && verbosity) {
+        else if(saveArray[1] ==0x55 && VERBOSITY) {
 			double roll;
 			double pitch;
 			double yaw;
@@ -45,8 +48,9 @@ void savePacket(unsigned char saveArray[],bool verbosity,char *fName)
 		}
 		else
         	sprintf(printStr,"\n");
+		printf("Save dat: %s \n",printStr);
 		outF<<printStr;
-		outF.close();
+//		outF.close();
 }
 
 
@@ -62,6 +66,7 @@ void write_bad_dat(unsigned char uc)
 
 void write_bad_dat(unsigned char saveArray[])
 {
+//check if a stream is open. if so close it and open for bad data
 ofstream badData;
     badData.open("/home/udooer/Logs/badData.txt", std::ofstream::out | std::ofstream::app);
     char printStr[999];

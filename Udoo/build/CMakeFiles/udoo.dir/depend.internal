@@ -50,6 +50,7 @@ CMakeFiles/udoo.dir/processData.cpp.o
  /home/udooer/David/JY901sensor/Udoo/savePacket.h
  /home/udooer/David/JY901sensor/Udoo/timeOutput.h
 CMakeFiles/udoo.dir/savePacket.cpp.o
+ /home/udooer/David/JY901sensor/Udoo/consts.h
  /home/udooer/David/JY901sensor/Udoo/savePacket.cpp
 CMakeFiles/udoo.dir/timeOutput.cpp.o
  /home/udooer/David/JY901sensor/Udoo/timeOutput.cpp
