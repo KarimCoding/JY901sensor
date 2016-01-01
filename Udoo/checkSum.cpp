@@ -11,21 +11,21 @@
 #include <new>
 #include <algorithm>    // std::reverse
 #include <iterator>
-
-
-bool checkSum( unsigned char saveArray[])
+#include "saveStruct.h"
+bool checkSum(saveStruct &save, unsigned char &sum)
 {
     bool result = false;
     int sumAC=0;
     for(int xx=0; xx < 10 ; xx++)
     {
-      sumAC += (int)(saveArray[xx]);
+      sumAC += (int)(save.data[xx]);
     }
       
     unsigned char sumCAC = sumAC;
 
-    if((int)(sumCAC) == (int)(saveArray[10])){
+    if((int)(sumCAC) == (int)(save.data[10])){
         result = true;
 	}
+	sum = sumCAC;
     return result;
 }

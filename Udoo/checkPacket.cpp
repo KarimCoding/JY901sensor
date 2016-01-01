@@ -17,7 +17,7 @@ unsigned char packet_header [NUMBER_OF_PACKETS][2]={ {0x55,0x50},{0x55,0x51},{0x
 
 bool checkPacket(unsigned char packetArray[], int i)
 {
-//	printf("check packet i: %d \n ",i);
+	printf("check packet i: %d \n ",i);
   bool flagCheck = true;
 
   for (int j=0; j<NUMBER_OF_PACKETS; j++ ) {
@@ -33,3 +33,24 @@ bool checkPacket(unsigned char packetArray[], int i)
 
   return false;
 }
+
+
+bool checkPacket(unsigned char packetArray[])
+{
+  bool flagCheck = true;
+
+  for (int j=0; j<NUMBER_OF_PACKETS; j++ ) {
+   
+    if ( (packetArray[1]==packet_header[j][1]) && (packetArray[0]==packet_header[j][0])&& flagCheck==true )
+      {
+    //  cout<< "   "<<std::setw(2) << std::setfill('0')<< std::hex <<(int)(packet_header[0][1])<<"     ";
+//    printf("%02x %02x \n",packetArray[i-1], packetArray[i]);
+    return true;
+    flagCheck =false;
+      }
+  }
+
+  return false;
+}
+
+

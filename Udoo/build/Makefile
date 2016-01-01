@@ -207,29 +207,29 @@ mail.cpp.s:
 	$(MAKE) -f CMakeFiles/udoo.dir/build.make CMakeFiles/udoo.dir/mail.cpp.s
 .PHONY : mail.cpp.s
 
-packetIdentifier2.o: packetIdentifier2.cpp.o
-.PHONY : packetIdentifier2.o
+newpacketIdentifier2.o: newpacketIdentifier2.cpp.o
+.PHONY : newpacketIdentifier2.o
 
 # target to build an object file
-packetIdentifier2.cpp.o:
-	$(MAKE) -f CMakeFiles/udoo.dir/build.make CMakeFiles/udoo.dir/packetIdentifier2.cpp.o
-.PHONY : packetIdentifier2.cpp.o
+newpacketIdentifier2.cpp.o:
+	$(MAKE) -f CMakeFiles/udoo.dir/build.make CMakeFiles/udoo.dir/newpacketIdentifier2.cpp.o
+.PHONY : newpacketIdentifier2.cpp.o
 
-packetIdentifier2.i: packetIdentifier2.cpp.i
-.PHONY : packetIdentifier2.i
+newpacketIdentifier2.i: newpacketIdentifier2.cpp.i
+.PHONY : newpacketIdentifier2.i
 
 # target to preprocess a source file
-packetIdentifier2.cpp.i:
-	$(MAKE) -f CMakeFiles/udoo.dir/build.make CMakeFiles/udoo.dir/packetIdentifier2.cpp.i
-.PHONY : packetIdentifier2.cpp.i
+newpacketIdentifier2.cpp.i:
+	$(MAKE) -f CMakeFiles/udoo.dir/build.make CMakeFiles/udoo.dir/newpacketIdentifier2.cpp.i
+.PHONY : newpacketIdentifier2.cpp.i
 
-packetIdentifier2.s: packetIdentifier2.cpp.s
-.PHONY : packetIdentifier2.s
+newpacketIdentifier2.s: newpacketIdentifier2.cpp.s
+.PHONY : newpacketIdentifier2.s
 
 # target to generate assembly for a file
-packetIdentifier2.cpp.s:
-	$(MAKE) -f CMakeFiles/udoo.dir/build.make CMakeFiles/udoo.dir/packetIdentifier2.cpp.s
-.PHONY : packetIdentifier2.cpp.s
+newpacketIdentifier2.cpp.s:
+	$(MAKE) -f CMakeFiles/udoo.dir/build.make CMakeFiles/udoo.dir/newpacketIdentifier2.cpp.s
+.PHONY : newpacketIdentifier2.cpp.s
 
 processData.o: processData.cpp.o
 .PHONY : processData.o
@@ -300,9 +300,9 @@ help:
 	@echo "... mail.o"
 	@echo "... mail.i"
 	@echo "... mail.s"
-	@echo "... packetIdentifier2.o"
-	@echo "... packetIdentifier2.i"
-	@echo "... packetIdentifier2.s"
+	@echo "... newpacketIdentifier2.o"
+	@echo "... newpacketIdentifier2.i"
+	@echo "... newpacketIdentifier2.s"
 	@echo "... processData.o"
 	@echo "... processData.i"
 	@echo "... processData.s"

@@ -13,6 +13,7 @@ class dataStick
 		int numbytes;
 		struct dat_struct{
 			unsigned char info[MAXBUFLEN];
+			int numbytes = 0;
 		};
 		dat_struct dat; 
 		void passData(dataStick::dat_struct pData, std::string header)//;
@@ -45,9 +46,16 @@ class dataStick
 		}
 		void print()//;
 		{
-
-
-
+        	cout<<pkt_header<<endl;
+            unsigned char output[MAXBUFLEN];// = (unsigned char*)malloc(len$
+        	memcpy(output, data, numbytes);
+        	for(int i = 0;i<dat.numbytes;i++)
+        	{
+            	printf("%02x ",output[i]);
+            	if(i>0&&i%10==0)
+                	printf("\n");
+        	}
+        	printf("\n");
 		}
 
 };

@@ -8,7 +8,6 @@
 #include <iterator>
 #include "checkPacket.h"
 #include "checkSum.h"
-#include "savePacket.h"
 #include "timeOutput.h"
 #include "AngleOutput.h"
 #include <vector>
@@ -16,7 +15,8 @@
 
 using namespace std;
 
-void packetIdentifier2(unsigned char uc, std::vector<string> &goodData,std::vector<string> &badData,std::string &head);
+//void packetIdentifier2(unsigned char uc, std::vector<string> &goodData,std::vector<string> &badData,std::string &buf);
+void packetIdentifier2(unsigned char uc, std::vector<string> &goodData,std::vector<string> &badData,std::string &buf,std::string header);
 
 
 

@@ -12,11 +12,17 @@ void packetIdentifier2(unsigned char uc, std::vector<string> &goodData,std::vect
 
 //void packetIdentifier2(unsigned char uc, std::vector<string> &goodData,std::vector<string> &badData)
 {
-    bool flagon(true); 
+//	printf("Packiden i:%d \n",i); 
+	bool flagon(true); 
 	packetArray[i]= uc; // push the bytes coming from the sensor into the packetArray
+	printf("uc: %02x \n",uc);
     resultCheck =  checkPacket(packetArray,i); // call the function "checkPacket" which check for the packet's header
     if(resultCheck == true)   
     {
+		printf("Packet array: ");
+		for(int num = 0;num<sizeof(packetArray);num++)
+			printf("%02x ",packetArray[num]);
+			printf("\n");
 		int k=10; // because we are saving the bytes that are before the next packet's header we start from k=10 to be able to save the first value in saveArray[10]
 		int  lk=k;
 		for(int p=2;p<pp;p++) // loop is 11 because we have 11 bytes
@@ -26,17 +32,26 @@ void packetIdentifier2(unsigned char uc, std::vector<string> &goodData,std::vect
 				for(int l=0;l<lk+1;l++)
 				{
 					saveArray[k]=packetArray[21-l];
+
 					k=k-1;
 				}
+				//printf("\n");
 				flagon=false;
 			}
 			else if ((i-p)>=0)
 			{
+
 				saveArray[k]=packetArray[i-p];
 				k=k-1;
 				lk=k;
 			}
 		} //End brace for for(int p...
+		printf("\n");
+
+		printf("save array: ");
+	  for(int num = 0;num<sizeof(saveArray);num++)
+            printf("%02x ",saveArray[num]);
+            printf("\n");
 
         // performing a check Sum
         if( checkSum(saveArray)){
@@ -45,7 +60,7 @@ void packetIdentifier2(unsigned char uc, std::vector<string> &goodData,std::vect
 	    }
 		else{
 			savePacket(1,saveArray,std::ref(goodData));
-			write_bad_dat(saveArray,std::ref(badData),std::ref(head));
+//			write_bad_dat(saveArray,std::ref(badData),std::ref(head));
 			//outF<<"bad checksum \n";
         	//write_bad_dat(std::ref(badData),saveArray);
 //			write_bad_dat(saveArray);

@@ -25,9 +25,9 @@ int wifi::listener(dataStick& pkt,udp::socket& socket)
 
         unsigned char output[MAXBUFLEN];// = (unsigned char*)malloc(len);
         memcpy(pkt.dat.info, recv_buf.data(), recv_buf.size());
-		pkt.numbytes = recv_buf.size();
+		pkt.dat.numbytes = recv_buf.size();
 		pkt.dat.info[pkt.numbytes] = '\0';
-
+		printf("Received %d bytes from ",len); 
 
 //        unsigned char output[MAXBUFLEN];// = (unsigned char*)malloc(len);
         memcpy(output, pkt.dat.info, pkt.numbytes);
@@ -41,7 +41,7 @@ int wifi::listener(dataStick& pkt,udp::socket& socket)
         std::string pkt_header = remote_endpoint.address().to_string();
         pkt_header = pkt_header + " @ " + time;
         pkt.passData(pkt.dat,pkt_header );
-
+		cout<<pkt_header<<"\n";
 /*
 		cout<<pkt_header<<endl;
         for(int i = 0;i<len;i++){

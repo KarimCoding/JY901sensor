@@ -7,9 +7,10 @@
 #include <vector>
 #include <memory>
 #include <string>
-std::mutex mtx;
+//std::mutex mtx;
 using namespace std;
 using boost::asio::ip::udp;
+std::string path;
 
 void collect(wifi& port,dataStick& pkt,vector<dataStick>& buf, udp::socket& socket,vector<string>& rawData,std::ofstream& outF)
 {
@@ -17,57 +18,34 @@ void collect(wifi& port,dataStick& pkt,vector<dataStick>& buf, udp::socket& sock
 	{
 		pkt.numbytes = port.listener(std::ref(pkt),socket);
         buf.push_back(pkt); 
-
-/*            if(rawData.size()>1)
-            {
-        //          mutex
-				printf("raw dat printing \n");
-                outF.open("rawDat.txt", ios::out|ios::ate);
-                while(rawData.size()!=0)
-                {
-                //mutex
-                    outF<<rawData.front();
-                    outF<<"\n";
-                    rawData.erase(rawData.begin());
-                }
-                outF.close();
-				buf.erase(buf.begin());
-            } */
-
-
+//		printf("buffer size: %d \n",buf.size());
     }
 }
 
 
 void process(std::ofstream& outF, std::ofstream& badD,vector<dataStick>& buf,std::vector<string> &goodData,std::vector<string> &badData,char fName[30],std::ofstream& raw,vector<string> &rawData)
 {
-	if(buf.size()==0)
-	{
-	}
-	else
+	if(buf.size()!=0)
 	{
 		handleData(std::ref(buf),std::ref(goodData),std::ref(badData));
-		printf("Datasize: %d \n",goodData.size());
-			
-/*			if(goodData.size()>GBUFFSIZE)
-			{
-				raw.open("raw.txt",ios::out|ios::ate);
-				while(goodData.size()!=0)
-				{
-					raw<<goodData.front();
-					raw<<"\n";
-					rawData.erase(goodData.begin());
-				}	
-				raw.close();
-			}*/
 
-			if(goodData.size()>GBUFFSIZE)
+
+			if(goodData.size() )
 			{
-		//			mutex
-                outF.open(fName, ios::out|ios::ate);
+				//mutex
+                outF.open(path+string(fName), ios::out|ios::app);
+/*                while(rawData.size()!=0)
+                {
+					//cout<<"print raw dat \n";
+                    outF<<rawData.front();
+                    outF<<"\n";
+                    rawData.erase(rawData.begin());
+                }   
+*/
                 while(goodData.size()!=0)
                 {
                 //mutex
+					
                     outF<<goodData.front();
 					outF<<"\n";
                     goodData.erase(goodData.begin());
@@ -75,9 +53,9 @@ void process(std::ofstream& outF, std::ofstream& badD,vector<dataStick>& buf,std
                 outF.close();
             }	//End brace for good data write
 
-/*			if(badData.size()>BBUFFSIZE)
+			if(badData.size())
 			{
-				badD.open("badData.txt", ios::out|ios::ate);
+				badD.open(path+"badData_"+string(fName), ios::out|ios::app);
 				while(badData.size()!=0)
 				{
 				//mutex
@@ -87,7 +65,7 @@ void process(std::ofstream& outF, std::ofstream& badD,vector<dataStick>& buf,std
 				}
 				badD.close();
 			}
-*/
+
 		
 		buf.erase(buf.begin());
 	}
@@ -95,10 +73,11 @@ void process(std::ofstream& outF, std::ofstream& badD,vector<dataStick>& buf,std
 
 void writeGood(std::ofstream& outF,std::vector<string> &goodData,char fName[30])
 {
+//	printf("write good data\n");
 	if(goodData.size()>200)
     {
     //          mutex
-    	outF.open(fName, ios::out|ios::ate);
+    	outF.open(fName, ios::out|ios::app);
         while(goodData.size()!=0)
         {
         	outF<<goodData.front();
@@ -113,7 +92,7 @@ void writeBad(std::ofstream& badD,std::vector<string> &badData)
 {
 	if(badData.size()>50)
     {
-    	badD.open("badData.txt", ios::out|ios::ate);
+    	badD.open("badData.txt", ios::out|ios::app);
         while(badData.size()!=0)
         {
                 //mutex
@@ -135,6 +114,9 @@ int main(){
 
 	//Create filename for logfile
     strftime(fName,30,"[%Y%m%d_%H:%M:%S].txt",localtime(&ctime));
+	path = "/home/udooer/LOGS/";
+//	path = "";
+
 	std::ofstream outF;
 	std::ofstream badD;
 	std::ofstream raw;
@@ -148,7 +130,7 @@ int main(){
 	
     boost::asio::io_service io_service;
     udp::socket socket(io_service, udp::endpoint(udp::v4(), 8899));
- 	goodData.push_back(fName);	
+// 	goodData.push_back(fName);	
 	while(1){
 	//dataStick pkt;
 	

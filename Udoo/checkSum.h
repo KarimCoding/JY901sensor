@@ -1,1 +1,3 @@
-bool checkSum( unsigned char saveArray[]);
+#include "saveStruct.h"
+
+bool checkSum(saveStruct &save, unsigned char &sum);

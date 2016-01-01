@@ -15,87 +15,64 @@
 
 int numberOfBytes = 11;
 
-void savePacket(unsigned char saveArray[],std::vector<string> &data)
+void savePacket(saveStruct &save,std::vector<string> &data,std::string &buf)
 {
     char printStr[999];
-    string buf;
+    //string buf;
         for(int x=0; x <numberOfBytes ; x++)
         {
-//                printf("%02x ",array[x]);
-                sprintf(printStr,"%02x ",saveArray[x]);
+                sprintf(printStr,"%02x ",save.data[x]);
                 buf=buf + string(printStr);
         }
 
-		if(saveArray[1] ==0x50 && VERBOSITY){
-			sprintf(printStr,"\t20%d/%d/%d  %02d:%02d:%02d:%03d",(int)(saveArray[2]),(int)(saveArray[3]),(int)saveArray[4],(int)saveArray[5],(int)saveArray[6],(int)saveArray[7],(saveArray[9]<<8)|saveArray[8]); 
+		if(save.data[1] ==0x50 && VERBOSITY){
+			sprintf(printStr,"\t20%d/%d/%d  %02d:%02d:%02d:%03d",(int)(save.data[2]),(int)(save.data[3]),(int)save.data[4],(int)save.data[5],(int)save.data[6],(int)save.data[7],(save.data[9]<<8)|save.data[8]); 
 			buf=buf + string(printStr);
 		}
-        else if(saveArray[1] ==0x53 && VERBOSITY) {
+        else if(save.data[1] ==0x53 && VERBOSITY) {
 			double roll;
 			double pitch;
 			double yaw;
 			double temperature;
 
-	        roll = (  (((int)(saveArray[3])) << 8) + ((int)(saveArray[2])) ) / 32768.0 * 180.0 ;
-    	    pitch = (  (((int)(saveArray[5])) << 8) + ((int)(saveArray[4])) ) / 32768.0 * 180.0 ;
-        	yaw = (  (((int)(saveArray[7])) << 8) + ((int)(saveArray[6])) ) / 32768.0 * 180.0 ;
-        	temperature = (  (((int)(saveArray[9])) << 8) + ((int)(saveArray[8])) ) /100.0 ;
+	        roll = (  (((int)(save.data[3])) << 8) + ((int)(save.data[2])) ) / 32768.0 * 180.0 ;
+    	    pitch = (  (((int)(save.data[5])) << 8) + ((int)(save.data[4])) ) / 32768.0 * 180.0 ;
+        	yaw = (  (((int)(save.data[7])) << 8) + ((int)(save.data[6])) ) / 32768.0 * 180.0 ;
+        	temperature = (  (((int)(save.data[9])) << 8) + ((int)(save.data[8])) ) /100.0 ;
 	        sprintf(printStr,"\troll is: %f pitch is: %f yaw is: %f temperature is: %f",((long double)(roll)),((long double)(pitch)),((long double)(yaw)),((long double)(temperature)));
 //			outF<<printStr;
 			buf=buf + string(printStr);
 		}
 		else
 		{}
-//			sprintf(printStr,"\n");
-//			buf=buf + string(printStr);
-
-//        cout<<buf<<"\n";
-        data.push_back(buf); 
+		buf = buf + "\n";
 }
-void savePacket(bool check,unsigned char saveArray[],std::vector<string> &data)
+void savePacket(bool check,saveStruct &save,std::vector<string> &data)
 {
-	//data.push_back("bad check sum");
     char printStr[999];
     string buf;
 	buf="****";
-        for(int x=0; x <numberOfBytes ; x++)
-        {
-//                printf("%02x ",array[x]);
-                sprintf(printStr,"%02x ",saveArray[x]);
-                buf=buf + string(printStr);
-        }
+    for(int x=0; x <numberOfBytes ; x++)
+    {
+    	sprintf(printStr,"%02x ",save.data[x]);
+    	buf=buf + string(printStr);
+    }
 	buf = buf + "****";
 	data.push_back(buf);
-		
 }
 
-void write_bad_dat(unsigned char array[],std::vector<string> &data,std::string &head)
+void write_bad_dat(saveStruct &save,std::vector<string> &data,std::string &buf,unsigned char &sum)
 {
     char printStr[999];
-	string buf;
-	buf = "****";
-	data.push_back(head);
-        for(int x=0; x <numberOfBytes ; x++)
-        {
-                sprintf(printStr,"%02x ",array[x]);
-                buf=buf + string(printStr);
-        }
-		buf= buf + "****";
-//		cout<<buf;
-  		data.push_back(buf);   
-//		cout<<data.front();
-
+	buf = buf+"\n";
+    for(int x=0; x <numberOfBytes ; x++)
+    {
+    	sprintf(printStr,"%02x ",save.data[x]);
+    	buf=buf + string(printStr);
+    }
+	buf = buf + "\n";
+	sprintf(printStr,"%02x\n",sum);
+	buf = buf+ "checksum should be: " + string(printStr);
+	data.push_back(buf);
 }
-
-
-/*//void write_bad_dat(std::ofstream& badData, unsigned char uc)
-void write_bad_dat(unsigned char uc)
-{
-    ofstream badData;
-    badData.open("/home/udooer/Logs/badData.txt", std::ofstream::out | std::ofstream::app);
-  badData << uc<<" "<<endl;
-
-  badData.close();
-}
-*/
 

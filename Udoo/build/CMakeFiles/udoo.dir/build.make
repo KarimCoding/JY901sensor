@@ -118,28 +118,28 @@ CMakeFiles/udoo.dir/processData.cpp.o.provides: CMakeFiles/udoo.dir/processData.
 
 CMakeFiles/udoo.dir/processData.cpp.o.provides.build: CMakeFiles/udoo.dir/processData.cpp.o
 
-CMakeFiles/udoo.dir/packetIdentifier2.cpp.o: CMakeFiles/udoo.dir/flags.make
-CMakeFiles/udoo.dir/packetIdentifier2.cpp.o: ../packetIdentifier2.cpp
+CMakeFiles/udoo.dir/newpacketIdentifier2.cpp.o: CMakeFiles/udoo.dir/flags.make
+CMakeFiles/udoo.dir/newpacketIdentifier2.cpp.o: ../newpacketIdentifier2.cpp
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/udooer/David/JY901sensor/Udoo/build/CMakeFiles $(CMAKE_PROGRESS_4)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/udoo.dir/packetIdentifier2.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/udoo.dir/packetIdentifier2.cpp.o -c /home/udooer/David/JY901sensor/Udoo/packetIdentifier2.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/udoo.dir/newpacketIdentifier2.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/udoo.dir/newpacketIdentifier2.cpp.o -c /home/udooer/David/JY901sensor/Udoo/newpacketIdentifier2.cpp
 
-CMakeFiles/udoo.dir/packetIdentifier2.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/udoo.dir/packetIdentifier2.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/udooer/David/JY901sensor/Udoo/packetIdentifier2.cpp > CMakeFiles/udoo.dir/packetIdentifier2.cpp.i
+CMakeFiles/udoo.dir/newpacketIdentifier2.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/udoo.dir/newpacketIdentifier2.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/udooer/David/JY901sensor/Udoo/newpacketIdentifier2.cpp > CMakeFiles/udoo.dir/newpacketIdentifier2.cpp.i
 
-CMakeFiles/udoo.dir/packetIdentifier2.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/udoo.dir/packetIdentifier2.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/udooer/David/JY901sensor/Udoo/packetIdentifier2.cpp -o CMakeFiles/udoo.dir/packetIdentifier2.cpp.s
+CMakeFiles/udoo.dir/newpacketIdentifier2.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/udoo.dir/newpacketIdentifier2.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/udooer/David/JY901sensor/Udoo/newpacketIdentifier2.cpp -o CMakeFiles/udoo.dir/newpacketIdentifier2.cpp.s
 
-CMakeFiles/udoo.dir/packetIdentifier2.cpp.o.requires:
-.PHONY : CMakeFiles/udoo.dir/packetIdentifier2.cpp.o.requires
+CMakeFiles/udoo.dir/newpacketIdentifier2.cpp.o.requires:
+.PHONY : CMakeFiles/udoo.dir/newpacketIdentifier2.cpp.o.requires
 
-CMakeFiles/udoo.dir/packetIdentifier2.cpp.o.provides: CMakeFiles/udoo.dir/packetIdentifier2.cpp.o.requires
-	$(MAKE) -f CMakeFiles/udoo.dir/build.make CMakeFiles/udoo.dir/packetIdentifier2.cpp.o.provides.build
-.PHONY : CMakeFiles/udoo.dir/packetIdentifier2.cpp.o.provides
+CMakeFiles/udoo.dir/newpacketIdentifier2.cpp.o.provides: CMakeFiles/udoo.dir/newpacketIdentifier2.cpp.o.requires
+	$(MAKE) -f CMakeFiles/udoo.dir/build.make CMakeFiles/udoo.dir/newpacketIdentifier2.cpp.o.provides.build
+.PHONY : CMakeFiles/udoo.dir/newpacketIdentifier2.cpp.o.provides
 
-CMakeFiles/udoo.dir/packetIdentifier2.cpp.o.provides.build: CMakeFiles/udoo.dir/packetIdentifier2.cpp.o
+CMakeFiles/udoo.dir/newpacketIdentifier2.cpp.o.provides.build: CMakeFiles/udoo.dir/newpacketIdentifier2.cpp.o
 
 CMakeFiles/udoo.dir/checkPacket.cpp.o: CMakeFiles/udoo.dir/flags.make
 CMakeFiles/udoo.dir/checkPacket.cpp.o: ../checkPacket.cpp
@@ -215,7 +215,7 @@ udoo_OBJECTS = \
 "CMakeFiles/udoo.dir/mail.cpp.o" \
 "CMakeFiles/udoo.dir/listener_string.cpp.o" \
 "CMakeFiles/udoo.dir/processData.cpp.o" \
-"CMakeFiles/udoo.dir/packetIdentifier2.cpp.o" \
+"CMakeFiles/udoo.dir/newpacketIdentifier2.cpp.o" \
 "CMakeFiles/udoo.dir/checkPacket.cpp.o" \
 "CMakeFiles/udoo.dir/checkSum.cpp.o" \
 "CMakeFiles/udoo.dir/savePacket.cpp.o"
@@ -226,7 +226,7 @@ udoo_EXTERNAL_OBJECTS =
 bin/udoo: CMakeFiles/udoo.dir/mail.cpp.o
 bin/udoo: CMakeFiles/udoo.dir/listener_string.cpp.o
 bin/udoo: CMakeFiles/udoo.dir/processData.cpp.o
-bin/udoo: CMakeFiles/udoo.dir/packetIdentifier2.cpp.o
+bin/udoo: CMakeFiles/udoo.dir/newpacketIdentifier2.cpp.o
 bin/udoo: CMakeFiles/udoo.dir/checkPacket.cpp.o
 bin/udoo: CMakeFiles/udoo.dir/checkSum.cpp.o
 bin/udoo: CMakeFiles/udoo.dir/savePacket.cpp.o
@@ -242,7 +242,7 @@ CMakeFiles/udoo.dir/build: bin/udoo
 CMakeFiles/udoo.dir/requires: CMakeFiles/udoo.dir/mail.cpp.o.requires
 CMakeFiles/udoo.dir/requires: CMakeFiles/udoo.dir/listener_string.cpp.o.requires
 CMakeFiles/udoo.dir/requires: CMakeFiles/udoo.dir/processData.cpp.o.requires
-CMakeFiles/udoo.dir/requires: CMakeFiles/udoo.dir/packetIdentifier2.cpp.o.requires
+CMakeFiles/udoo.dir/requires: CMakeFiles/udoo.dir/newpacketIdentifier2.cpp.o.requires
 CMakeFiles/udoo.dir/requires: CMakeFiles/udoo.dir/checkPacket.cpp.o.requires
 CMakeFiles/udoo.dir/requires: CMakeFiles/udoo.dir/checkSum.cpp.o.requires
 CMakeFiles/udoo.dir/requires: CMakeFiles/udoo.dir/savePacket.cpp.o.requires
