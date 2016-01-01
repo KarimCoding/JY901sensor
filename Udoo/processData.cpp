@@ -27,17 +27,21 @@ using namespace std;
 void handleData(std::vector<dataStick>& buf,std::vector<string> &goodData,std::vector<string> &badData){
 	unsigned char data[MAXBUFLEN];
 	std::string header;
+	header = buf.front().getHeader();
 //	buf.front().pkt.getData(header);
-//	cout<<"header: "<<header<<"\n";
+	cout<<"header: "<<header<<"\n";
+	goodData.push_back(header);
+	//badData.push_back(header); 
     memcpy(data, buf.front().dat.info,buf.front().numbytes);
- /*   printf("from process data data: %d \n",sizeof(data));
+ 
+//   printf("from process data data: %d \n",sizeof(data));
     for(int i = 0;i<sizeof(data);i++)
 	{
 	    printf("%02x ",data[i]);
-        if(i>0&&i%12==0)
+        if(i>0&&i%11==0)
         	printf("\n");
 	}
-*/
+	printf("\n \n");
 	unsigned char uc;
 	
 	for(int ind = 0;ind <MAXBUFLEN;ind++)

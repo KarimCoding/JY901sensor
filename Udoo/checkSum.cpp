@@ -24,7 +24,8 @@ bool checkSum( unsigned char saveArray[])
       
     unsigned char sumCAC = sumAC;
 
-    if((int)(sumCAC) == (int)(saveArray[10]));
+    if((int)(sumCAC) == (int)(saveArray[10])){
         result = true;
+	}
     return result;
 }

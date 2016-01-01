@@ -23,7 +23,7 @@ void collect(wifi& port,dataStick& pkt,vector<dataStick>& buf, udp::socket& sock
 }
 
 
-void process(std::ofstream& outF, std::ofstream& badD,vector<dataStick>& buf,std::vector<string> &goodData,std::vector<string> &badData){
+void process(std::ofstream& outF, std::ofstream& badD,vector<dataStick>& buf,std::vector<string> &goodData,std::vector<string> &badData,char fName[30]){
 //void process(std::ofstream& outF, std::ofstream& badD,vector<dataStick>& buf, char fName[30]){
        if(buf.size()==0){
 //      printf("Buffer empty waiting for data\n");
@@ -43,29 +43,31 @@ void process(std::ofstream& outF, std::ofstream& badD,vector<dataStick>& buf,std
             		printf("\n");
         	}
 */
-			printf("before handle data %d %d \n",goodData.size(),badData.size());
+//			printf("mail: gd: %d bd: %d \n",goodData.size(),badData.size());
 			handleData(std::ref(buf),std::ref(goodData),std::ref(badData));
 
-			printf("after handle data %d %d \n",goodData.size(),badData.size());
+//			printf("mail: after write gd: %d bd: %d \n",goodData.size(),badData.size());
 
 //			cout<<badData.front();
 
 			if(goodData.size()>200)
 			{
 		//			mutex
-                outF.open("goodData.txt", ios::out|ios::ate);
-                while(badData.size()!=0)
+//				printf("Data above 200 \n");
+                outF.open(fName, ios::out|ios::ate);
+//				outF.open("goodData",ios::out|ios::ate);
+                while(goodData.size()!=0)
                 {
                 //mutex
                     outF<<goodData.front();
-//					outF<<"\n";
-                    cout<<goodData.front();
+					outF<<"\n";
+//                    cout<<goodData.front();
                     goodData.erase(goodData.begin());
                 }
                 outF.close();
             }
 
-			if(badData.size()>200)
+			if(badData.size()>50)
 			{
 				badD.open("badData.txt", ios::out|ios::ate);
 				while(badData.size()!=0)
@@ -110,13 +112,13 @@ int main(){
 	vector<dataStick> buf; 
     boost::asio::io_service io_service;
     udp::socket socket(io_service, udp::endpoint(udp::v4(), 8899));
- 	
+ 	goodData.push_back(fName);	
 	while(1){
 	//dataStick pkt;
 	
 			std::thread coll(collect,std::ref(port1),std::ref(pkt),std::ref(buf),std::ref(socket));
 //	        std::thread proc(process,std::ref(outF),std::ref(badD),std::ref(buf),fName);
-			std::thread proc(process,std::ref(outF),std::ref(badD),std::ref(buf),std::ref(goodData),std::ref(badData));
+			std::thread proc(process,std::ref(outF),std::ref(badD),std::ref(buf),std::ref(goodData),std::ref(badData),fName);
 			//add thread for writing good data
 			//add thread for writing bad data
 

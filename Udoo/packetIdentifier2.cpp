@@ -43,7 +43,8 @@ void packetIdentifier2(unsigned char uc, std::vector<string> &goodData,std::vect
 			savePacket(saveArray,std::ref(goodData));
 	    }
 		else{
-			savePacket(saveArray,std::ref(badData));
+			printf("\n Bad data! \n");
+			write_bad_dat(saveArray,std::ref(badData));
 			//outF<<"bad checksum \n";
         	//write_bad_dat(std::ref(badData),saveArray);
 //			write_bad_dat(saveArray);

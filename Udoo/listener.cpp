@@ -26,13 +26,13 @@ int wifi::listener(dataStick& pkt,udp::socket& socket)
         unsigned char output[MAXBUFLEN];// = (unsigned char*)malloc(len);
         memcpy(output, recv_buf.data(), recv_buf.size());
 
-/*		printf("data: %d \n",sizeof(output));
+		printf("data: %d \n",sizeof(output));
 		for(int i = 0;i<len;i++){
 			printf("%02x ",output[i]);
 		if(i>0&&i%12==0)
 			printf("\n");
 		}
-*/
+
         gettimeofday(&tv, NULL); 
         curtime=tv.tv_sec;
         strftime(time,30,"%T",localtime(&curtime));

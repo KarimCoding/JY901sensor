@@ -11,8 +11,9 @@
 
 
 //BUFFER CONFIG
-//#define 	MAXBUFLEN 	518   
-#define 	MAXBUFLEN	189
+//#define 	MAXBUFLEN 	518
+//#define 	MAXBUFLEN	189
+#define 	MAXBUFLEN	378
 #define 	MAXBUFSIZE	4
 
 //COMMANDS

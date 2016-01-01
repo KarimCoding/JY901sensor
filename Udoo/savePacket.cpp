@@ -16,37 +16,20 @@
 int numberOfBytes = 11;
 
 void savePacket(unsigned char saveArray[],std::vector<string> &data)
-
-//void savePacket(unsigned char saveArray[], std::ofstream& outF)
-//void savePacket(unsigned char saveArray[],bool verbosity,char *fName)
 {
-//	printf("savdapacket\n");
-//	printf("Save packet\n");
-	//string buff;
-	printf("savePacket\n");
     char printStr[999];
     string buf;
         for(int x=0; x <numberOfBytes ; x++)
         {
 //                printf("%02x ",array[x]);
                 sprintf(printStr,"%02x ",saveArray[x]);
-//              outF<<printStr;
-//                cout<<"write bad"<<string(printStr);
-  //              data.push_back(string(printStr));   
-                buf=string(printStr);
-//              cout<<buf;
+                buf=buf + string(printStr);
         }
-//      cout<<buf;
-        data.push_back(buf);   
-//      cout<<data.front();
 
-/*
-//		outF<<printStr;
 		if(saveArray[1] ==0x50 && VERBOSITY){
 			sprintf(printStr,"\t20%d/%d/%d  %02d:%02d:%02d:%03d",(int)(saveArray[2]),(int)(saveArray[3]),(int)saveArray[4],(int)saveArray[5],(int)saveArray[6],(int)saveArray[7],(saveArray[9]<<8)|saveArray[8]); 
-//			printf("\t20%d/%d/%d  %02d:%02d:%02d:%03d\n",(int)(saveArray[2]),(int)(saveArray[3]),(int)saveArray[4],(int)saveArray[5],(int)saveArray[6],(int)saveArray[7],(saveArray[9]<<8)|saveArray[8]); 
-			outF<<printStr;
-	}
+			buf=buf + string(printStr);
+		}
         else if(saveArray[1] ==0x53 && VERBOSITY) {
 			double roll;
 			double pitch;
@@ -58,12 +41,16 @@ void savePacket(unsigned char saveArray[],std::vector<string> &data)
         	yaw = (  (((int)(saveArray[7])) << 8) + ((int)(saveArray[6])) ) / 32768.0 * 180.0 ;
         	temperature = (  (((int)(saveArray[9])) << 8) + ((int)(saveArray[8])) ) /100.0 ;
 	        sprintf(printStr,"\troll is: %f pitch is: %f yaw is: %f temperature is: %f",((long double)(roll)),((long double)(pitch)),((long double)(yaw)),((long double)(temperature)));
-			outF<<printStr;
+//			outF<<printStr;
+			buf=buf + string(printStr);
 		}
-		else{}
-        	//sprintf(printStr,"\n");
-		outF<<endl;
-*/
+		else
+		{}
+//			sprintf(printStr,"\n");
+//			buf=buf + string(printStr);
+
+//        cout<<buf<<"\n";
+        data.push_back(buf); 
 }
 
 
@@ -82,19 +69,15 @@ void write_bad_dat(unsigned char array[],std::vector<string> &data)
 {
 //check if a stream is open. if so close it and open for bad data
 //    printf("write bad data\n");
-//	printf("Write bad data \n");
+	printf("Write bad data \n");
     char printStr[999];
 	string buf;
         for(int x=0; x <numberOfBytes ; x++)
         {
-//                printf("%02x ",array[x]);
                 sprintf(printStr,"%02x ",array[x]);
-//              outF<<printStr;
-//                cout<<"write bad"<<string(printStr);
-  //              data.push_back(string(printStr));   
-				buf=string(printStr);
-//				cout<<buf;
+                buf=buf + string(printStr);
         }
+		buf= buf + "\n";
 //		cout<<buf;
   		data.push_back(buf);   
 //		cout<<data.front();

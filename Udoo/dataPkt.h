@@ -15,7 +15,7 @@ class dataStick
 			unsigned char info[MAXBUFLEN];
 		};
 		dat_struct dat; 
-		void passData(dataStick::dat_struct &pData, std::string &header)//;
+		void passData(dataStick::dat_struct pData, std::string header)//;
 		{
     		memcpy(data,pData.info,numbytes);
     		data[numbytes]='\0';
@@ -35,11 +35,13 @@ class dataStick
 
 		}
 //		void getData(dataStick::dat_struct &gData, std::string &head )//;
-		void getData(std::string &head )
+//		void getData(std::string &head )
+		std::string getHeader( )
+
 		{
 /*    		memcpy(gData.info,data,numbytes);
     		gData.info[numbytes]='\0';
-*/    		head = pkt_header;
+*/    		return pkt_header;
 		}
 		void print()//;
 		{
