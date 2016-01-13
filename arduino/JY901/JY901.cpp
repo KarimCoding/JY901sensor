@@ -21,7 +21,6 @@ void CJY901 ::CopeSerialData(unsigned char ucData)
 	static unsigned char ucRxCnt = 0;	
 	
 	ucRxBuffer[ucRxCnt++]=ucData;
-		
 	if (ucRxBuffer[0]!=0x55) 
 	{
 		ucRxCnt=0;
