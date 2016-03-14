@@ -1,166 +1,92 @@
 #ifndef JY901_h
 #define JY901_h
+#include <stdint.h>
 
-#define SAVE 			0x00
-#define CALSW 		0x01
-#define RSW 			0x02
-#define RRATE			0x03
-#define BAUD 			0x04
-#define AXOFFSET	0x05
-#define AYOFFSET	0x06
-#define AZOFFSET	0x07
-#define GXOFFSET	0x08
-#define GYOFFSET	0x09
-#define GZOFFSET	0x0a
-#define HXOFFSET	0x0b
-#define HYOFFSET	0x0c
-#define HZOFFSET	0x0d
-#define D0MODE		0x0e
-#define D1MODE		0x0f
-#define D2MODE		0x10
-#define D3MODE		0x11
-#define D0PWMH		0x12
-#define D1PWMH		0x13
-#define D2PWMH		0x14
-#define D3PWMH		0x15
-#define D0PWMT		0x16
-#define D1PWMT		0x17
-#define D2PWMT		0x18
-#define D3PWMT		0x19
-#define IICADDR		0x1a
-#define LEDOFF 		0x1b
-#define GPSBAUD		0x1c
-
-#define YYMM				0x30
-#define DDHH				0x31
-#define MMSS				0x32
-#define MS					0x33
-#define AX					0x34
-#define AY					0x35
-#define AZ					0x36
-#define GX					0x37
-#define GY					0x38
-#define GZ					0x39
-#define HX					0x3a
-#define HY					0x3b
-#define HZ					0x3c			
-#define Roll				0x3d
-#define Pitch				0x3e
-#define Yaw					0x3f
-#define TEMP				0x40
-#define D0Status		0x41
-#define D1Status		0x42
-#define D2Status		0x43
-#define D3Status		0x44
-#define PressureL		0x45
-#define PressureH		0x46
-#define HeightL			0x47
-#define HeightH			0x48
-#define LonL				0x49
-#define LonH				0x4a
-#define LatL				0x4b
-#define LatH				0x4c
-#define GPSHeight   0x4d
-#define GPSYAW      0x4e
-#define GPSVL				0x4f
-#define GPSVH				0x50
-      
-#define DIO_MODE_AIN 0
-#define DIO_MODE_DIN 1
-#define DIO_MODE_DOH 2
-#define DIO_MODE_DOL 3
-#define DIO_MODE_DOPWM 4
-#define DIO_MODE_GPS 5		
-
-struct STime
-{
-	unsigned char ucYear;
-	unsigned char ucMonth;
-	unsigned char ucDay;
-	unsigned char ucHour;
-	unsigned char ucMinute;
-	unsigned char ucSecond;
-	unsigned short usMiliSecond;
-};
-struct SAcc
-{
-	short a[3];
-	short T;
-};
-struct SGyro
-{
-	short w[3];
-	short T;
-};
-struct SAngle
-{
-	short Angle[3];
-	short T;
-};
-struct SMag
-{
-	short h[3];
-	short T;
-};
-
-struct SDStatus
-{
-	short sDStatus[4];
-};
-
-struct SPress
-{
-	long lPressure;
-	long lAltitude;
-};
-
-struct SLonLat
-{
-	long lLon;
-	long lLat;
-};
-
-struct SGPSV
-{
-	short sGPSHeight;
-	short sGPSYaw;
-	long lGPSVelocity;
-};
 class CJY901 
 {
   public: 
-	struct STime		stcTime;
-	struct SAcc 		stcAcc;
-	struct SGyro 		stcGyro;
-	struct SAngle 		stcAngle;
-	struct SMag 		stcMag;
-	struct SDStatus 	stcDStatus;
-	struct SPress 		stcPress;
-	struct SLonLat 		stcLonLat;
-	struct SGPSV 		stcGPSV;
 	
-    CJY901 (); 
-	void StartIIC();
-	void StartIIC(unsigned char ucAddr);
-    void CopeSerialData(unsigned char ucData);
-	short ReadWord(unsigned char ucAddr);
-	void WriteWord(unsigned char ucAddr,short sData);
-	void ReadData(unsigned char ucAddr,unsigned char ucLength,char chrData[]);
-	void GetTime();
-	void GetAcc();
-	void GetGyro();
-	void GetAngle();
-	void GetMag();
-	void GetPress();
-	void GetDStatus();
-	void GetLonLat();
-	void GetGPSV();
+	CJY901(); 										//构造函数
+	void     startIIC(uint8_t address = 0x50);		    //设定0x50地址的IIC初始化
+	bool     copeSerialData(uint8_t data);			//处理接收的数据
+	void     readData(uint8_t address,					//address地址
+					  uint8_t length,					//长度length
+					   int8_t data[]);				//手动读取ucLength长度的数据
+	uint16_t getTime(char*);				//获取时间，'Y'年，'M'月，'D'天，'h'时，'m'分，'s'秒，'l'毫秒
+	double 	 getAcc(char*);				//获取加速度
+	double 	 getGyro(char*);				//获取角速度
+	double 	 getAngle(char*);				//获取角度
+	double 	 getMag(char*);				//获取磁场
+	uint32_t getPressure(void);				//获取压力
+	uint32_t getAltitude(void);				//获取高度	
+	uint16_t getDStatus(char*);			//获取端口输出	
+	uint32_t getLon(void);				//获取经度
+	uint32_t getLat(void);				//获取纬度
+	double 	 getGPSV(char*);				//获取地速
 	
   private: 
-	unsigned char ucDevAddr; 
-	void readRegisters(unsigned char deviceAddr,unsigned char addressToRead, unsigned char bytesToRead, char * dest);
-	void writeRegister(unsigned char deviceAddr,unsigned char addressToWrite,unsigned char bytesToRead, char *dataToWrite);
+	uint8_t _address;
+	bool    _transferMode;
+	void readRegisters(uint8_t deviceAddr,uint8_t addressToRead, uint8_t bytesToRead, int8_t * dest);
+	void writeRegister(uint8_t deviceAddr,uint8_t addressToWrite,uint8_t bytesToRead, int8_t *dataToWrite);
+	struct
+	{		
+		struct 
+		{
+			uint8_t  year       :8;
+			uint8_t  month      :8;
+			uint8_t  day        :8;
+			uint8_t  hour       :8;
+			uint8_t  minute 	:8;
+			uint8_t  second     :8;
+			uint16_t milisecond :16;
+		}time;
+		struct
+		{
+			uint16_t x 			 :16;
+			uint16_t y 			 :16;
+			uint16_t z 			 :16;
+			uint16_t temperature :16;
+		}acc;
+		struct
+		{
+			uint16_t x	         :16;
+			uint16_t y           :16;
+			uint16_t z 			 :16;
+			uint16_t temperature :16;
+		}gyro;
+		struct
+		{
+			uint16_t x 			 :16;
+			uint16_t y 			 :16;
+			uint16_t z 			 :16;
+			uint16_t temperature :16;
+		}angle;
+		struct
+		{
+			uint16_t x 			 :16;
+			uint16_t y 			 :16;
+			uint16_t z 			 :16;
+			uint16_t temperature :16;
+		}mag;
+		struct
+		{
+			uint16_t d_0 :16;
+			uint16_t d_1 :16;
+			uint16_t d_2 :16;
+			uint16_t d_3 :16;
+		}dStatus;
+		int32_t pressure;
+		int32_t altitude;
+		int32_t lon;
+		int32_t lat;
+		struct
+		{
+			uint16_t GPSHeight   :16;
+			uint16_t GPSYaw 	 :16;
+			int32_t  GPSVelocity :32;
+		}GPSV;
+	}JY901_data;
 };
 extern CJY901 JY901;
-#include <Wire.h>
 #endif
