@@ -56,7 +56,10 @@ bool CJY901::copeSerialData(uint8_t data)
 		case 0x57:	memcpy(&JY901_data.lon, 	&rxBuffer[2], 4); 			//经度
 					memcpy(&JY901_data.lat, 	&rxBuffer[6], 4);			//纬度
 					break;		
-		case 0x58:	memcpy(&JY901_data.GPSV, 	&rxBuffer[2], 8); break;	//地速
+		case 0x58:	memcpy(&JY901_data.GPSHeight, 	&rxBuffer[2], 2); 	//地速
+					memcpy(&JY901_data.GPSYaw, 		&rxBuffer[4], 2);
+					memcpy(&JY901_data.GPSVelocity, &rxBuffer[6], 4);
+					break;
 	}
 	rxCnt = 0;
 	return 1;
@@ -91,7 +94,7 @@ void CJY901::readData(uint8_t address, uint8_t length, int8_t data[])
 	readRegisters(_address, address, length, data);
 }
 
-uint16_t CJY901::getTime(char* str)
+uint16_t CJY901::getTime(const char* str)
 {
 	if (_transferMode)
 		readRegisters(_address, JY_YYMM, 8, (int8_t*)&JY901_data.time);
@@ -118,25 +121,25 @@ uint16_t CJY901::getTime(char* str)
 		return JY901_data.time.milisecond;
 }
 
-double CJY901::getAcc(char* str)
+double CJY901::getAcc(const char* str)
 {
 	if (_transferMode)
 		readRegisters(_address, JY_AX, 8, (int8_t *)&JY901_data.acc);
 
 	if (strcmp(str, "x") == 0 || strcmp(str, "X") == 0)		//x
-		return JY901_data.acc.x / 32768.0*16.0*9.8;
+		return JY901_data.acc.x / 32768.0*16.0;
 
 	if (strcmp(str, "y") == 0 || strcmp(str, "Y") == 0)		//y
-		return JY901_data.acc.y / 32768.0*16.0*9.8;
+		return JY901_data.acc.y / 32768.0*16.0;
 
 	if (strcmp(str, "z") == 0 || strcmp(str, "Z") == 0)		//z
-		return JY901_data.acc.z / 32768.0*16.0*9.8;
+		return JY901_data.acc.z / 32768.0*16.0;
 
 	if (strcmp(str, "t") == 0 || strcmp(str, "T") == 0)		//温度
 		return JY901_data.acc.temperature / 340.0 + 36.53;
 }
 
-double CJY901::getGyro(char* str)
+double CJY901::getGyro(const char* str)
 {
 	if (_transferMode)
 		readRegisters(_address, JY_GX, 8, (int8_t *)&JY901_data.gyro);
@@ -154,7 +157,7 @@ double CJY901::getGyro(char* str)
 		return JY901_data.gyro.temperature / 340.0 + 36.53;
 }
 
-double CJY901::getAngle(char* str)
+double CJY901::getAngle(const char* str)
 {
 	if (_transferMode)
 		readRegisters(_address, JY_Roll, 8, (int8_t *)&JY901_data.angle);
@@ -172,7 +175,7 @@ double CJY901::getAngle(char* str)
 		return JY901_data.angle.temperature / 340.0 + 36.53;
 }
 
-double CJY901::getMag(char* str)
+double CJY901::getMag(const char* str)
 {
 	if (_transferMode)
 		readRegisters(_address, JY_HX, 8, (int8_t *)&JY901_data.mag);
@@ -190,7 +193,7 @@ double CJY901::getMag(char* str)
 		return JY901_data.mag.temperature / 340.0 + 36.53;
 }
 
-uint32_t CJY901::getPressure(void)
+int32_t CJY901::getPressure(void)
 {
 	if (_transferMode)
 		readRegisters(_address, JY_PressureL, 4, (int8_t *)&JY901_data.pressure);
@@ -198,7 +201,7 @@ uint32_t CJY901::getPressure(void)
 	return JY901_data.pressure;	//Pa
 }
 
-uint32_t CJY901::getAltitude(void)
+int32_t CJY901::getAltitude(void)
 {
 	if (_transferMode)
 		readRegisters(_address, JY_HeightL, 4, (int8_t *)&JY901_data.altitude);
@@ -208,7 +211,7 @@ uint32_t CJY901::getAltitude(void)
 }
 
 
-uint16_t CJY901::getDStatus(char* str)
+int16_t CJY901::getDStatus(const char* str)
 {
 	if (_transferMode)
 		readRegisters(_address, JY_D0Status, 8, (int8_t *)&JY901_data.dStatus);
@@ -226,7 +229,7 @@ uint16_t CJY901::getDStatus(char* str)
 		return JY901_data.dStatus.d_3;
 }
 
-uint32_t CJY901::getLon(void)
+int32_t CJY901::getLon(void)
 {
 	if (_transferMode)
 		readRegisters(_address, JY_LonL, 4, (int8_t *)&JY901_data.lon);
@@ -234,7 +237,7 @@ uint32_t CJY901::getLon(void)
 	return JY901_data.lon;
 }
 
-uint32_t CJY901::getLat(void)
+int32_t CJY901::getLat(void)
 {
 	if (_transferMode)
 		readRegisters(_address, JY_LatL, 4, (int8_t *)&JY901_data.lat);
@@ -242,19 +245,29 @@ uint32_t CJY901::getLat(void)
 	return JY901_data.lat;
 }
 
-double CJY901::getGPSV(char* str)
+double CJY901::getGPSH(void)
 {
 	if (_transferMode)
-		readRegisters(_address, JY_GPSHeight, 8, (int8_t *)&JY901_data.GPSV);
+		readRegisters(_address, JY_GPSHeight, 2, (int8_t *)&JY901_data.GPSHeight);
 
-	if (strcmp(str, "H") == 0)		//m
-		return JY901_data.GPSV.GPSHeight / 10.0;
-
-	if (strcmp(str, "Y") == 0)		//度
-		return JY901_data.GPSV.GPSYaw / 10.0;
-
-	if (strcmp(str, "V") == 0)		//km/h
-		return JY901_data.GPSV.GPSVelocity / 1000.0;
+	return JY901_data.GPSHeight / 10.0;
 }
+
+double CJY901::getGPSY(void)	//度
+{
+	if (_transferMode)
+		readRegisters(_address, JY_GPSYAW, 2, (int8_t *)&JY901_data.GPSYaw);
+
+	return JY901_data.GPSYaw / 10.0;
+}
+
+double CJY901::getGPSV(void)	//km/h
+{
+	if (_transferMode)
+		readRegisters(_address, JY_GPSVL, 4, (int8_t *)&JY901_data.GPSVelocity);
+
+	return JY901_data.GPSVelocity / 1000.0;
+}
+
 
 CJY901 JY901 = CJY901();
