@@ -1,1 +1,1 @@
-void AngleOutput(unsigned char sumCAC,unsigned char angle[], FILE *outF);
+void AngleOutput(unsigned char angle[], FILE *&outF);

@@ -1,1 +1,1 @@
-void savePacket(unsigned char sumCAC,unsigned char saveArray[], FILE *outF);
+void savePacket(unsigned char saveArray[], FILE *&outF);

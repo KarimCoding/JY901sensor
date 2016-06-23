@@ -1,1 +1,1 @@
-unsigned char checkSum( unsigned char saveArray[]);
+bool checkSum( unsigned char saveArray[]);

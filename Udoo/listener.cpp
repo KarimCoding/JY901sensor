@@ -1,7 +1,3 @@
-/*
-** listener.c -- a datagram sockets "server" demo
-*/
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
@@ -14,11 +10,9 @@
 #include <netdb.h>
 #include <time.h>
 #include <signal.h>
-
+#include <thread>
 #include "packetIdentifier2.h"
-
 #include <boost/circular_buffer.hpp>
-//#include <SerialStream.h>
 #include <iostream>
 #include <fstream>
 #include <iomanip>
@@ -31,12 +25,10 @@
 #ifdef DEBUG
     #define VERBOSITY 1
 #endif
-
 #ifndef DEBUG
     #define VERBOSITY 0
 #endif
 volatile sig_atomic_t done = 0;
- 
 unsigned char uc;
 
 void term(int signum)
@@ -50,81 +42,13 @@ void *get_in_addr(struct sockaddr *sa)
     if (sa->sa_family == AF_INET) {
         return &(((struct sockaddr_in*)sa)->sin_addr);
     }
-
     return &(((struct sockaddr_in6*)sa)->sin6_addr);
-}
-
-//void print_data(unsigned char  buf[MAXBUFLEN], FILE *outF, int index)
-void print_data(unsigned char  buf[MAXBUFLEN],int numbytes, FILE *outF)
-{
-    int index =-1;
-    int i = 0;
-    int j =0;
-    //searching for first index where first two bytes of data are  55, 50-61
-    // 0x55 =085 decimal, 0x80 == 80
-    
-
-    for(i=0;i<numbytes;i++){
-        printf("buf[%d] = %0d \n",i,buf[i],(int)buf[i]);
-        if(i%11==0)
-            fprintf(outF,"\n");
-        fprintf(outF,"%d ",buf[i]);
-
-        if((buf[i]==85 ) && ((buf[i+1]>79) && (buf[i+1]<92)))
-        {
-            index = i;
-            break;
-        }
-    }
-   printf("index %0d \n",index);
-    //check each packet if checksum is correct save data, otherwise skip
-     for (j=index;j<numbytes;j=j+11)
-   {
-//    printf("j index = %d \n",j);
-    int pIndex;
-    int sum =0;
-        for(pIndex = j;pIndex<(j+10);pIndex++)
-        {
-            sum = sum + ((int)buf[pIndex]);
-        }
-        unsigned char sumA = sum;
-        //printf("j: %d pIndex %d sum = %d    checksum = %d \n",j,pIndex,sum,((int)buf[pIndex+1]));
-        //printf("check sum %d %02x sum %d %02x\n",((int)sumA),sumA, ((int)buf[pIndex+1]),buf[pIndex+1]);
-        if (((int)sumA)==((int)buf[pIndex+1]))
-        {    
-//            fprintf(outF, "\n");
-            for(pIndex = j;pIndex<(j+11);pIndex++)
-                fprintf(outF,"%02x ",buf[pIndex]);
-            for(pIndex = j;pIndex <(j+11);pIndex=pIndex+11)
-            {
-                if(buf[pIndex+1] == 51)
-                    printf("");
-
-                
-            }
-        }
-   }
-
-}
-
-
-int get_buf_index(unsigned char  buf[MAXBUFLEN]){
-    int index =-1;
-    int i = 0;
-    for(i=0;i<MAXBUFLEN;i++){
-
-        if((buf[i]==85 ) && ((buf[i+1]>79) && (buf[i+1]<91)))
-        {
-            index = i;
-            break;
-        }
-    }
-    return index;    
 }
 
 int main(void)
 {
 
+    char dataHeader[10];
     time_t timer;
     char filename[999];
     char date_buffer[26];
@@ -140,7 +64,8 @@ int main(void)
     socklen_t addr_len;
     char s[INET6_ADDRSTRLEN];
     FILE *outF;
-    
+    FILE *badData;
+
     //to catch terminate signal
     struct sigaction action;
     memset(&action, 0, sizeof(struct sigaction));
@@ -154,80 +79,70 @@ int main(void)
 
     time(&timer);
     tm_info = localtime(&timer);
-
     strftime(date_buffer, 26, "[%Y%m%d_%H:%M:%S].txt",tm_info);
-    //char directory[] = "/home/udooer/Logs/";
-//    strcat(directory, date_buffer);   
 
-    if ((rv = getaddrinfo(NULL, MYPORT, &hints, &servinfo)) != 0) {
-        fprintf(stderr, "getaddrinfo: %s\n", gai_strerror(rv));
-        return 1;
-    }
+    //Continually listen for socket connections
+    while(!done){
 
-    // loop through all the results and bind to the first we can
-    for(p = servinfo; p != NULL; p = p->ai_next) {
-        if ((sockfd = socket(p->ai_family, p->ai_socktype,
+        if ((rv = getaddrinfo(NULL, MYPORT, &hints, &servinfo)) != 0) {
+            fprintf(stderr, "getaddrinfo: %s\n", gai_strerror(rv));
+         return 1;
+        }
+
+        // loop through all the results and bind to the first we can
+        for(p = servinfo; p != NULL; p = p->ai_next) {
+            if ((sockfd = socket(p->ai_family, p->ai_socktype,
                 p->ai_protocol)) == -1) {
-            perror("listener: socket");
-            continue;
+                perror("listener: socket");
+                continue;
+            }
+
+            if (bind(sockfd, p->ai_addr, p->ai_addrlen) == -1) {
+                close(sockfd);
+                perror("listener: bind");
+                continue;
+            }
+            break;
+         }  // End brace for for(p = servinfo..
+
+        if (p == NULL) {
+            fprintf(stderr, "listener: failed to bind socket\n");
+            return 2;
         }
 
-        if (bind(sockfd, p->ai_addr, p->ai_addrlen) == -1) {
-            close(sockfd);
-            perror("listener: bind");
-            continue;
+        printf("listener: waiting to recvfrom...\n");
+        addr_len = sizeof their_addr;
+
+        if ((numbytes =  recvfrom(sockfd, buf, MAXBUFLEN-1 , 0,
+                (struct sockaddr *)&their_addr, &addr_len)) == -1) {
+            flag = 0;
+            exit(1);
         }
 
-        break;
-    }
+        printf("listener: got packet from %s\n",
+                inet_ntop(their_addr.ss_family,
+                    get_in_addr((struct sockaddr *)&their_addr),
+                        s, sizeof s));
 
-    if (p == NULL) {
-        fprintf(stderr, "listener: failed to bind socket\n");
-        return 2;
-    }
+        //oepn stream once a connection has been established
+        outF=fopen(date_buffer,"a+");
+        buf[numbytes] = '\0';
+        strftime(dataHeader, 26, "[%H:%M:%S]",tm_info);
+        fprintf(outF,"IP: %s @ %s \n", inet_ntop(their_addr.ss_family,
+                get_in_addr((struct sockaddr *)&their_addr),
+                    s, sizeof s),dataHeader);
 
-    printf("listener: waiting to recvfrom...\n");
-    //outF = fopen(directory,"a+");
-//        outF = fopen(date_buffer,"a+");
-   // fprintf(outF,"Log for %s",date_buffer);
-
-
-while(!done){
-    outF=fopen(date_buffer,"a+");
-    int ind = 0;
-    addr_len = sizeof their_addr;
-        
-    //receive data here
-    if ((numbytes =  recvfrom(sockfd, buf, MAXBUFLEN-1 , 0,
-        (struct sockaddr *)&their_addr, &addr_len)) == -1) {
-  //      perror("recvfrom");
-        flag = 0;
-        exit(1);
-    }
-    
-  //  printf("listener: got packet from %s\n",
-       printf("",
-        inet_ntop(their_addr.ss_family,
-            get_in_addr((struct sockaddr *)&their_addr),
-            s, sizeof s));
-
-//    printf("listener: packet is %d bytes long\n", numbytes);
-
-    buf[numbytes] = '\0';
-    for(ind = 0;ind<numbytes;ind++)
-    {
-    	uc = buf[ind];
-    	packetIdentifier2(uc,outF,VERBOSITY);
-    }
-
-
-   // print_data(buf,numbytes,outF);
-    fclose(outF);
-}
-   // fclose(outF);
-    freeaddrinfo(servinfo);
-    close(sockfd);
-
+        //pass the data over to be  processed
+        int ind = 0;
+        for(ind = 0;ind<numbytes;ind++)
+        {
+    	    uc = buf[ind];
+    	    packetIdentifier2(uc,outF,badData,VERBOSITY);
+        }
+        fclose(outF);
+        freeaddrinfo(servinfo);
+        close(sockfd);
+        printf("closed socket \n");
+    }// End brace for while loop
     return 0;
-}
-
+}   //End brace for main()

@@ -11,7 +11,6 @@
 #include <new>
 #include <algorithm>    // std::reverse
 #include <iterator>
-
 #include "checkPacket.h"
 #include "checkSum.h"
 #include "savePacket.h"
@@ -29,16 +28,15 @@ unsigned char saveArray[22]; // an array to save the packets in it
 unsigned char packetArray[22]; // an array to get the bytes coming from the sensor
 unsigned char sumCAC;
 
-void packetIdentifier2 (unsigned char uc, FILE *outF,bool verbosity)
+void packetIdentifier2 (unsigned char uc, FILE *&outF, FILE *&badData,bool verbosity)
 {
   
-  bool flagon(true); 
-  packetArray[i]= uc; // push the bytes coming from the sensor into the packetArray
-  resultCheck =  checkPacket(packetArray,i); // call the function "checkPacket" which check for the packet's header
+    bool flagon(true); 
+    packetArray[i]= uc; // push the bytes coming from the sensor into the packetArray
+    resultCheck =  checkPacket(packetArray,i); // call the function "checkPacket" which check for the packet's header
   
-  if(resultCheck == true)   
+    if(resultCheck == true)   
     {
-//		   cout<<" yes "<<endl; // for debugging
 		  int k=10; // because we are saving the bytes that are before the next packet's header we start from k=10 to be able to save the first value in saveArray[10]
 		  int  lk=k;
 		  for(int p=2;p<pp;p++) // loop is 11 because we have 11 bytes
@@ -58,22 +56,26 @@ void packetIdentifier2 (unsigned char uc, FILE *outF,bool verbosity)
 				  k=k-1;
 				  lk=k;
 			  }
-	}
-      //
-      // performing a check Sum
-      //
-      sumCAC = checkSum(saveArray);
-      //
-      //if the checkSum is correct save the packet
-      //
-      if(saveArray[1]==0x50 && verbosity)
-    	  timeOutput(sumCAC,saveArray,outF);
-      else if(saveArray[1] ==0x55 && verbosity)
-    	  AngleOutput(sumCAC,saveArray,outF);
-      else
-    	  savePacket(sumCAC, saveArray,outF);
-    }
-  i=(i+1)%22;
+        } //End brace for for(int p...
+
+        // performing a check Sum
+        if( checkSum(saveArray))
+        {
+            if(saveArray[1]==0x50 && verbosity)
+    	         timeOutput(saveArray,outF);
+            else if(saveArray[1] ==0x55 && verbosity)
+    	        AngleOutput(saveArray,outF);
+            else
+    	        savePacket(saveArray,outF);
+        }
+    
+    }   // End brace for if(result ...
+    else{
+        badData = fopen("/home/udooer/Logs/bad_data.txt","a+");
+        fprintf(badData,"%02u ",uc);
+    } //End brace for else{
+
+    i=(i+1)%22;
 }
 
 

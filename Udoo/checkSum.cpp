@@ -13,14 +13,18 @@
 #include <iterator>
 
 
-unsigned char checkSum( unsigned char saveArray[])
+bool checkSum( unsigned char saveArray[])
 {
-  int sumAC=0;
-  for(int xx=0; xx < 10 ; xx++)
+    bool result = false;
+    int sumAC=0;
+    for(int xx=0; xx < 10 ; xx++)
     {
       sumAC += (int)(saveArray[xx]);
     }
       
-  unsigned char sumCAC = sumAC;
-  return sumCAC;
+    unsigned char sumCAC = sumAC;
+
+    if((int)(sumCAC) == (int)(saveArray[10]));
+        result = true;
+    return result;
 }
