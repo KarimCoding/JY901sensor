@@ -1,0 +1,5 @@
+You can put the JY901 file in the ...\Arduino\libraries so you can access it from the Arduino IDE : File--Examples---JY901
+
+The JY901IIC is the specific sketch for the JY901, it uses JY901.CPP and JY901.h and the wire library.
+
+The serialByte is the sktech that takes byte by byte.
