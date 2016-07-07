@@ -1,8 +1,16 @@
 // PORT CONFIG
 #define MYPORT "8899"    // the port users will be connecting to
 
+#ifdef DEBUG
+    #define VERBOSITY 1
+#endif
+#ifndef DEBUG
+    #define VERBOSITY 0
+#endif
+
+
 //BUFFER CONFIG
-#define MAXBUFLEN 518   //4Mb buffer (512 * 8)
+#define MAXBUFLEN 518   
 
 //COMMANDS
 #define     SAVE    0x00;

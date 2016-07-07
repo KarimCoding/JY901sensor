@@ -14,9 +14,14 @@ void *get_in_addr(struct sockaddr *sa)
     return &(((struct sockaddr_in6*)sa)->sin6_addr);
 }
 
-int wifi::listener(dataStick *data)
+int wifi::listener(dataStick pkt)
 {
-	char IPaddr[12];
+	char time[35];
+	char ip[4];
+	char usec[5];
+    struct timeval tv;
+    time_t curtime;
+
     int sockfd;
     struct addrinfo hints, *servinfo, *p;
     int rv;
@@ -25,6 +30,7 @@ int wifi::listener(dataStick *data)
     unsigned char buf[MAXBUFLEN];
     socklen_t addr_len;
     char s[INET6_ADDRSTRLEN];
+
 
 /*    //to catch terminate signal
 	    struct sigaction action;
@@ -42,6 +48,7 @@ int wifi::listener(dataStick *data)
     //Continually listen for socket connections
   //  while(!done){
 //	while(1){
+		printf("inside list	\n");
         if ((rv = getaddrinfo(NULL, MYPORT, &hints, &servinfo)) != 0) {
             fprintf(stderr, "getaddrinfo: %s\n", gai_strerror(rv));
          return 1;
@@ -68,7 +75,7 @@ int wifi::listener(dataStick *data)
         }
         freeaddrinfo(servinfo);
         addr_len = sizeof their_addr;
-        if ((numbytes =  recvfrom(sockfd, buf, MAXBUFLEN-1 , 0,
+        if ((pkt.numbytes =  recvfrom(sockfd, buf, MAXBUFLEN-1 , 0,
                 (struct sockaddr *)&their_addr, &addr_len)) == -1) {
             exit(1);
         }
@@ -78,32 +85,26 @@ int wifi::listener(dataStick *data)
                     get_in_addr((struct sockaddr *)&their_addr),
                         s, sizeof s));
 
+
+        memcpy(ip,inet_ntop(their_addr.ss_family,
+                    get_in_addr((struct sockaddr *)&their_addr),
+                        s, sizeof s),sizeof s);
         //oepn stream once a connection has been established
-        buf[numbytes] = '\0';
+        buf[pkt.numbytes] = '\0';
 		close(sockfd);
 
-/*		// Data processing section
-    	gettimeofday(&tv, NULL); 
-    	curtime=tv.tv_sec;
-		strftime(dataHeader,30,"%T",localtime(&curtime));
-    	fprintf(outF,"IP: %s @ %s%ld \n", inet_ntop(their_addr.ss_family,
-                get_in_addr((struct sockaddr *)&their_addr),
-                    s, sizeof s),dataHeader,tv.tv_usec);
-    	//pass the data over to be  processed
-    	for(int ind = 0;ind<numbytes;ind++)
- 	   	{
- 	    	uc = buf[ind];
-  	    	packetIdentifier2(uc,outF,badData,VERBOSITY);
-		}
-		fprintf(outF,"\n");
-        // End Data processing Section
-*/
 		printf("going to pass data \n");
-		data->passData(buf);
+	 	gettimeofday(&tv, NULL); 
+        curtime=tv.tv_sec;
+		strftime(time,30,"%T",localtime(&curtime));
+		sprintf(usec, "%ld", tv.tv_usec);
+		strcat(time,usec);
+		printf("before pass: %s\n",buf);
+		pkt.passData(buf, ip,time );
 		printf("Data passed \n");
     //    close(sockfd);
         printf("closed socket \n");
 //    }// End brace for while loop
-	return numbytes;
+	return pkt.numbytes;
 }   //End brace for main()
 

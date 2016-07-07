@@ -135,6 +135,30 @@ AngleOutput.cpp.s:
 	$(MAKE) -f CMakeFiles/udoo.dir/build.make CMakeFiles/udoo.dir/AngleOutput.cpp.s
 .PHONY : AngleOutput.cpp.s
 
+Udoo.o: Udoo.cpp.o
+.PHONY : Udoo.o
+
+# target to build an object file
+Udoo.cpp.o:
+	$(MAKE) -f CMakeFiles/udoo.dir/build.make CMakeFiles/udoo.dir/Udoo.cpp.o
+.PHONY : Udoo.cpp.o
+
+Udoo.i: Udoo.cpp.i
+.PHONY : Udoo.i
+
+# target to preprocess a source file
+Udoo.cpp.i:
+	$(MAKE) -f CMakeFiles/udoo.dir/build.make CMakeFiles/udoo.dir/Udoo.cpp.i
+.PHONY : Udoo.cpp.i
+
+Udoo.s: Udoo.cpp.s
+.PHONY : Udoo.s
+
+# target to generate assembly for a file
+Udoo.cpp.s:
+	$(MAKE) -f CMakeFiles/udoo.dir/build.make CMakeFiles/udoo.dir/Udoo.cpp.s
+.PHONY : Udoo.cpp.s
+
 checkPacket.o: checkPacket.cpp.o
 .PHONY : checkPacket.o
 
@@ -183,29 +207,29 @@ checkSum.cpp.s:
 	$(MAKE) -f CMakeFiles/udoo.dir/build.make CMakeFiles/udoo.dir/checkSum.cpp.s
 .PHONY : checkSum.cpp.s
 
-dumpFiles.o: dumpFiles.cpp.o
-.PHONY : dumpFiles.o
+listener.o: listener.cpp.o
+.PHONY : listener.o
 
 # target to build an object file
-dumpFiles.cpp.o:
-	$(MAKE) -f CMakeFiles/udoo.dir/build.make CMakeFiles/udoo.dir/dumpFiles.cpp.o
-.PHONY : dumpFiles.cpp.o
+listener.cpp.o:
+	$(MAKE) -f CMakeFiles/udoo.dir/build.make CMakeFiles/udoo.dir/listener.cpp.o
+.PHONY : listener.cpp.o
 
-dumpFiles.i: dumpFiles.cpp.i
-.PHONY : dumpFiles.i
+listener.i: listener.cpp.i
+.PHONY : listener.i
 
 # target to preprocess a source file
-dumpFiles.cpp.i:
-	$(MAKE) -f CMakeFiles/udoo.dir/build.make CMakeFiles/udoo.dir/dumpFiles.cpp.i
-.PHONY : dumpFiles.cpp.i
+listener.cpp.i:
+	$(MAKE) -f CMakeFiles/udoo.dir/build.make CMakeFiles/udoo.dir/listener.cpp.i
+.PHONY : listener.cpp.i
 
-dumpFiles.s: dumpFiles.cpp.s
-.PHONY : dumpFiles.s
+listener.s: listener.cpp.s
+.PHONY : listener.s
 
 # target to generate assembly for a file
-dumpFiles.cpp.s:
-	$(MAKE) -f CMakeFiles/udoo.dir/build.make CMakeFiles/udoo.dir/dumpFiles.cpp.s
-.PHONY : dumpFiles.cpp.s
+listener.cpp.s:
+	$(MAKE) -f CMakeFiles/udoo.dir/build.make CMakeFiles/udoo.dir/listener.cpp.s
+.PHONY : listener.cpp.s
 
 packetIdentifier2.o: packetIdentifier2.cpp.o
 .PHONY : packetIdentifier2.o
@@ -230,6 +254,30 @@ packetIdentifier2.s: packetIdentifier2.cpp.s
 packetIdentifier2.cpp.s:
 	$(MAKE) -f CMakeFiles/udoo.dir/build.make CMakeFiles/udoo.dir/packetIdentifier2.cpp.s
 .PHONY : packetIdentifier2.cpp.s
+
+processData.o: processData.cpp.o
+.PHONY : processData.o
+
+# target to build an object file
+processData.cpp.o:
+	$(MAKE) -f CMakeFiles/udoo.dir/build.make CMakeFiles/udoo.dir/processData.cpp.o
+.PHONY : processData.cpp.o
+
+processData.i: processData.cpp.i
+.PHONY : processData.i
+
+# target to preprocess a source file
+processData.cpp.i:
+	$(MAKE) -f CMakeFiles/udoo.dir/build.make CMakeFiles/udoo.dir/processData.cpp.i
+.PHONY : processData.cpp.i
+
+processData.s: processData.cpp.s
+.PHONY : processData.s
+
+# target to generate assembly for a file
+processData.cpp.s:
+	$(MAKE) -f CMakeFiles/udoo.dir/build.make CMakeFiles/udoo.dir/processData.cpp.s
+.PHONY : processData.cpp.s
 
 savePacket.o: savePacket.cpp.o
 .PHONY : savePacket.o
@@ -339,18 +387,24 @@ help:
 	@echo "... AngleOutput.o"
 	@echo "... AngleOutput.i"
 	@echo "... AngleOutput.s"
+	@echo "... Udoo.o"
+	@echo "... Udoo.i"
+	@echo "... Udoo.s"
 	@echo "... checkPacket.o"
 	@echo "... checkPacket.i"
 	@echo "... checkPacket.s"
 	@echo "... checkSum.o"
 	@echo "... checkSum.i"
 	@echo "... checkSum.s"
-	@echo "... dumpFiles.o"
-	@echo "... dumpFiles.i"
-	@echo "... dumpFiles.s"
+	@echo "... listener.o"
+	@echo "... listener.i"
+	@echo "... listener.s"
 	@echo "... packetIdentifier2.o"
 	@echo "... packetIdentifier2.i"
 	@echo "... packetIdentifier2.s"
+	@echo "... processData.o"
+	@echo "... processData.i"
+	@echo "... processData.s"
 	@echo "... savePacket.o"
 	@echo "... savePacket.i"
 	@echo "... savePacket.s"

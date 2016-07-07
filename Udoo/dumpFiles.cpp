@@ -48,7 +48,7 @@ void *get_in_addr(struct sockaddr *sa)
 //int wifi::listener(dataStick *data)
 int main()
 {
-	char IPaddr[13];
+	char IPaddr[4];
     char fileName[26];
     char dataHeader[30];
     struct timeval tv;
@@ -59,6 +59,7 @@ int main()
     int numbytes;
     struct sockaddr_storage their_addr;
     unsigned char buf[MAXBUFLEN];
+	unsigned char copy[MAXBUFLEN];
     socklen_t addr_len;
     char s[INET6_ADDRSTRLEN];
     FILE *outF;
@@ -79,7 +80,7 @@ int main()
     gettimeofday(&tv, NULL); 
     curtime=tv.tv_sec;
     
-//    strftime(fileName,30,"[%Y%m%d_%H:%M:%S].txt",localtime(&curtime));
+    strftime(fileName,30,"[%Y%m%d_%H:%M:%S].txt",localtime(&curtime));
  //   printf("%s \n",fileName);
 
 
@@ -126,14 +127,13 @@ int main()
                 inet_ntop(their_addr.ss_family,
                     get_in_addr((struct sockaddr *)&their_addr),
                         s, sizeof s));
-		memcpy(IPaddr,inet_ntop(their_addr.ss_family,
-                    get_in_addr((struct sockaddr *)&their_addr),
-                        s, sizeof s),sizeof s);
-		printf("IP ADDR: %s\n",IPaddr);
+
         //oepn stream once a connection has been established
         buf[numbytes] = '\0';
 		close(sockfd);
-
+		printf("before copy \n");
+		memcpy(copy,buf,MAXBUFLEN);
+		printf("after \n");
 		// Data processing section
     	gettimeofday(&tv, NULL); 
     	curtime=tv.tv_sec;
@@ -144,7 +144,7 @@ int main()
     	//pass the data over to be  processed
     	for(int ind = 0;ind<numbytes;ind++)
  	   	{
- 	    	uc = buf[ind];
+ 	    	uc = copy[ind];
   	    	packetIdentifier2(uc,outF,badData,VERBOSITY);
 		}
 		fprintf(outF,"\n");
