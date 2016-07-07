@@ -116,7 +116,7 @@ CMAKE_OBJCOPY:FILEPATH=/usr/bin/objcopy
 CMAKE_OBJDUMP:FILEPATH=/usr/bin/objdump
 
 //Value Computed by CMake
-CMAKE_PROJECT_NAME:STATIC=listener
+CMAKE_PROJECT_NAME:STATIC=udoo
 
 //Path to a program.
 CMAKE_RANLIB:FILEPATH=/usr/bin/ranlib
@@ -174,10 +174,10 @@ CMAKE_VERBOSE_MAKEFILE:BOOL=FALSE
 VERBOSITY:BOOL=ON
 
 //Value Computed by CMake
-listener_BINARY_DIR:STATIC=/home/udooer/David/JY901sensor/Udoo/build
+udoo_BINARY_DIR:STATIC=/home/udooer/David/JY901sensor/Udoo/build
 
 //Value Computed by CMake
-listener_SOURCE_DIR:STATIC=/home/udooer/David/JY901sensor/Udoo
+udoo_SOURCE_DIR:STATIC=/home/udooer/David/JY901sensor/Udoo
 
 
 ########################

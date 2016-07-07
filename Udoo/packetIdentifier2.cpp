@@ -30,7 +30,6 @@ unsigned char sumCAC;
 
 void packetIdentifier2 (unsigned char uc, FILE *&outF, FILE *&badData,bool verbosity)
 {
-  
     bool flagon(true); 
     packetArray[i]= uc; // push the bytes coming from the sensor into the packetArray
     resultCheck =  checkPacket(packetArray,i); // call the function "checkPacket" which check for the packet's header
@@ -71,8 +70,9 @@ void packetIdentifier2 (unsigned char uc, FILE *&outF, FILE *&badData,bool verbo
     
     }   // End brace for if(result ...
     else{
-        badData = fopen("/home/udooer/Logs/bad_data.txt","a+");
-        fprintf(badData,"%02u ",uc);
+		/*badData = fopen("badData.txt","+a");
+        fprintf(badData,"%02x ",(int)uc);
+		fclose(badData);*/
     } //End brace for else{
 
     i=(i+1)%22;
