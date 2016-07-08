@@ -1,1 +1,636 @@
+/*
+ * File:   main.cpp
+ * Author: Anas Zurkiyeh
+ *
+ * Created on May 16, 2016, 7:51 PM
+ */
 
+
+
+
+
+/**
+       Assumptions:
+                    -Each Command holds a unique index. No two commands have the same index, or CommandNum
+                    -This implementation was intended to stay in one .cpp file that's why multiple files werent used
+*/
+
+
+
+
+#include <iostream>
+#include <string>
+#include <vector>
+#include <sstream>
+#include <cstring>
+#include <algorithm>
+
+
+// We only had to use the standard library in this application.
+using namespace std;
+
+
+/**
+Global Variables, that are going to be used throughout the whole program
+*/
+
+// a vector of integer that hold the indecies of commands that dont take parameters.
+vector <int> noParamCommands {1,3,4,5,6,12,13,18,26,27,29,30,45,46};
+
+
+// string List that has all the command names.
+vector<string> commandName = {"ENTM","E","Z","CFGTF","RELD","MAC","SEARCH","MID","PLANG","WEBU","VER","PING","WSCAN","SLPTYPE","WMODE","WSTA","WANN","WSLK","WAP","CHANNEL","LANN","UART","UARTTE","WKMOD","SOCKA","SOCKLKA","SOCKDISA","SOCKB","SOCKLKB","SOCKDISB","RFCENA","REGENA","REGID","REGUSR","TRENC","HTPTP","HTPSV","HTPHEAD","HTPURL","HTPCHD","UART1","UARTTE1","WKMOD1","SOCKA1","SOCKLKA1","SOCKDISA","RFCENA1","REGENA1","REGID1","REGUSR1","TRENC1","HTPTP1","HTPSV1","HTPHEAD1","HTPURL1","HTPCHD1","SSLSECM","SSLMASK","SSLCA","SSLIPP"};
+string command = "AT+";
+
+// string List that has all the command names.
+vector<string> descriptionList = {"Set module into transparent transition mode","Open/Close show back function","Re-start module","Copy User Parameters to Factory Default Parameters","Restore to factory default setting","Read the MAC of module","Set/query LAN port and keyword search","Query module ID information","Web log in languages","Set/query website login user name and password","Query The module firmware version","Network -Ping- command","Scan AP","Set the sleep mode","Set/Query Wi-Fi work mode (AP/STA)","Set/query associated AP SSID and password;","Set/query STA network parameters;","Query STA Wi-Fi link status","Set/query AP wi-fi configuration parameters;","Channel module AP mode","Set the IP/query module AP mode","Set/query UART interface parameters","Set/query a serial port free framing intervals","UART0 Socket work mode","Set/query network protocol parameters","Query whether the TCP link chain has been built","Set the tcp client reconnect mode","Set/query network protocol parameters","Query whether the TCP link chain has been built","Set the tcp client reconnect mode","Can make/ban RFC2117 function","Can make/registration packet mechanism is prohibited","Registration packet ID set","Customer define registration packet","Encript enable/disable in trans mode","Httpd Client GET/POST set","Httpd Client server address","Httpd Client customer defined head","Httpd Client POST URLaddress","Httpd Client return data cut head enable/disable","Set/query UART interface parameters","Set/query a serial port free framing intervals","UART1 Socket work mode","Set/query network protocol parameters","Query whether the TCP link chain has been built","Set the tcp client reconnect mode","Can make/ban RFC2117 function","Can make/registration packet mechanism is prohibited","Registration packet ID set","Customer define registration packet","Encript enable/disable in trans mode","Httpd Client GET/POST set","Httpd Client server address","Httpd Client customer defined head","Httpd Client POST URLaddress","Httpd Client return data cut head enable/disable","SSL encript type","SSL encript method","SSL Certificate Title","SSL server address and port"};
+
+
+
+
+//This class is used to represent each command. I tried to adhere to object oriented programming concepts as much as possible.
+
+
+class Command
+{
+
+public:
+
+    // Constructor that receives name, description and command number for initialization.
+
+    Command(string name, string info, int index ):
+        name {name}, description{info}, commandNum{index}
+    {
+    }
+
+    /* setters and getters for the different attributes
+         for encapsulation purposes.
+
+        setters : receive data from user. set the private attributes.
+        getters : get data from private attributes.
+
+     */
+
+    string getName()
+    {
+        return name;
+    }
+    string getDescription()
+    {
+        return description;
+    }
+    int getCommandNum()
+    {
+        return commandNum;
+    }
+    int getNumOfParam ()
+    {
+        return numOfParam;
+    }
+    vector<string> getParamList ()
+    {
+        return paramList;
+    }
+    char getQueryOrSet ()
+    {
+        return queryOrSet;
+    }
+
+    void setName (string newName)
+    {
+        name = newName;
+    }
+    void setDescription (string newDescription)
+    {
+        description = newDescription;
+    }
+    void setCommandNum (int newCommandNum)
+    {
+        commandNum = newCommandNum;
+    }
+    void setNumOfParam (int newNumOfParam)
+    {
+        numOfParam = newNumOfParam;
+    }
+    void setQueryOrSet (char newAnswer)
+    {
+        queryOrSet= newAnswer;
+    }
+    void setParam (vector <string> newParam )
+    {
+        paramList = newParam;
+    }
+
+
+
+private:
+
+    /*
+        attributes:
+                    name: to hold the name of the Command.
+                    description: what does the Command do.
+                    commandNum: number of Command. Unique number between 1-60
+                    queryOrset: whether the Command is in Query Mode or Set Mode.
+                    paramList: a vector (aka. List) that hold the parameters. such as IP Address and Port number
+    */
+
+    string name;
+    string description;
+    int commandNum;
+    int numOfParam;
+    char queryOrSet= ' ';
+    vector <string> paramList;
+
+
+
+};
+
+
+// Function prototypes; These are merely to notify the compiler about the existence of these functions later on in the code.
+// detailed explanation is later on.
+
+
+vector<Command> initilizeCommandList();
+void printListOfCommands(vector <Command>);
+string finalizeCommand_NoParam(Command);
+string finalizeCommand_WithParam(Command, vector <string>);
+void printACommand(Command);
+
+string convertToUppercase(string );
+int findInVector (string, vector <string> );
+int findInCommandName (string);
+void handleIndex(int, vector<Command>);
+
+
+/* APIs: These function are to be used if users want to embed this code within their programs. Users are required to pass on the specified parameters
+/ and these functions will respond with the AT Commands formatted and ready to use.
+
+    users have to input their parameters -if any- in a vector then pass it on.
+
+    The Last two function are meant the use in "Query" mode only. Namely only if users want to generate Query not set Commands.
+*/
+
+string API_ByCommandNumber(int, char, vector <string> );
+string API_ByCommandName(string, char, vector <string> );
+string API_ByCommandName(string);
+string API_ByCommandNumber(int);
+
+
+
+
+
+
+
+int main()
+{
+    // introduction
+
+    cout << "\n"<< "By Anas Zurkiyeh" << "\n"<< "azurk046@uottawa.ca"<<"\n"<<"\n"<< endl;
+    cout << "This API is designed to generate AT+ commands to the USR-C322 WiFi Module. It Also contains functions that can be embedded within code to generate these commands. "<<"\n"<< "\n"<<endl;
+
+
+    // to be deleted, for testing purpouses only
+
+    vector <string> dummyParam {"Address","Port","Data"};
+
+
+    // Test APIs
+    cout << API_ByCommandName("mac") << endl; // with lower or upper case letters
+    cout << API_ByCommandName("mid", 's', dummyParam) << endl;
+    cout << API_ByCommandNumber(5) << endl;
+    cout << API_ByCommandNumber(11, 's', dummyParam) << endl;
+
+
+
+
+
+
+
+
+    // flag to control loop
+    bool keepGoing = true ;
+
+    // initializes a list of commands and saves it under commandList where we will call and use our functions
+    vector<Command> commandList = initilizeCommandList();
+
+    while (keepGoing)
+    {
+
+
+        cout << "Please choose one of the following:-"<< "\n"<< "*\) Enter the number or name of your command." <<"\n" << "*\) Enter \"h\" or \"help\" for a complete list of all commands or enter "<<"\n"<< "*\) Enter \"exit\" to close the program"<< endl;
+
+        // save user's response in "answer"
+        string answer;
+        cin >> answer ;
+
+        // parses string to an integer if user inputs an integer. If not -if users chose to input a command name instead- a value of 0 will be saved in "index"
+        // hence if user inputs a string, index = 0.
+
+        int index ;
+        stringstream data(answer);
+        data >> index;
+
+        // call the function that will handle the index if the index was an integer only if:
+        // if input was not a string (index != 0) and user inputs a valid CommandNum (index <61)
+        if (index <= 61 && index != 0)
+        {
+            handleIndex(index, commandList);
+        }
+
+
+        // this will only apply if users inputs a string instead on an integer
+        if (index == 0)
+        {
+            // prints all the commands
+            if (((answer=="h")||(answer=="help")||(answer=="HELP")) == 1)
+            {
+                // prints all the commands
+                printListOfCommands(commandList);
+                cout<<"\n"<<"\n"<<"\n"<<endl;
+            }
+
+            // Exit the program.
+            if (((answer=="EXIT")||(answer=="exit")) == 1)
+            {
+                // change flag value which will exit the loop
+                keepGoing = false;
+            }
+
+
+            /* the program will reach this case iff these conditions were true:
+                    user inputs a string instead of an integer
+                    the string was not to help
+                    string was not to exit the program
+
+            */
+
+
+            /* passes the string answer, searches for it in a list that contains all the commands and returns a Unique index that will be stored in "found"
+            / returns "-1" if the command was not found -Which means that the command was invalid-
+            this method handles Upper and Lower case commands!!
+            */
+
+            int found = findInCommandName(answer);
+
+            // Warning msg for the user to re-enter the command
+            if (found == -1 &&(answer != "EXIT")&&(answer != "exit")&&(answer != "help")&&(answer != "HELP")&&(answer != "h"))
+            {
+                cout << "You inputted an invalid Command, Please try again"<<"\n"<< "\n" << endl;
+
+            }
+            else
+            {
+                if (found !=-1 )
+                {
+                    // returns a command that has index "found+1"
+                    Command com = commandList.at(found+1);
+
+                    //call handleIndex with a valid integer
+                    handleIndex(found, commandList);
+                }
+            }
+
+
+
+        }
+
+    }
+
+    // only here to hold the execution file (.exe) and stops it from closing automatically
+    cin.get();
+
+    return 0;
+}
+
+
+
+vector<Command> initilizeCommandList()
+{
+
+    // declare a List that holds all the commands
+    vector <Command> commandList;
+
+
+
+
+
+    // initialize the List of commands that's going to be used throughout the whole program
+    for ( int i = 0 ; i < 60 ; i++)
+    {
+        Command temp = {commandName.at(i),descriptionList.at(i), i};
+        commandList.push_back(temp);
+    }
+
+    return commandList;
+
+}
+
+//Prints out a list of commands.
+void printListOfCommands(vector <Command> commandList)
+{
+    cout << "\n"<< "\n"<< "\n"<< "\n"<<  endl;
+    cout<<"---------------------------------------------------------------------------"<<endl;
+    for (int i = 0; i < 60 ; i++)
+    {
+
+        cout << commandList.at(i).getCommandNum()+1 << ") " <<commandList.at(i).getName()<< "\t" << "\t"<<
+             commandList.at(i).getDescription()<<endl;
+        cout<<"---------------------------------------------------------------------------"<<endl;
+    }
+}
+
+// takes a command that doesnt take any parameters or a command that is in "set" mode as an input, and outputs a ready command
+string finalizeCommand_NoParam (Command command)
+{
+    // starts with a "AT+ " then appends the command name then the tail
+    string finalCommand = "AT+";
+    finalCommand.append(command.getName());
+    finalCommand.append("<CR>");
+
+    return finalCommand;
+}
+
+// prints a single command
+void printACommand(Command command)
+{
+    cout << command.getCommandNum() << ") " <<command.getName()<< "\t" << "\t"<<
+         command.getDescription()<<endl;
+    cout<<"----------------------------------------------"<<endl;
+}
+
+// takes a command that takes parameters -Query mode- as an input, and outputs a ready command
+// takes a Command and a vector of strings as a parameters.
+
+string finalizeCommand_WithParam(Command command, vector <string> parameters)
+
+{
+    // starts with an empty string and gradually adds parameters; separating them with a comma ","
+
+    string commandBody = "";
+    for (int i = 0 ; i<parameters.size(); i++)
+    {
+        commandBody.append(parameters.at(i));
+
+        // Only adds a comma iff the parameter is not the final parameter in the list
+        // there to prevent a comma being added to the very last parameters Example: "AT+ VER=Address,Port,Data,<CR>"
+        if (i != parameters.size()-1)
+        {
+            commandBody.append(",");
+        }
+
+    }
+
+    //Builds the final command using the parameter body built in the last step
+    string finalCommand = "";
+    finalCommand.append("AT+");
+    finalCommand.append(command.getName());
+    finalCommand.append("=");
+    finalCommand.append(commandBody);
+    finalCommand.append("<CR>");
+
+    return finalCommand;
+
+
+}
+
+
+
+// an API intended for users who want to embed the code within their code
+// takes command number -Taken from the list (1-60)-, 'q' or 's' for Query or set respectively , and finally a list of parameters
+
+string API_ByCommandNumber(int commandNumber, char queryOrSet, vector <string> parameters)
+{
+
+    // the beginning of the command
+    string command = "AT+";
+
+    // check if the index exists in the list noParamCommands. which means check if this command needs parameters or not
+    if (std::find(noParamCommands.begin(), noParamCommands.end(), commandNumber) != noParamCommands.end())
+    {
+
+        // since command needs no Parameters, just append the name then the tail
+        command.append(commandName.at(commandNumber-1));
+
+        command.append("<CR>");
+
+        return command;
+    }
+    else
+    {
+        // check if this command is in Query or Set mode!
+        if (queryOrSet == 'q'||queryOrSet == 'Q')
+        {
+            // if command is in Query mode, just append the name then the tail
+            command.append(commandName.at(commandNumber-1));
+            command.append("<CR>");
+            return command;
+        }
+        else
+        {
+            // command is in Set mode, append the parameters list then finalize the function
+            command.append(commandName.at(commandNumber-1));
+            command.append("=");
+            for (int x = 0; x < parameters.size(); x++)
+            {
+
+                command.append(parameters.at(x));
+
+                // Only adds a comma iff the parameter is not the final parameter in the list
+                // there to prevent a comma being added to the very last parameters Example: "AT+ VER=Address,Port,Data,<CR>"
+                if (x != parameters.size()-1)
+                {
+                    command.append(",");
+                }
+            }
+
+            command.append("<CR>");
+            return command;
+
+
+        }
+
+    }
+
+
+}
+
+// an API intended for users who want to embed the code within their code
+string API_ByCommandName(string name, char queryOrSet, vector <string> parameters)
+{
+    // converts the string input ="CommandName" to an uppercase string just in case the user inputs a lowercase command
+    // for consistency purposes
+
+    name = convertToUppercase(name);
+
+
+    // check if command is in the list of commands valid
+    // returns -1 if command doesnt exist in list of commands
+    int index ;
+    index = findInVector (name, commandName);
+
+    // call the previous function by using the command index (aka. CommandNum) instead of the name.
+    return API_ByCommandNumber(index,queryOrSet, parameters);
+
+}
+
+// converts string to an Uppercase string
+string convertToUppercase(string lowercase)
+{
+    int i;
+
+    char str[1024];
+    strcpy(str, lowercase.c_str());
+
+
+    for(i=0; str[i]; i++)
+        str[i] = toupper(str[i]);
+    return str;
+}
+
+
+// searches for an "item" in vector, returns the index of that item if it exists
+// or -1 if item doesnt exist
+
+int findInVector (string item, vector <string> listOfItems)
+{
+    for (int x = 0; x<listOfItems.size(); x++ )
+    {
+        if (listOfItems.at(x)== item)
+        {
+            return x+1;
+        }
+    }
+    return -1;
+}
+
+    /*
+        called when user enters an integer index
+        outputs a ready command
+    */
+
+void handleIndex (int index, vector <Command> commandList )
+{
+
+    string readyCommand;
+
+
+    // if index is in "noParamCommands" or namely, commands that takes no parameters
+    if (std::find(noParamCommands.begin(), noParamCommands.end(), index) != noParamCommands.end())
+    {
+        //if command takes no parameters, just output a simple command
+        Command comm = commandList.at(index-1);
+        readyCommand = finalizeCommand_NoParam(comm);
+        cout << readyCommand<<"\n"<<"\n"<<"\n"<<endl;
+    }
+
+    else
+    {
+
+        Command comm = commandList.at(index-1);
+        char queryOrSet;
+
+        // Ask user if command is in set or query mode
+        cout << "\n" <<"Please choose one of the following:-" << "\n"<<" *) \"s\"  for set or," << "\n"<<" *) \"q\" for query."<< endl;
+
+        // save answer in variable then set command mode
+        cin >> queryOrSet;
+        comm.setQueryOrSet(queryOrSet);
+
+        // if command is in query mode, output a simple command (no parameters)
+        if (comm.getQueryOrSet()=='q' || comm.getQueryOrSet()=='Q')
+        {
+
+            readyCommand = finalizeCommand_NoParam(comm);
+            cout << readyCommand<<"\n"<<"\n"<<"\n"<<endl;
+        }
+
+
+        else
+        {   // flag to control the parameters loop
+            bool notDone = true;
+
+            // to save parameters
+            vector <string> parameters;
+
+            // user enters parameters one at a time, each time these parameters are going to be saved in vector
+            cout << "\n" << "Please enter your parameters one at a time, press \"Enter\" after each parameters. And input \"q\" when you are done"<<endl;
+
+            // temp variable to save user's answer
+            string answer;
+
+            // loop to obtain answers from user, if answer is q quit else keep obtaining parameters.
+            while(notDone)
+            {
+                cin >> answer;
+
+                if ((answer == "q")|| (answer == "Q"))
+                {
+                    notDone = false;
+                }
+                else
+                {
+                    parameters.push_back(answer);
+                }
+
+            }
+
+
+            // call the command that has commandNum = index
+            Command comm = commandList.at(index-1);
+
+            // after obtaining parameters, call "finalizeCommand_WithParam" and pass on command and parameters
+            string finalCommand = finalizeCommand_WithParam(comm, parameters);
+            cout<< "\n"<<finalCommand<<"\n"<<"\n"<< endl;
+
+
+
+
+
+
+
+        }
+
+
+
+    }
+
+
+
+
+}
+
+
+// searches for an "item" in CommandName, returns the index of that item if it exists
+// or -1 if item doesnt exist
+
+int findInCommandName (string name)
+{
+
+    name = convertToUppercase (name);
+    for (int x = 0; x<commandName.size(); x++ )
+    {
+        if (commandName.at(x)== name)
+        {
+            return x+1;
+        }
+    }
+    return -1;
+}
+
+
+// an API intended for users who want to embed the code within their code
+// just takes the command number and passes it on to the previous function
+string API_ByCommandNumber(int command)
+{
+    vector <string> dummy{""};
+   return API_ByCommandNumber(command+1,'d',dummy);
+}
+
+// an API intended for users who want to embed the code within their code
+// just takes the command name and passes it on to the previous function
+string API_ByCommandName(string command)
+{
+
+    vector <string> dummy {""};
+    return API_ByCommandName(command, 'd',dummy );
+}
