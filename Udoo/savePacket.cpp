@@ -17,6 +17,9 @@ int numberOfBytes = 11;
 //void savePacket(unsigned char saveArray[], std::ofstream& outF,bool verbosity)
 void savePacket(unsigned char saveArray[],bool verbosity,char *fName)
 {
+	ofstream outF;
+	outF.open(fName, std::ofstream::out | std::ofstream::app);
+
 	char printStr[999];
         for(int x=0; x <numberOfBytes ; x++)
     	{
@@ -42,7 +45,8 @@ void savePacket(unsigned char saveArray[],bool verbosity,char *fName)
 		}
 		else
         	sprintf(printStr,"\n");
-		//outF<<printStr;
+		outF<<printStr;
+		outF.close();
 }
 
 
