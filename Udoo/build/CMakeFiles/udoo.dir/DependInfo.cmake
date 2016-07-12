@@ -12,7 +12,6 @@ SET(CMAKE_DEPENDS_CHECK_CXX
   "/home/udooer/David/JY901sensor/Udoo/packetIdentifier2.cpp" "/home/udooer/David/JY901sensor/Udoo/build/CMakeFiles/udoo.dir/packetIdentifier2.cpp.o"
   "/home/udooer/David/JY901sensor/Udoo/processData.cpp" "/home/udooer/David/JY901sensor/Udoo/build/CMakeFiles/udoo.dir/processData.cpp.o"
   "/home/udooer/David/JY901sensor/Udoo/savePacket.cpp" "/home/udooer/David/JY901sensor/Udoo/build/CMakeFiles/udoo.dir/savePacket.cpp.o"
-  "/home/udooer/David/JY901sensor/Udoo/serialPort.cpp" "/home/udooer/David/JY901sensor/Udoo/build/CMakeFiles/udoo.dir/serialPort.cpp.o"
   "/home/udooer/David/JY901sensor/Udoo/timeOutput.cpp" "/home/udooer/David/JY901sensor/Udoo/build/CMakeFiles/udoo.dir/timeOutput.cpp.o"
   "/home/udooer/David/JY901sensor/Udoo/wgdaytime.cpp" "/home/udooer/David/JY901sensor/Udoo/build/CMakeFiles/udoo.dir/wgdaytime.cpp.o"
   )

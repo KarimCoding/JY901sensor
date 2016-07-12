@@ -1,27 +1,45 @@
 #include "consts.h"
 #include <string.h>
+#include <stdio.h>
+#include <stdlib.h>
+using namespace std;
 class dataStick
 {
     private:
         struct databuf{
-            unsigned char data[MAXBUFLEN];
-            char ip_addr[13];
-            char pkt_time[30];
+            unsigned char *data;//[MAXBUFLEN];
+            char ip_addr[20];
+            char pkt_time[40];
 
         };
 		databuf pkt;
     public:
 		int numbytes;
-        void passData(unsigned char (&sData)[MAXBUFLEN], char IPaddr[4],char time[35]){
-			memcpy(pkt.data,sData,sizeof(sData));
-            memcpy(pkt.ip_addr,IPaddr,4);
-			memcpy(pkt.pkt_time,time,35);
+		dataStick(){
+			numbytes=0;
+			pkt.data = new unsigned char[MAXBUFLEN]();
 		}
-        void getData(unsigned char (&pData)[MAXBUFLEN],char IPaddr[4],char time[35]){
-			memcpy(pData,pkt.data,sizeof(pkt.data));
-	        memcpy(IPaddr,pkt.ip_addr,4);
-            memcpy(time,pkt.pkt_time,35);
+		~dataStick(){
+/*			if(pkt.data)
+				delete[] pkt.data;*/
+		}
+        void passData(unsigned char (&sData)[MAXBUFLEN],char *IPaddr,char *time){
+
+			memcpy(pkt.data,sData,MAXBUFLEN);
+
+			// memcpy(pkt.ip_addr,IPaddr,strlen(IPaddr)+1);
+			strcpy(pkt.ip_addr,IPaddr);			
+			//memcpy(pkt.pkt_time,time,35);
+			strcpy(pkt.pkt_time,time);
+		}
+        void getData(unsigned char (&pData)[MAXBUFLEN], char *IPaddr,char *time){
+			memcpy(pData,pkt.data,MAXBUFLEN);
+			//memcpy(IPaddr,pkt.ip_addr,15);
+			strcpy(IPaddr,pkt.ip_addr);
+			strcpy(time,pkt.pkt_time);
 
 		}
+		void print_pkt(){
+			printf("data:%02u ip:%s time:%s \n",pkt.data[0],pkt.ip_addr,pkt.pkt_time); };
 };
 

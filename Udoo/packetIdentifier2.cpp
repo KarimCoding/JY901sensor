@@ -2,7 +2,7 @@
 // Function that identify the packets 
 //
 
-//#include <SerialStream.h>
+//#include <SerialStream.h>/*
 #include <iostream>
 #include <fstream>
 #include <iomanip>
@@ -15,10 +15,8 @@
 #include "checkSum.h"
 #include "savePacket.h"
 #include "timeOutput.h"
-#include "AngleOutput.h"
-
-using namespace std;
-
+#include "AngleOutput.h"*/
+#include "packetIdentifier2.h"
 #define NUMBER_OF_BYTES 11
 
 int i=0;
@@ -28,10 +26,11 @@ unsigned char saveArray[22]; // an array to save the packets in it
 unsigned char packetArray[22]; // an array to get the bytes coming from the sensor
 unsigned char sumCAC;
 
-void packetIdentifier2 (unsigned char uc, FILE *&outF, FILE *&badData,bool verbosity)
+//void packetIdentifier2 (unsigned char uc, std::ofstream& outF,bool verbosity,std::ofstream& badData)
+void packetIdentifier2 (unsigned char uc, bool verbosity,char *fName)
 {
     bool flagon(true); 
-    packetArray[i]= uc; // push the bytes coming from the sensor into the packetArray
+	 packetArray[i]= uc; // push the bytes coming from the sensor into the packetArray
     resultCheck =  checkPacket(packetArray,i); // call the function "checkPacket" which check for the packet's header
   
     if(resultCheck == true)   
@@ -59,22 +58,19 @@ void packetIdentifier2 (unsigned char uc, FILE *&outF, FILE *&badData,bool verbo
 
         // performing a check Sum
         if( checkSum(saveArray))
-        {
-            if(saveArray[1]==0x50 && verbosity)
-    	         timeOutput(saveArray,outF);
-            else if(saveArray[1] ==0x55 && verbosity)
-    	        AngleOutput(saveArray,outF);
-            else
-    	        savePacket(saveArray,outF);
-        }
-    
+//			savePacket(saveArray,std::ref(outF),verbosity);
+			 savePacket(saveArray,verbosity,fName);
+	    else{
+        	//write_bad_dat(std::ref(badData),saveArray);
+			write_bad_dat(saveArray);
+
+		}
     }   // End brace for if(result ...
     else{
-		/*badData = fopen("badData.txt","+a");
-        fprintf(badData,"%02x ",(int)uc);
-		fclose(badData);*/
-    } //End brace for else{
+			write_bad_dat(uc);
 
+//            write_bad_dat(std::ref(badData),uc);
+	}
     i=(i+1)%22;
 }
 

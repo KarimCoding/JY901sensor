@@ -18,22 +18,21 @@
 #include "dataPkt.h"
 #include "consts.h"
 #include "processData.h"
-
-void handleData(dataStick pkt, char fileName[30], FILE *output){
-	
-
+using namespace std;
+//void handleData(dataStick pkt, std::ofstream& outF, std::ofstream& badData){
+void handleData(dataStick pkt, char *fName){	
 	unsigned char data[MAXBUFLEN];
-	FILE *badD;
 	char ip_addr[4];
 	char time[35];
+	int numbytes = pkt.numbytes;
 	pkt.getData(data,ip_addr,time);
 	unsigned char uc;
-	output=fopen(fileName,"a+");
-	for(int ind = 0;ind < (pkt.numbytes);ind++)
+	printf("%s \n",data);
+	for(int ind = 0;ind < numbytes;ind++)
 	{
 		uc = data[ind];
-		packetIdentifier2(uc,output,badD,VERBOSITY);
+		//packetIdentifier2(uc,std::ref(outF),VERBOSITY,std::ref(badData));
+		packetIdentifier2(uc,VERBOSITY,fName);
+
 	}
-
-
 }	//End brace for handle

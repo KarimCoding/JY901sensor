@@ -2,7 +2,6 @@ FILE(REMOVE_RECURSE
   "CMakeFiles/udoo.dir/Udoo.cpp.o"
   "CMakeFiles/udoo.dir/listener.cpp.o"
   "CMakeFiles/udoo.dir/processData.cpp.o"
-  "CMakeFiles/udoo.dir/serialPort.cpp.o"
   "CMakeFiles/udoo.dir/packetIdentifier2.cpp.o"
   "CMakeFiles/udoo.dir/checkPacket.cpp.o"
   "CMakeFiles/udoo.dir/checkSum.cpp.o"

@@ -52,7 +52,7 @@ class wifi
 	public:
         volatile sig_atomic_t done = 0;
 		void term(int signum);
-		int listener(dataStick data);
+		int listener(dataStick &data);
 
 		
 

@@ -52,3 +52,57 @@ make[1]: *** [cmTryCompileExec3997372508] Error 1
 make: *** [cmTryCompileExec3997372508/fast] Error 2
 
 
+Determining if the pthread_create exist failed with the following output:
+Change Dir: /home/udooer/David/JY901sensor/Udoo/build/bin/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec417589736/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec417589736.dir/build.make CMakeFiles/cmTryCompileExec417589736.dir/build
+make[1]: Entering directory `/home/udooer/David/JY901sensor/Udoo/build/bin/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/udooer/David/JY901sensor/Udoo/build/bin/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec417589736.dir/CheckSymbolExists.c.o
+/usr/bin/cc    -o CMakeFiles/cmTryCompileExec417589736.dir/CheckSymbolExists.c.o   -c /home/udooer/David/JY901sensor/Udoo/build/bin/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTryCompileExec417589736
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec417589736.dir/link.txt --verbose=1
+/usr/bin/cc       CMakeFiles/cmTryCompileExec417589736.dir/CheckSymbolExists.c.o  -o cmTryCompileExec417589736 -rdynamic 
+CMakeFiles/cmTryCompileExec417589736.dir/CheckSymbolExists.c.o: In function `main':
+CheckSymbolExists.c:(.text+0xe): undefined reference to `pthread_create'
+CheckSymbolExists.c:(.text+0x12): undefined reference to `pthread_create'
+collect2: error: ld returned 1 exit status
+make[1]: Leaving directory `/home/udooer/David/JY901sensor/Udoo/build/bin/CMakeFiles/CMakeTmp'
+make[1]: *** [cmTryCompileExec417589736] Error 1
+make: *** [cmTryCompileExec417589736/fast] Error 2
+
+File /home/udooer/David/JY901sensor/Udoo/build/bin/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <pthread.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef pthread_create
+  return ((int*)(&pthread_create))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /home/udooer/David/JY901sensor/Udoo/build/bin/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec2345805642/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec2345805642.dir/build.make CMakeFiles/cmTryCompileExec2345805642.dir/build
+make[1]: Entering directory `/home/udooer/David/JY901sensor/Udoo/build/bin/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/udooer/David/JY901sensor/Udoo/build/bin/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec2345805642.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTryCompileExec2345805642.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-2.8/Modules/CheckFunctionExists.c
+Linking C executable cmTryCompileExec2345805642
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec2345805642.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTryCompileExec2345805642.dir/CheckFunctionExists.c.o  -o cmTryCompileExec2345805642 -rdynamic -lpthreads 
+/usr/bin/ld: cannot find -lpthreads
+collect2: error: ld returned 1 exit status
+make[1]: Leaving directory `/home/udooer/David/JY901sensor/Udoo/build/bin/CMakeFiles/CMakeTmp'
+make[1]: *** [cmTryCompileExec2345805642] Error 1
+make: *** [cmTryCompileExec2345805642/fast] Error 2
+
+

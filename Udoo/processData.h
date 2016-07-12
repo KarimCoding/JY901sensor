@@ -1,2 +1,4 @@
 
-void handleData(dataStick pkt, char filename[30], FILE *output);
+//void handleData(dataStick pkt, std::ofstream& outF,std::ofstream& badData);
+void handleData(dataStick pkt, char *fName);
+

@@ -303,30 +303,6 @@ savePacket.cpp.s:
 	$(MAKE) -f CMakeFiles/udoo.dir/build.make CMakeFiles/udoo.dir/savePacket.cpp.s
 .PHONY : savePacket.cpp.s
 
-serialPort.o: serialPort.cpp.o
-.PHONY : serialPort.o
-
-# target to build an object file
-serialPort.cpp.o:
-	$(MAKE) -f CMakeFiles/udoo.dir/build.make CMakeFiles/udoo.dir/serialPort.cpp.o
-.PHONY : serialPort.cpp.o
-
-serialPort.i: serialPort.cpp.i
-.PHONY : serialPort.i
-
-# target to preprocess a source file
-serialPort.cpp.i:
-	$(MAKE) -f CMakeFiles/udoo.dir/build.make CMakeFiles/udoo.dir/serialPort.cpp.i
-.PHONY : serialPort.cpp.i
-
-serialPort.s: serialPort.cpp.s
-.PHONY : serialPort.s
-
-# target to generate assembly for a file
-serialPort.cpp.s:
-	$(MAKE) -f CMakeFiles/udoo.dir/build.make CMakeFiles/udoo.dir/serialPort.cpp.s
-.PHONY : serialPort.cpp.s
-
 timeOutput.o: timeOutput.cpp.o
 .PHONY : timeOutput.o
 
@@ -408,9 +384,6 @@ help:
 	@echo "... savePacket.o"
 	@echo "... savePacket.i"
 	@echo "... savePacket.s"
-	@echo "... serialPort.o"
-	@echo "... serialPort.i"
-	@echo "... serialPort.s"
 	@echo "... timeOutput.o"
 	@echo "... timeOutput.i"
 	@echo "... timeOutput.s"

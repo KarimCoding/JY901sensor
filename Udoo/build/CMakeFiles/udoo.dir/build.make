@@ -118,32 +118,9 @@ CMakeFiles/udoo.dir/processData.cpp.o.provides: CMakeFiles/udoo.dir/processData.
 
 CMakeFiles/udoo.dir/processData.cpp.o.provides.build: CMakeFiles/udoo.dir/processData.cpp.o
 
-CMakeFiles/udoo.dir/serialPort.cpp.o: CMakeFiles/udoo.dir/flags.make
-CMakeFiles/udoo.dir/serialPort.cpp.o: ../serialPort.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/udooer/David/JY901sensor/Udoo/build/CMakeFiles $(CMAKE_PROGRESS_4)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/udoo.dir/serialPort.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/udoo.dir/serialPort.cpp.o -c /home/udooer/David/JY901sensor/Udoo/serialPort.cpp
-
-CMakeFiles/udoo.dir/serialPort.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/udoo.dir/serialPort.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/udooer/David/JY901sensor/Udoo/serialPort.cpp > CMakeFiles/udoo.dir/serialPort.cpp.i
-
-CMakeFiles/udoo.dir/serialPort.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/udoo.dir/serialPort.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/udooer/David/JY901sensor/Udoo/serialPort.cpp -o CMakeFiles/udoo.dir/serialPort.cpp.s
-
-CMakeFiles/udoo.dir/serialPort.cpp.o.requires:
-.PHONY : CMakeFiles/udoo.dir/serialPort.cpp.o.requires
-
-CMakeFiles/udoo.dir/serialPort.cpp.o.provides: CMakeFiles/udoo.dir/serialPort.cpp.o.requires
-	$(MAKE) -f CMakeFiles/udoo.dir/build.make CMakeFiles/udoo.dir/serialPort.cpp.o.provides.build
-.PHONY : CMakeFiles/udoo.dir/serialPort.cpp.o.provides
-
-CMakeFiles/udoo.dir/serialPort.cpp.o.provides.build: CMakeFiles/udoo.dir/serialPort.cpp.o
-
 CMakeFiles/udoo.dir/packetIdentifier2.cpp.o: CMakeFiles/udoo.dir/flags.make
 CMakeFiles/udoo.dir/packetIdentifier2.cpp.o: ../packetIdentifier2.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/udooer/David/JY901sensor/Udoo/build/CMakeFiles $(CMAKE_PROGRESS_5)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/udooer/David/JY901sensor/Udoo/build/CMakeFiles $(CMAKE_PROGRESS_4)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/udoo.dir/packetIdentifier2.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/udoo.dir/packetIdentifier2.cpp.o -c /home/udooer/David/JY901sensor/Udoo/packetIdentifier2.cpp
 
@@ -166,7 +143,7 @@ CMakeFiles/udoo.dir/packetIdentifier2.cpp.o.provides.build: CMakeFiles/udoo.dir/
 
 CMakeFiles/udoo.dir/checkPacket.cpp.o: CMakeFiles/udoo.dir/flags.make
 CMakeFiles/udoo.dir/checkPacket.cpp.o: ../checkPacket.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/udooer/David/JY901sensor/Udoo/build/CMakeFiles $(CMAKE_PROGRESS_6)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/udooer/David/JY901sensor/Udoo/build/CMakeFiles $(CMAKE_PROGRESS_5)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/udoo.dir/checkPacket.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/udoo.dir/checkPacket.cpp.o -c /home/udooer/David/JY901sensor/Udoo/checkPacket.cpp
 
@@ -189,7 +166,7 @@ CMakeFiles/udoo.dir/checkPacket.cpp.o.provides.build: CMakeFiles/udoo.dir/checkP
 
 CMakeFiles/udoo.dir/checkSum.cpp.o: CMakeFiles/udoo.dir/flags.make
 CMakeFiles/udoo.dir/checkSum.cpp.o: ../checkSum.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/udooer/David/JY901sensor/Udoo/build/CMakeFiles $(CMAKE_PROGRESS_7)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/udooer/David/JY901sensor/Udoo/build/CMakeFiles $(CMAKE_PROGRESS_6)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/udoo.dir/checkSum.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/udoo.dir/checkSum.cpp.o -c /home/udooer/David/JY901sensor/Udoo/checkSum.cpp
 
@@ -212,7 +189,7 @@ CMakeFiles/udoo.dir/checkSum.cpp.o.provides.build: CMakeFiles/udoo.dir/checkSum.
 
 CMakeFiles/udoo.dir/savePacket.cpp.o: CMakeFiles/udoo.dir/flags.make
 CMakeFiles/udoo.dir/savePacket.cpp.o: ../savePacket.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/udooer/David/JY901sensor/Udoo/build/CMakeFiles $(CMAKE_PROGRESS_8)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/udooer/David/JY901sensor/Udoo/build/CMakeFiles $(CMAKE_PROGRESS_7)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/udoo.dir/savePacket.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/udoo.dir/savePacket.cpp.o -c /home/udooer/David/JY901sensor/Udoo/savePacket.cpp
 
@@ -235,7 +212,7 @@ CMakeFiles/udoo.dir/savePacket.cpp.o.provides.build: CMakeFiles/udoo.dir/savePac
 
 CMakeFiles/udoo.dir/timeOutput.cpp.o: CMakeFiles/udoo.dir/flags.make
 CMakeFiles/udoo.dir/timeOutput.cpp.o: ../timeOutput.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/udooer/David/JY901sensor/Udoo/build/CMakeFiles $(CMAKE_PROGRESS_9)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/udooer/David/JY901sensor/Udoo/build/CMakeFiles $(CMAKE_PROGRESS_8)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/udoo.dir/timeOutput.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/udoo.dir/timeOutput.cpp.o -c /home/udooer/David/JY901sensor/Udoo/timeOutput.cpp
 
@@ -258,7 +235,7 @@ CMakeFiles/udoo.dir/timeOutput.cpp.o.provides.build: CMakeFiles/udoo.dir/timeOut
 
 CMakeFiles/udoo.dir/AngleOutput.cpp.o: CMakeFiles/udoo.dir/flags.make
 CMakeFiles/udoo.dir/AngleOutput.cpp.o: ../AngleOutput.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/udooer/David/JY901sensor/Udoo/build/CMakeFiles $(CMAKE_PROGRESS_10)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/udooer/David/JY901sensor/Udoo/build/CMakeFiles $(CMAKE_PROGRESS_9)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/udoo.dir/AngleOutput.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/udoo.dir/AngleOutput.cpp.o -c /home/udooer/David/JY901sensor/Udoo/AngleOutput.cpp
 
@@ -281,7 +258,7 @@ CMakeFiles/udoo.dir/AngleOutput.cpp.o.provides.build: CMakeFiles/udoo.dir/AngleO
 
 CMakeFiles/udoo.dir/wgdaytime.cpp.o: CMakeFiles/udoo.dir/flags.make
 CMakeFiles/udoo.dir/wgdaytime.cpp.o: ../wgdaytime.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/udooer/David/JY901sensor/Udoo/build/CMakeFiles $(CMAKE_PROGRESS_11)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/udooer/David/JY901sensor/Udoo/build/CMakeFiles $(CMAKE_PROGRESS_10)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/udoo.dir/wgdaytime.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/udoo.dir/wgdaytime.cpp.o -c /home/udooer/David/JY901sensor/Udoo/wgdaytime.cpp
 
@@ -307,7 +284,6 @@ udoo_OBJECTS = \
 "CMakeFiles/udoo.dir/Udoo.cpp.o" \
 "CMakeFiles/udoo.dir/listener.cpp.o" \
 "CMakeFiles/udoo.dir/processData.cpp.o" \
-"CMakeFiles/udoo.dir/serialPort.cpp.o" \
 "CMakeFiles/udoo.dir/packetIdentifier2.cpp.o" \
 "CMakeFiles/udoo.dir/checkPacket.cpp.o" \
 "CMakeFiles/udoo.dir/checkSum.cpp.o" \
@@ -322,7 +298,6 @@ udoo_EXTERNAL_OBJECTS =
 bin/udoo: CMakeFiles/udoo.dir/Udoo.cpp.o
 bin/udoo: CMakeFiles/udoo.dir/listener.cpp.o
 bin/udoo: CMakeFiles/udoo.dir/processData.cpp.o
-bin/udoo: CMakeFiles/udoo.dir/serialPort.cpp.o
 bin/udoo: CMakeFiles/udoo.dir/packetIdentifier2.cpp.o
 bin/udoo: CMakeFiles/udoo.dir/checkPacket.cpp.o
 bin/udoo: CMakeFiles/udoo.dir/checkSum.cpp.o
@@ -342,7 +317,6 @@ CMakeFiles/udoo.dir/build: bin/udoo
 CMakeFiles/udoo.dir/requires: CMakeFiles/udoo.dir/Udoo.cpp.o.requires
 CMakeFiles/udoo.dir/requires: CMakeFiles/udoo.dir/listener.cpp.o.requires
 CMakeFiles/udoo.dir/requires: CMakeFiles/udoo.dir/processData.cpp.o.requires
-CMakeFiles/udoo.dir/requires: CMakeFiles/udoo.dir/serialPort.cpp.o.requires
 CMakeFiles/udoo.dir/requires: CMakeFiles/udoo.dir/packetIdentifier2.cpp.o.requires
 CMakeFiles/udoo.dir/requires: CMakeFiles/udoo.dir/checkPacket.cpp.o.requires
 CMakeFiles/udoo.dir/requires: CMakeFiles/udoo.dir/checkSum.cpp.o.requires

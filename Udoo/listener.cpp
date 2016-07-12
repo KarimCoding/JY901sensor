@@ -14,11 +14,12 @@ void *get_in_addr(struct sockaddr *sa)
     return &(((struct sockaddr_in6*)sa)->sin6_addr);
 }
 
-int wifi::listener(dataStick pkt)
+int wifi::listener(dataStick &pkt)
 {
-	char time[35];
-	char ip[4];
-	char usec[5];
+
+	char time[35] = {};
+	char *ip;
+	char usec[5] = {};
     struct timeval tv;
     time_t curtime;
 
@@ -48,7 +49,6 @@ int wifi::listener(dataStick pkt)
     //Continually listen for socket connections
   //  while(!done){
 //	while(1){
-		printf("inside list	\n");
         if ((rv = getaddrinfo(NULL, MYPORT, &hints, &servinfo)) != 0) {
             fprintf(stderr, "getaddrinfo: %s\n", gai_strerror(rv));
          return 1;
@@ -79,32 +79,23 @@ int wifi::listener(dataStick pkt)
                 (struct sockaddr *)&their_addr, &addr_len)) == -1) {
             exit(1);
         }
-
         printf("listener: got packet from %s\n",
                 inet_ntop(their_addr.ss_family,
                     get_in_addr((struct sockaddr *)&their_addr),
                         s, sizeof s));
-
-
-        memcpy(ip,inet_ntop(their_addr.ss_family,
-                    get_in_addr((struct sockaddr *)&their_addr),
-                        s, sizeof s),sizeof s);
         //oepn stream once a connection has been established
         buf[pkt.numbytes] = '\0';
 		close(sockfd);
 
-		printf("going to pass data \n");
 	 	gettimeofday(&tv, NULL); 
         curtime=tv.tv_sec;
 		strftime(time,30,"%T",localtime(&curtime));
 		sprintf(usec, "%ld", tv.tv_usec);
 		strcat(time,usec);
-		printf("before pass: %s\n",buf);
-		pkt.passData(buf, ip,time );
-		printf("Data passed \n");
-    //    close(sockfd);
-        printf("closed socket \n");
+		pkt.passData(buf,s,time );
+
 //    }// End brace for while loop
 	return pkt.numbytes;
 }   //End brace for main()
+
 

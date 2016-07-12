@@ -6,20 +6,6 @@
 
 #IncludeRegexTransform: 
 
-/home/udooer/David/JY901sensor/Udoo/AngleOutput.cpp
-iostream
--
-fstream
--
-iomanip
--
-unistd.h
--
-cstdlib
--
-new
--
-
 /home/udooer/David/JY901sensor/Udoo/AngleOutput.h
 
 /home/udooer/David/JY901sensor/Udoo/Udoo.cpp
@@ -29,49 +15,27 @@ listener.h
 /home/udooer/David/JY901sensor/Udoo/listener.h
 processData.h
 /home/udooer/David/JY901sensor/Udoo/processData.h
-
-/home/udooer/David/JY901sensor/Udoo/checkPacket.cpp
 iostream
 -
 fstream
--
-iomanip
--
-unistd.h
--
-cstdlib
--
-new
 -
 
 /home/udooer/David/JY901sensor/Udoo/checkPacket.h
 
-/home/udooer/David/JY901sensor/Udoo/checkSum.cpp
-iostream
--
-fstream
--
-iomanip
--
-unistd.h
--
-cstdlib
--
-new
--
-algorithm
--
-iterator
--
-
 /home/udooer/David/JY901sensor/Udoo/checkSum.h
 
 /home/udooer/David/JY901sensor/Udoo/consts.h
+mutex
+-
 
 /home/udooer/David/JY901sensor/Udoo/dataPkt.h
 consts.h
 /home/udooer/David/JY901sensor/Udoo/consts.h
 string.h
+-
+stdio.h
+-
+stdlib.h
 -
 
 /home/udooer/David/JY901sensor/Udoo/listener.cpp
@@ -130,7 +94,7 @@ dataPkt.h
 consts.h
 /home/udooer/David/JY901sensor/Udoo/consts.h
 
-/home/udooer/David/JY901sensor/Udoo/packetIdentifier2.cpp
+/home/udooer/David/JY901sensor/Udoo/packetIdentifier2.h
 iostream
 -
 fstream
@@ -157,8 +121,6 @@ timeOutput.h
 /home/udooer/David/JY901sensor/Udoo/timeOutput.h
 AngleOutput.h
 /home/udooer/David/JY901sensor/Udoo/AngleOutput.h
-
-/home/udooer/David/JY901sensor/Udoo/packetIdentifier2.h
 
 /home/udooer/David/JY901sensor/Udoo/processData.cpp
 errno.h
@@ -202,69 +164,7 @@ processData.h
 
 /home/udooer/David/JY901sensor/Udoo/processData.h
 
-/home/udooer/David/JY901sensor/Udoo/savePacket.cpp
-iostream
--
-fstream
--
-iomanip
--
-unistd.h
--
-cstdlib
--
-iterator
--
-
 /home/udooer/David/JY901sensor/Udoo/savePacket.h
 
-/home/udooer/David/JY901sensor/Udoo/serialPort.cpp
-boost/circular_buffer.hpp
--
-SerialStream.h
--
-iostream
--
-fstream
--
-iomanip
--
-unistd.h
--
-cstdlib
--
-new
--
-packetIdentifier2.h
-/home/udooer/David/JY901sensor/Udoo/packetIdentifier2.h
-
-/home/udooer/David/JY901sensor/Udoo/timeOutput.cpp
-iostream
--
-fstream
--
-iomanip
--
-unistd.h
--
-cstdlib
--
-new
--
-sys/time.h
--
-time.h
--
-stdlib.h
--
-stdio.h
--
-
 /home/udooer/David/JY901sensor/Udoo/timeOutput.h
-
-/home/udooer/David/JY901sensor/Udoo/wgdaytime.cpp
-sys/time.h
--
-unistd.h
--
 

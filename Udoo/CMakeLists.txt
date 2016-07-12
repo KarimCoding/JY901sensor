@@ -18,7 +18,7 @@ SET(CMAKE_CXX_FLAGS ${CMAKE_CXX_FLAGS} "-std=c++11 -pthread")
 
 find_package (Threads)
 
-add_executable (udoo Udoo.cpp listener.cpp listener.h processData.cpp processData.h dataPkt.h consts.h serialPort.cpp serialPort.h packetIdentifier2.cpp packetIdentifier2.h checkPacket.cpp checkPacket.h checkSum.cpp checkSum.h savePacket.cpp savePacket.h timeOutput.cpp timeOutput.h AngleOutput.cpp AngleOutput.h wgdaytime.cpp wgdaytime.h)
+add_executable (udoo Udoo.cpp listener.cpp listener.h processData.cpp processData.h dataPkt.h consts.h packetIdentifier2.cpp packetIdentifier2.h checkPacket.cpp checkPacket.h checkSum.cpp checkSum.h savePacket.cpp savePacket.h timeOutput.cpp timeOutput.h AngleOutput.cpp AngleOutput.h wgdaytime.cpp wgdaytime.h)
 #add_executable (udoo dumpFiles.cpp serialPort.cpp consts.h serialPort.h packetIdentifier2.cpp packetIdentifier2.h checkPacket.cpp checkPacket.h checkSum.cpp checkSum.h savePacket.cpp savePacket.h timeOutput.cpp timeOutput.h AngleOutput.cpp AngleOutput.h wgdaytime.cpp wgdaytime.h)
 
 target_link_libraries(udoo serial)
