@@ -30,10 +30,12 @@ void savePacket(unsigned char saveArray[], std::ofstream& outF)
 		
     	}
 		outF<<printStr;
-		if(saveArray[1] ==0x51 && VERBOSITY)
+		if(saveArray[1] ==0x50 && VERBOSITY){
 			sprintf(printStr,"\t20%d/%d/%d  %02d:%02d:%02d:%03d\n",(int)(saveArray[2]),(int)(saveArray[3]),(int)saveArray[4],(int)saveArray[5],(int)saveArray[6],(int)saveArray[7],(saveArray[9]<<8)|saveArray[8]); 
+			printf("\t20%d/%d/%d  %02d:%02d:%02d:%03d\n",(int)(saveArray[2]),(int)(saveArray[3]),(int)saveArray[4],(int)saveArray[5],(int)saveArray[6],(int)saveArray[7],(saveArray[9]<<8)|saveArray[8]); 
 
-        else if(saveArray[1] ==0x55 && VERBOSITY) {
+	}
+        else if(saveArray[1] ==0x53 && VERBOSITY) {
 			double roll;
 			double pitch;
 			double yaw;
