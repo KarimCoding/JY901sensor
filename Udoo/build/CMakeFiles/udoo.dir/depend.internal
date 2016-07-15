@@ -3,18 +3,6 @@
 
 CMakeFiles/udoo.dir/AngleOutput.cpp.o
  /home/udooer/David/JY901sensor/Udoo/AngleOutput.cpp
-CMakeFiles/udoo.dir/Udoo.cpp.o
- /home/udooer/David/JY901sensor/Udoo/AngleOutput.h
- /home/udooer/David/JY901sensor/Udoo/Udoo.cpp
- /home/udooer/David/JY901sensor/Udoo/checkPacket.h
- /home/udooer/David/JY901sensor/Udoo/checkSum.h
- /home/udooer/David/JY901sensor/Udoo/consts.h
- /home/udooer/David/JY901sensor/Udoo/dataPkt.h
- /home/udooer/David/JY901sensor/Udoo/listener.h
- /home/udooer/David/JY901sensor/Udoo/packetIdentifier2.h
- /home/udooer/David/JY901sensor/Udoo/processData.h
- /home/udooer/David/JY901sensor/Udoo/savePacket.h
- /home/udooer/David/JY901sensor/Udoo/timeOutput.h
 CMakeFiles/udoo.dir/checkPacket.cpp.o
  /home/udooer/David/JY901sensor/Udoo/checkPacket.cpp
 CMakeFiles/udoo.dir/checkSum.cpp.o
@@ -28,6 +16,18 @@ CMakeFiles/udoo.dir/listener.cpp.o
  /home/udooer/David/JY901sensor/Udoo/listener.cpp
  /home/udooer/David/JY901sensor/Udoo/listener.h
  /home/udooer/David/JY901sensor/Udoo/packetIdentifier2.h
+ /home/udooer/David/JY901sensor/Udoo/savePacket.h
+ /home/udooer/David/JY901sensor/Udoo/timeOutput.h
+CMakeFiles/udoo.dir/mail.cpp.o
+ /home/udooer/David/JY901sensor/Udoo/AngleOutput.h
+ /home/udooer/David/JY901sensor/Udoo/checkPacket.h
+ /home/udooer/David/JY901sensor/Udoo/checkSum.h
+ /home/udooer/David/JY901sensor/Udoo/consts.h
+ /home/udooer/David/JY901sensor/Udoo/dataPkt.h
+ /home/udooer/David/JY901sensor/Udoo/listener.h
+ /home/udooer/David/JY901sensor/Udoo/mail.cpp
+ /home/udooer/David/JY901sensor/Udoo/packetIdentifier2.h
+ /home/udooer/David/JY901sensor/Udoo/processData.h
  /home/udooer/David/JY901sensor/Udoo/savePacket.h
  /home/udooer/David/JY901sensor/Udoo/timeOutput.h
 CMakeFiles/udoo.dir/packetIdentifier2.cpp.o

@@ -135,30 +135,6 @@ AngleOutput.cpp.s:
 	$(MAKE) -f CMakeFiles/udoo.dir/build.make CMakeFiles/udoo.dir/AngleOutput.cpp.s
 .PHONY : AngleOutput.cpp.s
 
-Udoo.o: Udoo.cpp.o
-.PHONY : Udoo.o
-
-# target to build an object file
-Udoo.cpp.o:
-	$(MAKE) -f CMakeFiles/udoo.dir/build.make CMakeFiles/udoo.dir/Udoo.cpp.o
-.PHONY : Udoo.cpp.o
-
-Udoo.i: Udoo.cpp.i
-.PHONY : Udoo.i
-
-# target to preprocess a source file
-Udoo.cpp.i:
-	$(MAKE) -f CMakeFiles/udoo.dir/build.make CMakeFiles/udoo.dir/Udoo.cpp.i
-.PHONY : Udoo.cpp.i
-
-Udoo.s: Udoo.cpp.s
-.PHONY : Udoo.s
-
-# target to generate assembly for a file
-Udoo.cpp.s:
-	$(MAKE) -f CMakeFiles/udoo.dir/build.make CMakeFiles/udoo.dir/Udoo.cpp.s
-.PHONY : Udoo.cpp.s
-
 checkPacket.o: checkPacket.cpp.o
 .PHONY : checkPacket.o
 
@@ -230,6 +206,30 @@ listener.s: listener.cpp.s
 listener.cpp.s:
 	$(MAKE) -f CMakeFiles/udoo.dir/build.make CMakeFiles/udoo.dir/listener.cpp.s
 .PHONY : listener.cpp.s
+
+mail.o: mail.cpp.o
+.PHONY : mail.o
+
+# target to build an object file
+mail.cpp.o:
+	$(MAKE) -f CMakeFiles/udoo.dir/build.make CMakeFiles/udoo.dir/mail.cpp.o
+.PHONY : mail.cpp.o
+
+mail.i: mail.cpp.i
+.PHONY : mail.i
+
+# target to preprocess a source file
+mail.cpp.i:
+	$(MAKE) -f CMakeFiles/udoo.dir/build.make CMakeFiles/udoo.dir/mail.cpp.i
+.PHONY : mail.cpp.i
+
+mail.s: mail.cpp.s
+.PHONY : mail.s
+
+# target to generate assembly for a file
+mail.cpp.s:
+	$(MAKE) -f CMakeFiles/udoo.dir/build.make CMakeFiles/udoo.dir/mail.cpp.s
+.PHONY : mail.cpp.s
 
 packetIdentifier2.o: packetIdentifier2.cpp.o
 .PHONY : packetIdentifier2.o
@@ -363,9 +363,6 @@ help:
 	@echo "... AngleOutput.o"
 	@echo "... AngleOutput.i"
 	@echo "... AngleOutput.s"
-	@echo "... Udoo.o"
-	@echo "... Udoo.i"
-	@echo "... Udoo.s"
 	@echo "... checkPacket.o"
 	@echo "... checkPacket.i"
 	@echo "... checkPacket.s"
@@ -375,6 +372,9 @@ help:
 	@echo "... listener.o"
 	@echo "... listener.i"
 	@echo "... listener.s"
+	@echo "... mail.o"
+	@echo "... mail.i"
+	@echo "... mail.s"
 	@echo "... packetIdentifier2.o"
 	@echo "... packetIdentifier2.i"
 	@echo "... packetIdentifier2.s"

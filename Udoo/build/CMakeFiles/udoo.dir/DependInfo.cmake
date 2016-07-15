@@ -5,10 +5,10 @@ SET(CMAKE_DEPENDS_LANGUAGES
 # The set of files for implicit dependencies of each language:
 SET(CMAKE_DEPENDS_CHECK_CXX
   "/home/udooer/David/JY901sensor/Udoo/AngleOutput.cpp" "/home/udooer/David/JY901sensor/Udoo/build/CMakeFiles/udoo.dir/AngleOutput.cpp.o"
-  "/home/udooer/David/JY901sensor/Udoo/Udoo.cpp" "/home/udooer/David/JY901sensor/Udoo/build/CMakeFiles/udoo.dir/Udoo.cpp.o"
   "/home/udooer/David/JY901sensor/Udoo/checkPacket.cpp" "/home/udooer/David/JY901sensor/Udoo/build/CMakeFiles/udoo.dir/checkPacket.cpp.o"
   "/home/udooer/David/JY901sensor/Udoo/checkSum.cpp" "/home/udooer/David/JY901sensor/Udoo/build/CMakeFiles/udoo.dir/checkSum.cpp.o"
   "/home/udooer/David/JY901sensor/Udoo/listener.cpp" "/home/udooer/David/JY901sensor/Udoo/build/CMakeFiles/udoo.dir/listener.cpp.o"
+  "/home/udooer/David/JY901sensor/Udoo/mail.cpp" "/home/udooer/David/JY901sensor/Udoo/build/CMakeFiles/udoo.dir/mail.cpp.o"
   "/home/udooer/David/JY901sensor/Udoo/packetIdentifier2.cpp" "/home/udooer/David/JY901sensor/Udoo/build/CMakeFiles/udoo.dir/packetIdentifier2.cpp.o"
   "/home/udooer/David/JY901sensor/Udoo/processData.cpp" "/home/udooer/David/JY901sensor/Udoo/build/CMakeFiles/udoo.dir/processData.cpp.o"
   "/home/udooer/David/JY901sensor/Udoo/savePacket.cpp" "/home/udooer/David/JY901sensor/Udoo/build/CMakeFiles/udoo.dir/savePacket.cpp.o"

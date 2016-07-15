@@ -26,13 +26,13 @@ void handleData(dataStick& pkt,std::ofstream& outF, std::ofstream& badD){
 //    outF.open(fName, std::ofstream::out | std::ofstream::app);
 
 	unsigned char data[MAXBUFLEN];
-	char ip_addr[4];
-	char times[35];
+	char ip_addr[14];
+	char times[36];
 	int numbytes = pkt.numbytes;
 	pkt.getData(data,ip_addr,times);
 	unsigned char uc;
-	printf("Handle Dat: %s \n",data);
 	outF<<"Data from "<<ip_addr<<" @ "<<times<<endl;
+//	printf("ip: %s,time %s \n", ip_addr,times);
 	for(int ind = 0;ind < numbytes;ind++)
 	{
 		uc = data[ind];

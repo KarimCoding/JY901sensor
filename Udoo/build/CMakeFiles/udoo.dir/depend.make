@@ -3,18 +3,6 @@
 
 CMakeFiles/udoo.dir/AngleOutput.cpp.o: ../AngleOutput.cpp
 
-CMakeFiles/udoo.dir/Udoo.cpp.o: ../AngleOutput.h
-CMakeFiles/udoo.dir/Udoo.cpp.o: ../Udoo.cpp
-CMakeFiles/udoo.dir/Udoo.cpp.o: ../checkPacket.h
-CMakeFiles/udoo.dir/Udoo.cpp.o: ../checkSum.h
-CMakeFiles/udoo.dir/Udoo.cpp.o: ../consts.h
-CMakeFiles/udoo.dir/Udoo.cpp.o: ../dataPkt.h
-CMakeFiles/udoo.dir/Udoo.cpp.o: ../listener.h
-CMakeFiles/udoo.dir/Udoo.cpp.o: ../packetIdentifier2.h
-CMakeFiles/udoo.dir/Udoo.cpp.o: ../processData.h
-CMakeFiles/udoo.dir/Udoo.cpp.o: ../savePacket.h
-CMakeFiles/udoo.dir/Udoo.cpp.o: ../timeOutput.h
-
 CMakeFiles/udoo.dir/checkPacket.cpp.o: ../checkPacket.cpp
 
 CMakeFiles/udoo.dir/checkSum.cpp.o: ../checkSum.cpp
@@ -29,6 +17,18 @@ CMakeFiles/udoo.dir/listener.cpp.o: ../listener.h
 CMakeFiles/udoo.dir/listener.cpp.o: ../packetIdentifier2.h
 CMakeFiles/udoo.dir/listener.cpp.o: ../savePacket.h
 CMakeFiles/udoo.dir/listener.cpp.o: ../timeOutput.h
+
+CMakeFiles/udoo.dir/mail.cpp.o: ../AngleOutput.h
+CMakeFiles/udoo.dir/mail.cpp.o: ../checkPacket.h
+CMakeFiles/udoo.dir/mail.cpp.o: ../checkSum.h
+CMakeFiles/udoo.dir/mail.cpp.o: ../consts.h
+CMakeFiles/udoo.dir/mail.cpp.o: ../dataPkt.h
+CMakeFiles/udoo.dir/mail.cpp.o: ../listener.h
+CMakeFiles/udoo.dir/mail.cpp.o: ../mail.cpp
+CMakeFiles/udoo.dir/mail.cpp.o: ../packetIdentifier2.h
+CMakeFiles/udoo.dir/mail.cpp.o: ../processData.h
+CMakeFiles/udoo.dir/mail.cpp.o: ../savePacket.h
+CMakeFiles/udoo.dir/mail.cpp.o: ../timeOutput.h
 
 CMakeFiles/udoo.dir/packetIdentifier2.cpp.o: ../AngleOutput.h
 CMakeFiles/udoo.dir/packetIdentifier2.cpp.o: ../checkPacket.h

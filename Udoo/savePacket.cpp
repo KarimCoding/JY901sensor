@@ -24,7 +24,7 @@ void savePacket(unsigned char saveArray[], std::ofstream& outF)
 	char printStr[999];
         for(int x=0; x <numberOfBytes ; x++)
     	{
-				printf("%02x ",saveArray[x]);
+//				printf("%02x ",saveArray[x]);
 				sprintf(printStr,"%02x ",saveArray[x]);
 				outF<<printStr;
 		
@@ -32,7 +32,7 @@ void savePacket(unsigned char saveArray[], std::ofstream& outF)
 		outF<<printStr;
 		if(saveArray[1] ==0x50 && VERBOSITY){
 			sprintf(printStr,"\t20%d/%d/%d  %02d:%02d:%02d:%03d\n",(int)(saveArray[2]),(int)(saveArray[3]),(int)saveArray[4],(int)saveArray[5],(int)saveArray[6],(int)saveArray[7],(saveArray[9]<<8)|saveArray[8]); 
-			printf("\t20%d/%d/%d  %02d:%02d:%02d:%03d\n",(int)(saveArray[2]),(int)(saveArray[3]),(int)saveArray[4],(int)saveArray[5],(int)saveArray[6],(int)saveArray[7],(saveArray[9]<<8)|saveArray[8]); 
+//			printf("\t20%d/%d/%d  %02d:%02d:%02d:%03d\n",(int)(saveArray[2]),(int)(saveArray[3]),(int)saveArray[4],(int)saveArray[5],(int)saveArray[6],(int)saveArray[7],(saveArray[9]<<8)|saveArray[8]); 
 
 	}
         else if(saveArray[1] ==0x53 && VERBOSITY) {
@@ -50,7 +50,7 @@ void savePacket(unsigned char saveArray[], std::ofstream& outF)
 		}
 		else
         	sprintf(printStr,"\n");
-		printf("Save dat: %s \n",printStr);
+//		printf("Save dat: %s \n",printStr);
 		outF<<printStr;
 //		outF.close();
 }

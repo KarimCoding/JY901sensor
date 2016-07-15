@@ -49,28 +49,28 @@ include CMakeFiles/udoo.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/udoo.dir/flags.make
 
-CMakeFiles/udoo.dir/Udoo.cpp.o: CMakeFiles/udoo.dir/flags.make
-CMakeFiles/udoo.dir/Udoo.cpp.o: ../Udoo.cpp
+CMakeFiles/udoo.dir/mail.cpp.o: CMakeFiles/udoo.dir/flags.make
+CMakeFiles/udoo.dir/mail.cpp.o: ../mail.cpp
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/udooer/David/JY901sensor/Udoo/build/CMakeFiles $(CMAKE_PROGRESS_1)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/udoo.dir/Udoo.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/udoo.dir/Udoo.cpp.o -c /home/udooer/David/JY901sensor/Udoo/Udoo.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/udoo.dir/mail.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/udoo.dir/mail.cpp.o -c /home/udooer/David/JY901sensor/Udoo/mail.cpp
 
-CMakeFiles/udoo.dir/Udoo.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/udoo.dir/Udoo.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/udooer/David/JY901sensor/Udoo/Udoo.cpp > CMakeFiles/udoo.dir/Udoo.cpp.i
+CMakeFiles/udoo.dir/mail.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/udoo.dir/mail.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/udooer/David/JY901sensor/Udoo/mail.cpp > CMakeFiles/udoo.dir/mail.cpp.i
 
-CMakeFiles/udoo.dir/Udoo.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/udoo.dir/Udoo.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/udooer/David/JY901sensor/Udoo/Udoo.cpp -o CMakeFiles/udoo.dir/Udoo.cpp.s
+CMakeFiles/udoo.dir/mail.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/udoo.dir/mail.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/udooer/David/JY901sensor/Udoo/mail.cpp -o CMakeFiles/udoo.dir/mail.cpp.s
 
-CMakeFiles/udoo.dir/Udoo.cpp.o.requires:
-.PHONY : CMakeFiles/udoo.dir/Udoo.cpp.o.requires
+CMakeFiles/udoo.dir/mail.cpp.o.requires:
+.PHONY : CMakeFiles/udoo.dir/mail.cpp.o.requires
 
-CMakeFiles/udoo.dir/Udoo.cpp.o.provides: CMakeFiles/udoo.dir/Udoo.cpp.o.requires
-	$(MAKE) -f CMakeFiles/udoo.dir/build.make CMakeFiles/udoo.dir/Udoo.cpp.o.provides.build
-.PHONY : CMakeFiles/udoo.dir/Udoo.cpp.o.provides
+CMakeFiles/udoo.dir/mail.cpp.o.provides: CMakeFiles/udoo.dir/mail.cpp.o.requires
+	$(MAKE) -f CMakeFiles/udoo.dir/build.make CMakeFiles/udoo.dir/mail.cpp.o.provides.build
+.PHONY : CMakeFiles/udoo.dir/mail.cpp.o.provides
 
-CMakeFiles/udoo.dir/Udoo.cpp.o.provides.build: CMakeFiles/udoo.dir/Udoo.cpp.o
+CMakeFiles/udoo.dir/mail.cpp.o.provides.build: CMakeFiles/udoo.dir/mail.cpp.o
 
 CMakeFiles/udoo.dir/listener.cpp.o: CMakeFiles/udoo.dir/flags.make
 CMakeFiles/udoo.dir/listener.cpp.o: ../listener.cpp
@@ -281,7 +281,7 @@ CMakeFiles/udoo.dir/wgdaytime.cpp.o.provides.build: CMakeFiles/udoo.dir/wgdaytim
 
 # Object files for target udoo
 udoo_OBJECTS = \
-"CMakeFiles/udoo.dir/Udoo.cpp.o" \
+"CMakeFiles/udoo.dir/mail.cpp.o" \
 "CMakeFiles/udoo.dir/listener.cpp.o" \
 "CMakeFiles/udoo.dir/processData.cpp.o" \
 "CMakeFiles/udoo.dir/packetIdentifier2.cpp.o" \
@@ -295,7 +295,7 @@ udoo_OBJECTS = \
 # External object files for target udoo
 udoo_EXTERNAL_OBJECTS =
 
-bin/udoo: CMakeFiles/udoo.dir/Udoo.cpp.o
+bin/udoo: CMakeFiles/udoo.dir/mail.cpp.o
 bin/udoo: CMakeFiles/udoo.dir/listener.cpp.o
 bin/udoo: CMakeFiles/udoo.dir/processData.cpp.o
 bin/udoo: CMakeFiles/udoo.dir/packetIdentifier2.cpp.o
@@ -314,7 +314,7 @@ bin/udoo: CMakeFiles/udoo.dir/link.txt
 CMakeFiles/udoo.dir/build: bin/udoo
 .PHONY : CMakeFiles/udoo.dir/build
 
-CMakeFiles/udoo.dir/requires: CMakeFiles/udoo.dir/Udoo.cpp.o.requires
+CMakeFiles/udoo.dir/requires: CMakeFiles/udoo.dir/mail.cpp.o.requires
 CMakeFiles/udoo.dir/requires: CMakeFiles/udoo.dir/listener.cpp.o.requires
 CMakeFiles/udoo.dir/requires: CMakeFiles/udoo.dir/processData.cpp.o.requires
 CMakeFiles/udoo.dir/requires: CMakeFiles/udoo.dir/packetIdentifier2.cpp.o.requires

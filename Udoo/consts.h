@@ -3,36 +3,37 @@
 #define MYPORT "8899"    // the port users will be connecting to
 
 #ifdef DEBUG
-    #define VERBOSITY 1
+    #define VERBOSITY 	1
 #endif
 #ifndef DEBUG
-    #define VERBOSITY 0
+    #define VERBOSITY 	0
 #endif
 
 
 //BUFFER CONFIG
-#define MAXBUFLEN 518   
+#define 	MAXBUFLEN 	518   
+#define 	MAXBUFSIZE	4
 
 //COMMANDS
-#define     SAVE    0x00;
-#define     CALSW   0x01;
-#define     RSW     0x02;
-#define     RATE    0x03;
-#define     BAUD    0x04;
+#define     SAVE    	0x00;
+#define     CALSW   	0x01;
+#define     RSW     	0x02;
+#define     RATE    	0x03;
+#define     BAUD    	0x04;
 
 //RETURN RATE
-#define     R_01    0x01;
-#define     R_05    0x02;
-#define     R_1     0x03;
-#define     R_2     0x04;
-#define     R_5     0x05;
-#define     R_10    0x06;
-#define     R_20    0x07;
-#define     R_50    0x08;
-#define     R_100   0x09;
-#define     R_200   0x0a;
-#define     R_SINGLE 0x0b;
-#define     R_NO    0x0c;
+#define     R_01    	0x01;
+#define     R_05    	0x02;
+#define     R_1     	0x03;
+#define     R_2     	0x04;
+#define     R_5     	0x05;
+#define     R_10    	0x06;
+#define     R_20    	0x07;
+#define     R_50    	0x08;
+#define     R_100   	0x09;
+#define     R_200   	0x0a;
+#define     R_SINGLE 	0x0b;
+#define     R_NO    	0x0c;
 
 //BAUD RATE
 #define     B_2400  0x00;
