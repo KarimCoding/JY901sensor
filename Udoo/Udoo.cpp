@@ -8,12 +8,15 @@
 #include <memory>
 std::mutex mtx;
 using namespace std;
+using boost::asio::ip::udp;
 
-void collect(wifi& port,dataStick& packet){
+
+
+void collect(wifi& port,dataStick& packet, udp::socket& socket){
 //	mtx.lock();
 	//std::lock_guard<std::mutex> lck(mtx);
-	port.listener(packet);
-//	mtx.unlock();
+		port.listener(packet,socket);
+    //	}
 }
 
 void process(dataStick& pkt,std::ofstream& outF, std::ofstream& badD){
@@ -41,11 +44,15 @@ int main(){
 
 	dataStick pkt;
 	wifi port1;
+	
+    boost::asio::io_service io_service;
+    udp::socket socket(io_service, udp::endpoint(udp::v4(), 8899));
+
 	vector<dataStick> buf; 
 	while(1){
 		if(buf.size()<MAXBUFSIZE){
 			printf("buf size %d \n",buf.size());
-			std::thread coll(collect,std::ref(port1),std::ref(pkt));
+			std::thread coll(collect,std::ref(port1),std::ref(pkt),std::ref(socket));
 //			std::thread proc(process,std::ref(pkt),std::ref(outF));
 			coll.join();
 			buf.push_back(pkt);	

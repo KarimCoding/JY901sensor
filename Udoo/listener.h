@@ -13,7 +13,9 @@
 #include <sys/time.h>
 #include <signal.h>
 #include <thread>
+
 #include "packetIdentifier2.h"
+
 #include <boost/circular_buffer.hpp>
 #include <iostream>
 #include <fstream>
@@ -22,7 +24,14 @@
 #include <cstdlib>
 #include <new>
 #include "dataPkt.h"
-#include "consts.h"
+#include <boost/array.hpp>
+#include <boost/asio.hpp>
+
+
+using boost::asio::ip::udp;
+
+
+//#include "consts.h"
 
 #ifdef DEBUG
     #define VERBOSITY 1
@@ -40,19 +49,8 @@ class wifi
 		struct timeval tv;
     time_t curtime;
 
-    int sockfd;
-    struct addrinfo hints, *servinfo, *p;
-    int rv;
-    int numbytes;
-    struct sockaddr_storage their_addr;
-    unsigned char buf[MAXBUFLEN];
-    socklen_t addr_len;
-    char s[INET6_ADDRSTRLEN];
-
 	public:
-        volatile sig_atomic_t done = 0;
-		void term(int signum);
-		int listener(dataStick &data);
+		int listener(dataStick& pkt,udp::socket& socket);
 
 		
 

@@ -23,7 +23,8 @@ find_package (Threads)
 add_executable (udoo mail.cpp listener.cpp listener.h processData.cpp processData.h dataPkt.h consts.h packetIdentifier2.cpp packetIdentifier2.h checkPacket.cpp checkPacket.h checkSum.cpp checkSum.h savePacket.cpp savePacket.h timeOutput.cpp timeOutput.h AngleOutput.cpp AngleOutput.h wgdaytime.cpp wgdaytime.h)
 #add_executable (udoo dumpFiles.cpp serialPort.cpp consts.h serialPort.h packetIdentifier2.cpp packetIdentifier2.h checkPacket.cpp checkPacket.h checkSum.cpp checkSum.h savePacket.cpp savePacket.h timeOutput.cpp timeOutput.h AngleOutput.cpp AngleOutput.h wgdaytime.cpp wgdaytime.h)
 
-target_link_libraries(udoo serial)
+target_link_libraries(udoo serial -lboost_system)
+#target_link_libraries(server -lboost_system)
 
 
 option(VERBOSITY "Option description" ON)

@@ -8,14 +8,15 @@
 #include <memory>
 std::mutex mtx;
 using namespace std;
+using boost::asio::ip::udp;
 
-void collect(wifi& port,dataStick& pkt,vector<dataStick>& buf){
+void collect(wifi& port,dataStick& pkt,vector<dataStick>& buf, udp::socket& socket){
 //while(1){
         if(buf.size()<MAXBUFSIZE){
             printf("Coll: size %d \n",buf.size());
-			port.listener(pkt);
+			port.listener(pkt,socket);
             buf.push_back(pkt); 
-//          printf("buf size %d \n",buf.size());
+            printf("buf size on push %d \n",buf.size());
         }
         else{
         //printf("blocking buffer from receiving more data \n");
@@ -58,8 +59,11 @@ int main(){
 	dataStick pkt;
 	wifi port1;
 	vector<dataStick> buf; 
+    boost::asio::io_service io_service;
+    udp::socket socket(io_service, udp::endpoint(udp::v4(), 8899));
+
 	while(1){
-			std::thread coll(collect,std::ref(port1),std::ref(pkt),std::ref(buf));
+			std::thread coll(collect,std::ref(port1),std::ref(pkt),std::ref(buf),std::ref(socket));
 	        std::thread proc(process,std::ref(buf.front()),std::ref(outF),std::ref(badD),std::ref(buf));
 			coll.join();
 			proc.join();

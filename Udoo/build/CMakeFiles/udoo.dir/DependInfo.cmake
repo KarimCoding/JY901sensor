@@ -15,7 +15,7 @@ SET(CMAKE_DEPENDS_CHECK_CXX
   "/home/udooer/David/JY901sensor/Udoo/timeOutput.cpp" "/home/udooer/David/JY901sensor/Udoo/build/CMakeFiles/udoo.dir/timeOutput.cpp.o"
   "/home/udooer/David/JY901sensor/Udoo/wgdaytime.cpp" "/home/udooer/David/JY901sensor/Udoo/build/CMakeFiles/udoo.dir/wgdaytime.cpp.o"
   )
-SET(CMAKE_CXX_COMPILER_ID "GNU")
+SET(CMAKE_CXX_COMPILER_ID "Clang")
 
 # Preprocessor definitions for this target.
 SET(CMAKE_TARGET_DEFINITIONS

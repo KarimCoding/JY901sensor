@@ -30,6 +30,8 @@ class dataStick
 			//strcpy(pkt.ip_addr,IPaddr);			
 			memcpy(pkt.pkt_time,time,36);
 			//strcpy(pkt.pkt_time,time);
+			printf("Pass Data:%02u ip:%s time:%s \n",pkt.data[0],pkt.ip_addr,pkt.pkt_time); 
+
 		}
         void getData(unsigned char (&pData)[MAXBUFLEN], char *IPaddr,char *time){
 			memcpy(pData,pkt.data,MAXBUFLEN+1);
