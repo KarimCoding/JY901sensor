@@ -18,9 +18,8 @@ int numberOfBytes = 11;
 void savePacket(unsigned char saveArray[], std::ofstream& outF)
 //void savePacket(unsigned char saveArray[],bool verbosity,char *fName)
 {
-/*	ofstream outF;
-	outF.open(fName, std::ofstream::out | std::ofstream::app);
-*/
+//	printf("savdapacket\n");
+
 	char printStr[999];
         for(int x=0; x <numberOfBytes ; x++)
     	{
@@ -29,11 +28,11 @@ void savePacket(unsigned char saveArray[], std::ofstream& outF)
 				outF<<printStr;
 		
     	}
-		outF<<printStr;
+//		outF<<printStr;
 		if(saveArray[1] ==0x50 && VERBOSITY){
-			sprintf(printStr,"\t20%d/%d/%d  %02d:%02d:%02d:%03d\n",(int)(saveArray[2]),(int)(saveArray[3]),(int)saveArray[4],(int)saveArray[5],(int)saveArray[6],(int)saveArray[7],(saveArray[9]<<8)|saveArray[8]); 
+			sprintf(printStr,"\t20%d/%d/%d  %02d:%02d:%02d:%03d",(int)(saveArray[2]),(int)(saveArray[3]),(int)saveArray[4],(int)saveArray[5],(int)saveArray[6],(int)saveArray[7],(saveArray[9]<<8)|saveArray[8]); 
 //			printf("\t20%d/%d/%d  %02d:%02d:%02d:%03d\n",(int)(saveArray[2]),(int)(saveArray[3]),(int)saveArray[4],(int)saveArray[5],(int)saveArray[6],(int)saveArray[7],(saveArray[9]<<8)|saveArray[8]); 
-
+			outF<<printStr;
 	}
         else if(saveArray[1] ==0x53 && VERBOSITY) {
 			double roll;
@@ -45,14 +44,12 @@ void savePacket(unsigned char saveArray[], std::ofstream& outF)
     	    pitch = (  (((int)(saveArray[5])) << 8) + ((int)(saveArray[4])) ) / 32768.0 * 180.0 ;
         	yaw = (  (((int)(saveArray[7])) << 8) + ((int)(saveArray[6])) ) / 32768.0 * 180.0 ;
         	temperature = (  (((int)(saveArray[9])) << 8) + ((int)(saveArray[8])) ) /100.0 ;
-	        sprintf(printStr,"\troll is: %f pitch is: %f yaw is: %f temperature is: %f\n",((long double)(roll)),((long double)(pitch)),((long double)(yaw)),((long double)(temperature)));
-
+	        sprintf(printStr,"\troll is: %f pitch is: %f yaw is: %f temperature is: %f",((long double)(roll)),((long double)(pitch)),((long double)(yaw)),((long double)(temperature)));
+			outF<<printStr;
 		}
-		else
-        	sprintf(printStr,"\n");
-//		printf("Save dat: %s \n",printStr);
-		outF<<printStr;
-//		outF.close();
+		else{}
+        	//sprintf(printStr,"\n");
+		outF<<endl;
 }
 
 

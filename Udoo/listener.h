@@ -41,14 +41,14 @@ using boost::asio::ip::udp;
 #endif
 class wifi
 {
-	private:
+/*	private:
 
 	    char time[35];
 	    char ip[4];
 		char usec[5];
 		struct timeval tv;
     time_t curtime;
-
+*/
 	public:
 		int listener(dataStick& pkt,udp::socket& socket);
 

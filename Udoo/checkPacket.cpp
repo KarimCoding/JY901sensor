@@ -17,7 +17,7 @@ unsigned char packet_header [NUMBER_OF_PACKETS][2]={ {0x55,0x50},{0x55,0x51},{0x
 
 bool checkPacket(unsigned char packetArray[], int i)
 {
-
+//	printf("check packet i: %d \n ",i);
   bool flagCheck = true;
   for (int j=0; j<NUMBER_OF_PACKETS; j++ ) {
    

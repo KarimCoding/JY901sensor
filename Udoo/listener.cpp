@@ -10,27 +10,42 @@ using boost::asio::ip::udp;
 int wifi::listener(dataStick& pkt,udp::socket& socket)
 //int main()
 {
+//	printf("listener \n ");
+
+     char time[35];
+        char ip[4];
+        char usec[5];
+        struct timeval tv;
+    time_t curtime;
+
+
       	boost::array<unsigned char, MAXBUFLEN> recv_buf;
 		udp::endpoint remote_endpoint;
 	    boost::system::error_code error;
-	    size_t len = socket.receive_from(boost::asio::buffer(recv_buf),
-          remote_endpoint, 0, error);
+	    size_t len = socket.receive_from(boost::asio::buffer(recv_buf),remote_endpoint, 0, error);
         unsigned char output[MAXBUFLEN];// = (unsigned char*)malloc(len);
         memcpy(output, recv_buf.data(), recv_buf.size());
+
+/*		printf("data: %d \n",sizeof(output));
+		for(int i = 0;i<len;i++){
+			printf("%02x ",output[i]);
+		if(i>0&&i%12==0)
+			printf("\n");
+		}
+*/
         gettimeofday(&tv, NULL); 
         curtime=tv.tv_sec;
         strftime(time,30,"%T",localtime(&curtime));
         sprintf(usec, "%ld", tv.tv_usec);
         strcat(time,usec);
-		//std::string s = (char) socket.local_endpoint().address();
 		std::string s = remote_endpoint.address().to_string();
-//		std::cout<<s<<"\n";
-		        char* addr = (char*)malloc(s.size());
-				memcpy(addr,s.c_str(),s.size());
-  //      printf("Listener: data: %02u from%s @  %s\n",output[0],addr,time);
+		char* addr = (char*)malloc(s.size()+1);
+		memcpy(addr,s.c_str(),s.size());
+		printf("Received %d bytes @ %s \n",len,time);
+		addr[s.size()] = '\0';
         pkt.passData(output,addr,time );
-//		pkt.passData(recv_buf.data(),addr,time);
-  return 0;
+//		printf("finishing listener \n");
+  		return 0;
 }
 
 

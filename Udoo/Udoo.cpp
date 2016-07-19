@@ -14,9 +14,7 @@ using boost::asio::ip::udp;
 
 void collect(wifi& port,dataStick& packet, udp::socket& socket){
 //	mtx.lock();
-	//std::lock_guard<std::mutex> lck(mtx);
 		port.listener(packet,socket);
-    //	}
 }
 
 void process(dataStick& pkt,std::ofstream& outF, std::ofstream& badD){
@@ -24,8 +22,6 @@ void process(dataStick& pkt,std::ofstream& outF, std::ofstream& badD){
 
 //	mtx.lock();
 	handleData(std::ref(pkt),std::ref(outF),std::ref(badD));
-//	handleData(packet,outF,VERBOSITY, badD);
-	//handleData(packet,fName);
 //	mtx.unlock();
 }
 
@@ -51,30 +47,17 @@ int main(){
 	vector<dataStick> buf; 
 	while(1){
 		if(buf.size()<MAXBUFSIZE){
-			printf("buf size %d \n",buf.size());
+//			printf("buf size %d \n",buf.size());
 			std::thread coll(collect,std::ref(port1),std::ref(pkt),std::ref(socket));
-//			std::thread proc(process,std::ref(pkt),std::ref(outF));
 			coll.join();
 			buf.push_back(pkt);	
-//	 		printf("buf size %d \n",buf.size());
 		}
-		else{
-		//printf("blocking buffer from receiving more data \n");
-		}
-//	pkt.print_pkt();
-//	if(pkt.numbytes==0)
-		if(buf.size()==0){
-//		printf("Buffer empty waiting for data\n");
-		}
-		else{
-//			printf("Processing data \n");
-			printf("buffer size before pop %d \n", buf.size());
+		if(buf.size()!=0){	
+//			printf("buffer size before pop %d \n", buf.size());
 
 			std::thread proc(process,std::ref(buf.front()),std::ref(outF),std::ref(badD));
 			buf.erase(buf.begin());
-			printf("buffer size after pop %d \n", buf.size());
-	//  	std::thread proc(process,std::ref(pkt),std::ref(outF),std::ref(badD));
-	//		std::thread proc(process,std::ref(pkt),std::ref(fName));
+//			printf("buffer size after pop %d \n", buf.size());
 			proc.join();
 		}
 
