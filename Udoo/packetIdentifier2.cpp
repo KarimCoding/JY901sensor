@@ -38,9 +38,11 @@ void packetIdentifier2 (unsigned char uc, std::ofstream& outF,std::ofstream& bad
 
         // performing a check Sum
         if( checkSum(saveArray)){
+			//maybe write to a buffer here
 			savePacket(saveArray,std::ref(outF));
 	    }
 		else{
+			outF<<"bad checksum \n";
         	//write_bad_dat(std::ref(badData),saveArray);
 //			write_bad_dat(saveArray);
 

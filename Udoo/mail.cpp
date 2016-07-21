@@ -27,7 +27,9 @@ void collect(wifi& port,dataStick& pkt,vector<dataStick>& buf, udp::socket& sock
 //	}
 }
 
-void process(std::ofstream& outF, std::ofstream& badD,vector<dataStick>& buf, char fName[30]){
+
+void process(vector<dataStick>& buf, char fName[30],std::vector<string> &goodData,std::vector<string> &badData){
+//void process(std::ofstream& outF, std::ofstream& badD,vector<dataStick>& buf, char fName[30]){
 //while (1){
        if(buf.size()==0){
 //      printf("Buffer empty waiting for data\n");
@@ -36,7 +38,7 @@ void process(std::ofstream& outF, std::ofstream& badD,vector<dataStick>& buf, ch
 //          printf("Processing data \n");
 //            printf("Process: buffer size before pop %d \n", buf.size());
 //			outF.open(fName, ios::out|ios::ate);
-			handleData(std::ref(buf.front()),std::ref(outF),std::ref(badD));
+			handleData(std::ref(buf.front()),std::ref(goodData),std::ref(badData));
 		 	buf.erase(buf.begin());
 //			printf("After pop: %d \n",buf.size());
 //			outF.close();
@@ -64,17 +66,26 @@ int main(){
 
 	dataStick pkt;
 	wifi port1;
+	vector<string> goodData;
+	vector<string> badData;
 	vector<dataStick> buf; 
     boost::asio::io_service io_service;
     udp::socket socket(io_service, udp::endpoint(udp::v4(), 8899));
-
+ 	
 	while(1){
 	//dataStick pkt;
 	
 			std::thread coll(collect,std::ref(port1),std::ref(pkt),std::ref(buf),std::ref(socket));
-	        std::thread proc(process,std::ref(outF),std::ref(badD),std::ref(buf),fName);
+//	        std::thread proc(process,std::ref(outF),std::ref(badD),std::ref(buf),fName);
+			std::thread proc(process,std::ref(outF),std::ref(badD),std::ref(buf),fName,std::ref(goodData),std::ref(badData));
+
+			//add thread for writing good data
+			//add thread for writing bad data
+
 			coll.join();
 			proc.join();
+		//	good.join();
+		//	bad.join();
 
 	}//	End brace for while(1)
 	return 0;

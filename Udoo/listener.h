@@ -14,9 +14,6 @@
 #include <signal.h>
 #include <thread>
 
-#include "packetIdentifier2.h"
-
-#include <boost/circular_buffer.hpp>
 #include <iostream>
 #include <fstream>
 #include <iomanip>

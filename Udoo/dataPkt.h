@@ -6,49 +6,53 @@ using namespace std;
 class dataStick
 {
     private:
-        struct databuf{
-            unsigned char data[MAXBUFLEN];
-            char addr[14];
-		//	string addr;
-            char time[15];
+            std::string pkt_header;
+			unsigned char data[MAXBUFLEN];
 
-        };
-		databuf pkt;
     public:
 		int numbytes;
-		~dataStick(){
-/*			if(pkt.data)
-				delete[] pkt.data;*/
+		struct dat_struct{
+			unsigned char info[MAXBUFLEN];
+		};
+		dat_struct dat; 
+		void passData(dataStick::dat_struct &pData, std::string &header)//;
+		{
+    		memcpy(data,pData.info,numbytes);
+    		data[numbytes]='\0';
+    		pkt_header = header;
 		}
-        void passData(unsigned char *sData,char *addr,char *time){
-//		void passData(unsigned char (&sData)[MAXBUFLEN],string addr,char *time){
-			memcpy(pkt.data,sData,MAXBUFLEN);
-			pkt.data[MAXBUFLEN-1]='\0';
-			//pkt.data[MAXBUFLEN]='\0';
-			memcpy(pkt.addr,addr,13);
-			pkt.addr[13]='\0';
-//			pkt.addr = addr;
-			//strcpy(pkt.addr,addr);			
-			memcpy(pkt.time,time,14);
-			//strcpy(pkt.time,time);
-			pkt.time[14]='\0';
-//			printf("Pass Data:%02x \n",pkt.data[0]); 
+		void getData(dataStick::dat_struct &gData, std::string &head )//;
+		{
+    		memcpy(gData.info,data,numbytes);
+    		gData.info[numbytes]='\0';
+    		head = pkt_header;
+		}
+		void print()//;
+		{
+
+
 
 		}
-        void getData(unsigned char *pData, char *addr,char *time){
-			memcpy(pData,pkt.data,MAXBUFLEN);
-			pData[MAXBUFLEN-1]='\0';
-	        memcpy(time,pkt.time,14);
-            //strcpy(pkt.time,time);
-            time[14]='\0';
-			memcpy(addr,pkt.addr,13);
-			addr[13]='\0';
 
-		}
-		void print(){
-			printf("data:%02u ip:%s time:%s \n",pkt.data[0],pkt.addr,pkt.time); 
-			//printf("ip: %s,time %s \n", pkt.ip_addr,pkt.pkt_time);
-	}
 };
 
+/*
+void dataStick::passData(dataStick::dat_struct &pData, std::string &header)
+{
+	memcpy(data,pData.info,numbytes);
+	data[numbytes]='\0';
+	pkt_header = header;
+}
 
+void dataStick::getData(dataStick::dat_struct &gData, std::string &head)
+{
+	memcpy(gData.info,data,numbytes);
+	gData.info[numbytes]='\0';
+	head = pkt_header;
+}
+
+void dataStick::print()
+{ 
+	//printf("data:%02u ip:%s  \n",pkt.data[0],pkt_header); //printf("ip: %s,time %s \n", pkt.ip_addr,pkt.pkt_time);
+}
+*/
