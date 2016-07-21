@@ -20,12 +20,26 @@ class dataStick
     		memcpy(data,pData.info,numbytes);
     		data[numbytes]='\0';
     		pkt_header = header;
-		}
-		void getData(dataStick::dat_struct &gData, std::string &head )//;
+/*			printf("from passdata \n");
+		        unsigned char output[MAXBUFLEN];// = (unsigned char*)malloc(len);
+        memcpy(output, data, numbytes);
+        for(int i = 0;i<numbytes;i++)
 		{
-    		memcpy(gData.info,data,numbytes);
+            printf("%02x ",output[i]);
+        	if(i>0&&i%12==0)
+            	printf("\n");
+        }
+*/
+
+
+
+		}
+//		void getData(dataStick::dat_struct &gData, std::string &head )//;
+		void getData(std::string &head )
+		{
+/*    		memcpy(gData.info,data,numbytes);
     		gData.info[numbytes]='\0';
-    		head = pkt_header;
+*/    		head = pkt_header;
 		}
 		void print()//;
 		{

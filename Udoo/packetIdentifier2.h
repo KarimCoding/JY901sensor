@@ -11,9 +11,13 @@
 #include "savePacket.h"
 #include "timeOutput.h"
 #include "AngleOutput.h"
+#include <vector>
+#include <memory>
 
 using namespace std;
 
-void packetIdentifier2 (unsigned char uc, ofstream& outF,std::ofstream& badData);
+//void handleData(std::vector<dataStick>& buf,std::vector<string> &goodData,std::vector<string> &badData);
+void packetIdentifier2(unsigned char uc, std::vector<string> &goodData,std::vector<string> &badData);
+//void packetIdentifier2 (unsigned char uc, ofstream& outF,std::ofstream& badData);
 //void packetIdentifier2 (unsigned char uc,char *fName);
 

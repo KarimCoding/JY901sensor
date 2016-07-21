@@ -11,7 +11,6 @@ using namespace std;
 using boost::asio::ip::udp;
 
 void collect(wifi& port,dataStick& pkt,vector<dataStick>& buf, udp::socket& socket){
-//while(1){
         if(buf.size()<MAXBUFSIZE){
 //            printf("Coll: size %d \n",buf.size());
 			pkt.numbytes = port.listener(pkt,socket);
@@ -19,18 +18,13 @@ void collect(wifi& port,dataStick& pkt,vector<dataStick>& buf, udp::socket& sock
 //            printf("buf size on push %d \n",buf.size());
         }
         else{
-        //printf("blocking buffer from receiving more data \n");
-        
-
 		}
 	//	mtx.unlock();
-//	}
 }
 
 
-void process(vector<dataStick>& buf, char fName[30],std::vector<string> &goodData,std::vector<string> &badData){
+void process(std::ofstream& outF, std::ofstream& badD,vector<dataStick>& buf,std::vector<string> &goodData,std::vector<string> &badData){
 //void process(std::ofstream& outF, std::ofstream& badD,vector<dataStick>& buf, char fName[30]){
-//while (1){
        if(buf.size()==0){
 //      printf("Buffer empty waiting for data\n");
         }
@@ -38,8 +32,56 @@ void process(vector<dataStick>& buf, char fName[30],std::vector<string> &goodDat
 //          printf("Processing data \n");
 //            printf("Process: buffer size before pop %d \n", buf.size());
 //			outF.open(fName, ios::out|ios::ate);
-			handleData(std::ref(buf.front()),std::ref(goodData),std::ref(badData));
+
+/*	      unsigned char output[MAXBUFLEN];// = (unsigned char*)malloc(len);
+			//buf.front().dat.info,buf.front().numbytes)
+       		memcpy(output, buf.front().dat.info,buf.front().numbytes);
+		    printf("from mail buf.front() data: %d \n",sizeof(output));
+        	for(int i = 0;i<sizeof(output);i++){
+            	printf("%02x ",output[i]);
+        		if(i>0&&i%12==0)
+            		printf("\n");
+        	}
+*/
+			printf("before handle data %d %d \n",goodData.size(),badData.size());
+			handleData(std::ref(buf),std::ref(goodData),std::ref(badData));
+
+			printf("after handle data %d %d \n",goodData.size(),badData.size());
+
+//			cout<<badData.front();
+
+			if(goodData.size()>200)
+			{
+		//			mutex
+                outF.open("goodData.txt", ios::out|ios::ate);
+                while(badData.size()!=0)
+                {
+                //mutex
+                    outF<<goodData.front();
+//					outF<<"\n";
+                    cout<<goodData.front();
+                    goodData.erase(goodData.begin());
+                }
+                outF.close();
+            }
+
+			if(badData.size()>200)
+			{
+				badD.open("badData.txt", ios::out|ios::ate);
+				while(badData.size()!=0)
+				{
+				//mutex
+					badD<<badData.front();
+					badD<<"\n";
+//					cout<<badData.front();
+					badData.erase(badData.begin());
+				}
+				badD.close();
+			}
+
 		 	buf.erase(buf.begin());
+
+
 //			printf("After pop: %d \n",buf.size());
 //			outF.close();
 //			usleep(5000);
@@ -59,9 +101,6 @@ int main(){
     strftime(fName,30,"[%Y%m%d_%H:%M:%S].txt",localtime(&ctime));
 	 //std::ofstream outF(fName);
 	std::ofstream outF;
-	outF.open(fName, ios::out|ios::ate);
-
-
 	std::ofstream badD("badData.txt");
 
 	dataStick pkt;
@@ -77,8 +116,7 @@ int main(){
 	
 			std::thread coll(collect,std::ref(port1),std::ref(pkt),std::ref(buf),std::ref(socket));
 //	        std::thread proc(process,std::ref(outF),std::ref(badD),std::ref(buf),fName);
-			std::thread proc(process,std::ref(outF),std::ref(badD),std::ref(buf),fName,std::ref(goodData),std::ref(badData));
-
+			std::thread proc(process,std::ref(outF),std::ref(badD),std::ref(buf),std::ref(goodData),std::ref(badData));
 			//add thread for writing good data
 			//add thread for writing bad data
 

@@ -3,6 +3,7 @@
 //
 
 //#include <SerialStream.h>
+#include "savePacket.h"
 #include <iostream>
 #include <fstream>
 #include <iomanip>
@@ -11,23 +12,35 @@
 #include <iterator>
 #include <stdio.h>
 #include "consts.h"
-using namespace std;
 
 int numberOfBytes = 11;
 
-void savePacket(unsigned char saveArray[], std::ofstream& outF)
+void savePacket(unsigned char saveArray[],std::vector<string> &data)
+
+//void savePacket(unsigned char saveArray[], std::ofstream& outF)
 //void savePacket(unsigned char saveArray[],bool verbosity,char *fName)
 {
 //	printf("savdapacket\n");
-
-	char printStr[999];
+//	printf("Save packet\n");
+	//string buff;
+	printf("savePacket\n");
+    char printStr[999];
+    string buf;
         for(int x=0; x <numberOfBytes ; x++)
-    	{
-//				printf("%02x ",saveArray[x]);
-				sprintf(printStr,"%02x ",saveArray[x]);
-				outF<<printStr;
-		
-    	}
+        {
+//                printf("%02x ",array[x]);
+                sprintf(printStr,"%02x ",saveArray[x]);
+//              outF<<printStr;
+//                cout<<"write bad"<<string(printStr);
+  //              data.push_back(string(printStr));   
+                buf=string(printStr);
+//              cout<<buf;
+        }
+//      cout<<buf;
+        data.push_back(buf);   
+//      cout<<data.front();
+
+/*
 //		outF<<printStr;
 		if(saveArray[1] ==0x50 && VERBOSITY){
 			sprintf(printStr,"\t20%d/%d/%d  %02d:%02d:%02d:%03d",(int)(saveArray[2]),(int)(saveArray[3]),(int)saveArray[4],(int)saveArray[5],(int)saveArray[6],(int)saveArray[7],(saveArray[9]<<8)|saveArray[8]); 
@@ -50,10 +63,11 @@ void savePacket(unsigned char saveArray[], std::ofstream& outF)
 		else{}
         	//sprintf(printStr,"\n");
 		outF<<endl;
+*/
 }
 
 
-//void write_bad_dat(std::ofstream& badData, unsigned char uc)
+/*//void write_bad_dat(std::ofstream& badData, unsigned char uc)
 void write_bad_dat(unsigned char uc)
 {
 	ofstream badData;
@@ -62,21 +76,27 @@ void write_bad_dat(unsigned char uc)
 
   badData.close();
 }
-
-void write_bad_dat(unsigned char saveArray[])
+*/
+void write_bad_dat(unsigned char array[],std::vector<string> &data)
+//void write_bad_dat(unsigned char saveArray[])
 {
 //check if a stream is open. if so close it and open for bad data
-ofstream badData;
-    badData.open("/home/udooer/Logs/badData.txt", std::ofstream::out | std::ofstream::app);
+//    printf("write bad data\n");
+//	printf("Write bad data \n");
     char printStr[999];
+	string buf;
         for(int x=0; x <numberOfBytes ; x++)
         {
-                sprintf(printStr,"%02x ",(int)saveArray[x]);
-        
+//                printf("%02x ",array[x]);
+                sprintf(printStr,"%02x ",array[x]);
+//              outF<<printStr;
+//                cout<<"write bad"<<string(printStr);
+  //              data.push_back(string(printStr));   
+				buf=string(printStr);
+//				cout<<buf;
         }
-	badData << printStr<<"\n";
-
-  	badData.close();
-
+//		cout<<buf;
+  		data.push_back(buf);   
+//		cout<<data.front();
 
 }

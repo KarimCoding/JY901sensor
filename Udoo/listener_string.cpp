@@ -30,17 +30,17 @@ int wifi::listener(dataStick& pkt,udp::socket& socket)
 		pkt.numbytes = recv_buf.size();
 		pkt.dat.info[pkt.numbytes] = '\0';
 
-/*
-        unsigned char output[MAXBUFLEN];// = (unsigned char*)malloc(len);
+
+/*        unsigned char output[MAXBUFLEN];// = (unsigned char*)malloc(len);
         memcpy(output, pkt.dat.info, pkt.numbytes);
-	    printf("data: %d \n",sizeof(pkt.dat.info));
+	    printf("Listener\n \ndata: %d \n",sizeof(pkt.dat.info));
         for(int i = 0;i<len;i++){
             printf("%02x ",output[i]);
         if(i>0&&i%12==0)
             printf("\n");
         }
-*/
-        gettimeofday(&tv, NULL); 
+*/  
+      	gettimeofday(&tv, NULL); 
         curtime=tv.tv_sec;
         strftime(ctime,30,"%T",localtime(&curtime));
         sprintf(usec, "%ld", tv.tv_usec);
@@ -49,7 +49,7 @@ int wifi::listener(dataStick& pkt,udp::socket& socket)
         std::string pkt_header = remote_endpoint.address().to_string();
         pkt_header = pkt_header + " @ " + time;
         pkt.passData(pkt.dat,pkt_header );
-		cout<<pkt_header<<endl;
+//		cout<<pkt_header<<endl;
         return 0;
 }
 
