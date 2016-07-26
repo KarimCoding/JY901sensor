@@ -35,10 +35,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/udooer/David/JY901sensor/Udoo
+CMAKE_SOURCE_DIR = /home/david/workspace/Bruno/JY901sensor/Udoo
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/udooer/David/JY901sensor/Udoo/build
+CMAKE_BINARY_DIR = /home/david/workspace/Bruno/JY901sensor/Udoo/build
 
 # Include any dependencies generated for this target.
 include CMakeFiles/udoo.dir/depend.make
@@ -51,17 +51,17 @@ include CMakeFiles/udoo.dir/flags.make
 
 CMakeFiles/udoo.dir/mail.cpp.o: CMakeFiles/udoo.dir/flags.make
 CMakeFiles/udoo.dir/mail.cpp.o: ../mail.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/udooer/David/JY901sensor/Udoo/build/CMakeFiles $(CMAKE_PROGRESS_1)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/david/workspace/Bruno/JY901sensor/Udoo/build/CMakeFiles $(CMAKE_PROGRESS_1)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/udoo.dir/mail.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/udoo.dir/mail.cpp.o -c /home/udooer/David/JY901sensor/Udoo/mail.cpp
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/udoo.dir/mail.cpp.o -c /home/david/workspace/Bruno/JY901sensor/Udoo/mail.cpp
 
 CMakeFiles/udoo.dir/mail.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/udoo.dir/mail.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/udooer/David/JY901sensor/Udoo/mail.cpp > CMakeFiles/udoo.dir/mail.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/david/workspace/Bruno/JY901sensor/Udoo/mail.cpp > CMakeFiles/udoo.dir/mail.cpp.i
 
 CMakeFiles/udoo.dir/mail.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/udoo.dir/mail.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/udooer/David/JY901sensor/Udoo/mail.cpp -o CMakeFiles/udoo.dir/mail.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/david/workspace/Bruno/JY901sensor/Udoo/mail.cpp -o CMakeFiles/udoo.dir/mail.cpp.s
 
 CMakeFiles/udoo.dir/mail.cpp.o.requires:
 .PHONY : CMakeFiles/udoo.dir/mail.cpp.o.requires
@@ -74,17 +74,17 @@ CMakeFiles/udoo.dir/mail.cpp.o.provides.build: CMakeFiles/udoo.dir/mail.cpp.o
 
 CMakeFiles/udoo.dir/listener_string.cpp.o: CMakeFiles/udoo.dir/flags.make
 CMakeFiles/udoo.dir/listener_string.cpp.o: ../listener_string.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/udooer/David/JY901sensor/Udoo/build/CMakeFiles $(CMAKE_PROGRESS_2)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/david/workspace/Bruno/JY901sensor/Udoo/build/CMakeFiles $(CMAKE_PROGRESS_2)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/udoo.dir/listener_string.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/udoo.dir/listener_string.cpp.o -c /home/udooer/David/JY901sensor/Udoo/listener_string.cpp
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/udoo.dir/listener_string.cpp.o -c /home/david/workspace/Bruno/JY901sensor/Udoo/listener_string.cpp
 
 CMakeFiles/udoo.dir/listener_string.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/udoo.dir/listener_string.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/udooer/David/JY901sensor/Udoo/listener_string.cpp > CMakeFiles/udoo.dir/listener_string.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/david/workspace/Bruno/JY901sensor/Udoo/listener_string.cpp > CMakeFiles/udoo.dir/listener_string.cpp.i
 
 CMakeFiles/udoo.dir/listener_string.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/udoo.dir/listener_string.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/udooer/David/JY901sensor/Udoo/listener_string.cpp -o CMakeFiles/udoo.dir/listener_string.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/david/workspace/Bruno/JY901sensor/Udoo/listener_string.cpp -o CMakeFiles/udoo.dir/listener_string.cpp.s
 
 CMakeFiles/udoo.dir/listener_string.cpp.o.requires:
 .PHONY : CMakeFiles/udoo.dir/listener_string.cpp.o.requires
@@ -97,17 +97,17 @@ CMakeFiles/udoo.dir/listener_string.cpp.o.provides.build: CMakeFiles/udoo.dir/li
 
 CMakeFiles/udoo.dir/processData.cpp.o: CMakeFiles/udoo.dir/flags.make
 CMakeFiles/udoo.dir/processData.cpp.o: ../processData.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/udooer/David/JY901sensor/Udoo/build/CMakeFiles $(CMAKE_PROGRESS_3)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/david/workspace/Bruno/JY901sensor/Udoo/build/CMakeFiles $(CMAKE_PROGRESS_3)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/udoo.dir/processData.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/udoo.dir/processData.cpp.o -c /home/udooer/David/JY901sensor/Udoo/processData.cpp
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/udoo.dir/processData.cpp.o -c /home/david/workspace/Bruno/JY901sensor/Udoo/processData.cpp
 
 CMakeFiles/udoo.dir/processData.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/udoo.dir/processData.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/udooer/David/JY901sensor/Udoo/processData.cpp > CMakeFiles/udoo.dir/processData.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/david/workspace/Bruno/JY901sensor/Udoo/processData.cpp > CMakeFiles/udoo.dir/processData.cpp.i
 
 CMakeFiles/udoo.dir/processData.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/udoo.dir/processData.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/udooer/David/JY901sensor/Udoo/processData.cpp -o CMakeFiles/udoo.dir/processData.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/david/workspace/Bruno/JY901sensor/Udoo/processData.cpp -o CMakeFiles/udoo.dir/processData.cpp.s
 
 CMakeFiles/udoo.dir/processData.cpp.o.requires:
 .PHONY : CMakeFiles/udoo.dir/processData.cpp.o.requires
@@ -120,17 +120,17 @@ CMakeFiles/udoo.dir/processData.cpp.o.provides.build: CMakeFiles/udoo.dir/proces
 
 CMakeFiles/udoo.dir/packetIdentifier2.cpp.o: CMakeFiles/udoo.dir/flags.make
 CMakeFiles/udoo.dir/packetIdentifier2.cpp.o: ../packetIdentifier2.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/udooer/David/JY901sensor/Udoo/build/CMakeFiles $(CMAKE_PROGRESS_4)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/david/workspace/Bruno/JY901sensor/Udoo/build/CMakeFiles $(CMAKE_PROGRESS_4)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/udoo.dir/packetIdentifier2.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/udoo.dir/packetIdentifier2.cpp.o -c /home/udooer/David/JY901sensor/Udoo/packetIdentifier2.cpp
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/udoo.dir/packetIdentifier2.cpp.o -c /home/david/workspace/Bruno/JY901sensor/Udoo/packetIdentifier2.cpp
 
 CMakeFiles/udoo.dir/packetIdentifier2.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/udoo.dir/packetIdentifier2.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/udooer/David/JY901sensor/Udoo/packetIdentifier2.cpp > CMakeFiles/udoo.dir/packetIdentifier2.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/david/workspace/Bruno/JY901sensor/Udoo/packetIdentifier2.cpp > CMakeFiles/udoo.dir/packetIdentifier2.cpp.i
 
 CMakeFiles/udoo.dir/packetIdentifier2.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/udoo.dir/packetIdentifier2.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/udooer/David/JY901sensor/Udoo/packetIdentifier2.cpp -o CMakeFiles/udoo.dir/packetIdentifier2.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/david/workspace/Bruno/JY901sensor/Udoo/packetIdentifier2.cpp -o CMakeFiles/udoo.dir/packetIdentifier2.cpp.s
 
 CMakeFiles/udoo.dir/packetIdentifier2.cpp.o.requires:
 .PHONY : CMakeFiles/udoo.dir/packetIdentifier2.cpp.o.requires
@@ -143,17 +143,17 @@ CMakeFiles/udoo.dir/packetIdentifier2.cpp.o.provides.build: CMakeFiles/udoo.dir/
 
 CMakeFiles/udoo.dir/checkPacket.cpp.o: CMakeFiles/udoo.dir/flags.make
 CMakeFiles/udoo.dir/checkPacket.cpp.o: ../checkPacket.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/udooer/David/JY901sensor/Udoo/build/CMakeFiles $(CMAKE_PROGRESS_5)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/david/workspace/Bruno/JY901sensor/Udoo/build/CMakeFiles $(CMAKE_PROGRESS_5)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/udoo.dir/checkPacket.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/udoo.dir/checkPacket.cpp.o -c /home/udooer/David/JY901sensor/Udoo/checkPacket.cpp
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/udoo.dir/checkPacket.cpp.o -c /home/david/workspace/Bruno/JY901sensor/Udoo/checkPacket.cpp
 
 CMakeFiles/udoo.dir/checkPacket.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/udoo.dir/checkPacket.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/udooer/David/JY901sensor/Udoo/checkPacket.cpp > CMakeFiles/udoo.dir/checkPacket.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/david/workspace/Bruno/JY901sensor/Udoo/checkPacket.cpp > CMakeFiles/udoo.dir/checkPacket.cpp.i
 
 CMakeFiles/udoo.dir/checkPacket.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/udoo.dir/checkPacket.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/udooer/David/JY901sensor/Udoo/checkPacket.cpp -o CMakeFiles/udoo.dir/checkPacket.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/david/workspace/Bruno/JY901sensor/Udoo/checkPacket.cpp -o CMakeFiles/udoo.dir/checkPacket.cpp.s
 
 CMakeFiles/udoo.dir/checkPacket.cpp.o.requires:
 .PHONY : CMakeFiles/udoo.dir/checkPacket.cpp.o.requires
@@ -166,17 +166,17 @@ CMakeFiles/udoo.dir/checkPacket.cpp.o.provides.build: CMakeFiles/udoo.dir/checkP
 
 CMakeFiles/udoo.dir/checkSum.cpp.o: CMakeFiles/udoo.dir/flags.make
 CMakeFiles/udoo.dir/checkSum.cpp.o: ../checkSum.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/udooer/David/JY901sensor/Udoo/build/CMakeFiles $(CMAKE_PROGRESS_6)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/david/workspace/Bruno/JY901sensor/Udoo/build/CMakeFiles $(CMAKE_PROGRESS_6)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/udoo.dir/checkSum.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/udoo.dir/checkSum.cpp.o -c /home/udooer/David/JY901sensor/Udoo/checkSum.cpp
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/udoo.dir/checkSum.cpp.o -c /home/david/workspace/Bruno/JY901sensor/Udoo/checkSum.cpp
 
 CMakeFiles/udoo.dir/checkSum.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/udoo.dir/checkSum.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/udooer/David/JY901sensor/Udoo/checkSum.cpp > CMakeFiles/udoo.dir/checkSum.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/david/workspace/Bruno/JY901sensor/Udoo/checkSum.cpp > CMakeFiles/udoo.dir/checkSum.cpp.i
 
 CMakeFiles/udoo.dir/checkSum.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/udoo.dir/checkSum.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/udooer/David/JY901sensor/Udoo/checkSum.cpp -o CMakeFiles/udoo.dir/checkSum.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/david/workspace/Bruno/JY901sensor/Udoo/checkSum.cpp -o CMakeFiles/udoo.dir/checkSum.cpp.s
 
 CMakeFiles/udoo.dir/checkSum.cpp.o.requires:
 .PHONY : CMakeFiles/udoo.dir/checkSum.cpp.o.requires
@@ -189,17 +189,17 @@ CMakeFiles/udoo.dir/checkSum.cpp.o.provides.build: CMakeFiles/udoo.dir/checkSum.
 
 CMakeFiles/udoo.dir/savePacket.cpp.o: CMakeFiles/udoo.dir/flags.make
 CMakeFiles/udoo.dir/savePacket.cpp.o: ../savePacket.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/udooer/David/JY901sensor/Udoo/build/CMakeFiles $(CMAKE_PROGRESS_7)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/david/workspace/Bruno/JY901sensor/Udoo/build/CMakeFiles $(CMAKE_PROGRESS_7)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/udoo.dir/savePacket.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/udoo.dir/savePacket.cpp.o -c /home/udooer/David/JY901sensor/Udoo/savePacket.cpp
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/udoo.dir/savePacket.cpp.o -c /home/david/workspace/Bruno/JY901sensor/Udoo/savePacket.cpp
 
 CMakeFiles/udoo.dir/savePacket.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/udoo.dir/savePacket.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/udooer/David/JY901sensor/Udoo/savePacket.cpp > CMakeFiles/udoo.dir/savePacket.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/david/workspace/Bruno/JY901sensor/Udoo/savePacket.cpp > CMakeFiles/udoo.dir/savePacket.cpp.i
 
 CMakeFiles/udoo.dir/savePacket.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/udoo.dir/savePacket.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/udooer/David/JY901sensor/Udoo/savePacket.cpp -o CMakeFiles/udoo.dir/savePacket.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/david/workspace/Bruno/JY901sensor/Udoo/savePacket.cpp -o CMakeFiles/udoo.dir/savePacket.cpp.s
 
 CMakeFiles/udoo.dir/savePacket.cpp.o.requires:
 .PHONY : CMakeFiles/udoo.dir/savePacket.cpp.o.requires
@@ -253,6 +253,6 @@ CMakeFiles/udoo.dir/clean:
 .PHONY : CMakeFiles/udoo.dir/clean
 
 CMakeFiles/udoo.dir/depend:
-	cd /home/udooer/David/JY901sensor/Udoo/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/udooer/David/JY901sensor/Udoo /home/udooer/David/JY901sensor/Udoo /home/udooer/David/JY901sensor/Udoo/build /home/udooer/David/JY901sensor/Udoo/build /home/udooer/David/JY901sensor/Udoo/build/CMakeFiles/udoo.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/david/workspace/Bruno/JY901sensor/Udoo/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/david/workspace/Bruno/JY901sensor/Udoo /home/david/workspace/Bruno/JY901sensor/Udoo /home/david/workspace/Bruno/JY901sensor/Udoo/build /home/david/workspace/Bruno/JY901sensor/Udoo/build /home/david/workspace/Bruno/JY901sensor/Udoo/build/CMakeFiles/udoo.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/udoo.dir/depend
 
