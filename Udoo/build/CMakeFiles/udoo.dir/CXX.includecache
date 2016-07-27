@@ -8,7 +8,41 @@
 
 /home/udooer/David/JY901sensor/Udoo/AngleOutput.h
 
+/home/udooer/David/JY901sensor/Udoo/checkPacket.cpp
+iostream
+-
+fstream
+-
+iomanip
+-
+unistd.h
+-
+cstdlib
+-
+new
+-
+
 /home/udooer/David/JY901sensor/Udoo/checkPacket.h
+
+/home/udooer/David/JY901sensor/Udoo/checkSum.cpp
+iostream
+-
+fstream
+-
+iomanip
+-
+unistd.h
+-
+cstdlib
+-
+new
+-
+algorithm
+-
+iterator
+-
+saveStruct.h
+/home/udooer/David/JY901sensor/Udoo/saveStruct.h
 
 /home/udooer/David/JY901sensor/Udoo/checkSum.h
 saveStruct.h
