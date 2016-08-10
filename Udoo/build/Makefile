@@ -183,29 +183,29 @@ listener_string.cpp.s:
 	$(MAKE) -f CMakeFiles/udoo.dir/build.make CMakeFiles/udoo.dir/listener_string.cpp.s
 .PHONY : listener_string.cpp.s
 
-mail.o: mail.cpp.o
-.PHONY : mail.o
+main.o: main.cpp.o
+.PHONY : main.o
 
 # target to build an object file
-mail.cpp.o:
-	$(MAKE) -f CMakeFiles/udoo.dir/build.make CMakeFiles/udoo.dir/mail.cpp.o
-.PHONY : mail.cpp.o
+main.cpp.o:
+	$(MAKE) -f CMakeFiles/udoo.dir/build.make CMakeFiles/udoo.dir/main.cpp.o
+.PHONY : main.cpp.o
 
-mail.i: mail.cpp.i
-.PHONY : mail.i
+main.i: main.cpp.i
+.PHONY : main.i
 
 # target to preprocess a source file
-mail.cpp.i:
-	$(MAKE) -f CMakeFiles/udoo.dir/build.make CMakeFiles/udoo.dir/mail.cpp.i
-.PHONY : mail.cpp.i
+main.cpp.i:
+	$(MAKE) -f CMakeFiles/udoo.dir/build.make CMakeFiles/udoo.dir/main.cpp.i
+.PHONY : main.cpp.i
 
-mail.s: mail.cpp.s
-.PHONY : mail.s
+main.s: main.cpp.s
+.PHONY : main.s
 
 # target to generate assembly for a file
-mail.cpp.s:
-	$(MAKE) -f CMakeFiles/udoo.dir/build.make CMakeFiles/udoo.dir/mail.cpp.s
-.PHONY : mail.cpp.s
+main.cpp.s:
+	$(MAKE) -f CMakeFiles/udoo.dir/build.make CMakeFiles/udoo.dir/main.cpp.s
+.PHONY : main.cpp.s
 
 newpacketIdentifier2.o: newpacketIdentifier2.cpp.o
 .PHONY : newpacketIdentifier2.o
@@ -297,9 +297,9 @@ help:
 	@echo "... listener_string.o"
 	@echo "... listener_string.i"
 	@echo "... listener_string.s"
-	@echo "... mail.o"
-	@echo "... mail.i"
-	@echo "... mail.s"
+	@echo "... main.o"
+	@echo "... main.i"
+	@echo "... main.s"
 	@echo "... newpacketIdentifier2.o"
 	@echo "... newpacketIdentifier2.i"
 	@echo "... newpacketIdentifier2.s"

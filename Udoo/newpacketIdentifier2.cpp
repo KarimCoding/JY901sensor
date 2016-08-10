@@ -42,10 +42,11 @@ void packetIdentifier2(unsigned char uc, std::vector<string> &goodData,std::vect
         if( checkSum(std::ref(save),std::ref(sum)))
 			savePacket(std::ref(save),std::ref(goodData),std::ref(buf));
 
-		else
+		else{
 			//sending header by ref just to use same memory space no need to worry about corruption here
 			write_bad_dat(std::ref(save),std::ref(badData),std::ref(header),std::ref(sum));
-
+			printf("\nbad checksum\n");
+			}
 		flagon = false;
 		resultCheck = false;
     }   // End brace for if(result ...

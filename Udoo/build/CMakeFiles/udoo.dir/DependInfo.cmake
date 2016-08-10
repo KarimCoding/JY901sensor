@@ -7,7 +7,7 @@ SET(CMAKE_DEPENDS_CHECK_CXX
   "/home/udooer/David/JY901sensor/Udoo/checkPacket.cpp" "/home/udooer/David/JY901sensor/Udoo/build/CMakeFiles/udoo.dir/checkPacket.cpp.o"
   "/home/udooer/David/JY901sensor/Udoo/checkSum.cpp" "/home/udooer/David/JY901sensor/Udoo/build/CMakeFiles/udoo.dir/checkSum.cpp.o"
   "/home/udooer/David/JY901sensor/Udoo/listener_string.cpp" "/home/udooer/David/JY901sensor/Udoo/build/CMakeFiles/udoo.dir/listener_string.cpp.o"
-  "/home/udooer/David/JY901sensor/Udoo/mail.cpp" "/home/udooer/David/JY901sensor/Udoo/build/CMakeFiles/udoo.dir/mail.cpp.o"
+  "/home/udooer/David/JY901sensor/Udoo/main.cpp" "/home/udooer/David/JY901sensor/Udoo/build/CMakeFiles/udoo.dir/main.cpp.o"
   "/home/udooer/David/JY901sensor/Udoo/newpacketIdentifier2.cpp" "/home/udooer/David/JY901sensor/Udoo/build/CMakeFiles/udoo.dir/newpacketIdentifier2.cpp.o"
   "/home/udooer/David/JY901sensor/Udoo/processData.cpp" "/home/udooer/David/JY901sensor/Udoo/build/CMakeFiles/udoo.dir/processData.cpp.o"
   "/home/udooer/David/JY901sensor/Udoo/savePacket.cpp" "/home/udooer/David/JY901sensor/Udoo/build/CMakeFiles/udoo.dir/savePacket.cpp.o"

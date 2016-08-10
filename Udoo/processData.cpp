@@ -32,20 +32,22 @@ void handleData(std::vector<dataStick>& buf,std::vector<string> &goodData,std::v
     memcpy(data, buf.front().dat.info,buf.front().numbytes);
 	writeBuff = header + "\n";
 //this commented block will store raw data to badData to save 
-/*
+
     char printStr[999];
     string buff;
-	badData.push_back(header);
+	header = header + "\n";
+	buff = header;
+	printf("\n");
     for(int x=0; x <buf.front().dat.numbytes ; x++)
     {
-             //   printf("%02x ",data[x]);
+        printf("%02x ",data[x]);
 		sprintf(printStr,"%02x ",data[x]);
         buff=buff + string(printStr);
         if(x>0&&x%11==0)
         	buff = buff+ "\n";
     }
-    badData.push_back(buff);
-*/
+//    badData.push_back(buff);
+	goodData.push_back(buff);
 
 	for(int ind = 0;ind <buf.front().dat.numbytes ;ind++)
 	{

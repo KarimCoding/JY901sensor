@@ -1,5 +1,5 @@
 FILE(REMOVE_RECURSE
-  "CMakeFiles/udoo.dir/mail.cpp.o"
+  "CMakeFiles/udoo.dir/main.cpp.o"
   "CMakeFiles/udoo.dir/listener_string.cpp.o"
   "CMakeFiles/udoo.dir/processData.cpp.o"
   "CMakeFiles/udoo.dir/newpacketIdentifier2.cpp.o"
