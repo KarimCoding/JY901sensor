@@ -1,24 +1,23 @@
 Determining if the pthread_create exist failed with the following output:
-Change Dir: /home/udooer/David/JY901sensor/Udoo/build/bin/CMakeFiles/CMakeTmp
+Change Dir: /home/david/workspace/new/JY901sensor/Udoo/build/bin/CMakeFiles/CMakeTmp
 
-Run Build Command:/usr/bin/make "cmTryCompileExec2445479652/fast"
-/usr/bin/make -f CMakeFiles/cmTryCompileExec2445479652.dir/build.make CMakeFiles/cmTryCompileExec2445479652.dir/build
-make[1]: Entering directory `/home/udooer/David/JY901sensor/Udoo/build/bin/CMakeFiles/CMakeTmp'
-/usr/bin/cmake -E cmake_progress_report /home/udooer/David/JY901sensor/Udoo/build/bin/CMakeFiles/CMakeTmp/CMakeFiles 1
-Building C object CMakeFiles/cmTryCompileExec2445479652.dir/CheckSymbolExists.c.o
-/usr/bin/cc    -o CMakeFiles/cmTryCompileExec2445479652.dir/CheckSymbolExists.c.o   -c /home/udooer/David/JY901sensor/Udoo/build/bin/CMakeFiles/CMakeTmp/CheckSymbolExists.c
-Linking C executable cmTryCompileExec2445479652
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec2445479652.dir/link.txt --verbose=1
-/usr/bin/cc       CMakeFiles/cmTryCompileExec2445479652.dir/CheckSymbolExists.c.o  -o cmTryCompileExec2445479652 -rdynamic 
-CMakeFiles/cmTryCompileExec2445479652.dir/CheckSymbolExists.c.o: In function `main':
-CheckSymbolExists.c:(.text+0xe): undefined reference to `pthread_create'
-CheckSymbolExists.c:(.text+0x12): undefined reference to `pthread_create'
+Run Build Command:/usr/bin/make "cmTryCompileExec1054227461/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec1054227461.dir/build.make CMakeFiles/cmTryCompileExec1054227461.dir/build
+make[1]: Entering directory `/home/david/workspace/new/JY901sensor/Udoo/build/bin/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/david/workspace/new/JY901sensor/Udoo/build/bin/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec1054227461.dir/CheckSymbolExists.c.o
+/usr/bin/cc    -o CMakeFiles/cmTryCompileExec1054227461.dir/CheckSymbolExists.c.o   -c /home/david/workspace/new/JY901sensor/Udoo/build/bin/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTryCompileExec1054227461
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec1054227461.dir/link.txt --verbose=1
+/usr/bin/cc       CMakeFiles/cmTryCompileExec1054227461.dir/CheckSymbolExists.c.o  -o cmTryCompileExec1054227461 -rdynamic 
+CMakeFiles/cmTryCompileExec1054227461.dir/CheckSymbolExists.c.o: In function `main':
+CheckSymbolExists.c:(.text+0x16): undefined reference to `pthread_create'
 collect2: error: ld returned 1 exit status
-make[1]: Leaving directory `/home/udooer/David/JY901sensor/Udoo/build/bin/CMakeFiles/CMakeTmp'
-make[1]: *** [cmTryCompileExec2445479652] Error 1
-make: *** [cmTryCompileExec2445479652/fast] Error 2
+make[1]: *** [cmTryCompileExec1054227461] Error 1
+make[1]: Leaving directory `/home/david/workspace/new/JY901sensor/Udoo/build/bin/CMakeFiles/CMakeTmp'
+make: *** [cmTryCompileExec1054227461/fast] Error 2
 
-File /home/udooer/David/JY901sensor/Udoo/build/bin/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+File /home/david/workspace/new/JY901sensor/Udoo/build/bin/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
 /* */
 #include <pthread.h>
 
@@ -34,21 +33,21 @@ int main(int argc, char** argv)
 }
 
 Determining if the function pthread_create exists in the pthreads failed with the following output:
-Change Dir: /home/udooer/David/JY901sensor/Udoo/build/bin/CMakeFiles/CMakeTmp
+Change Dir: /home/david/workspace/new/JY901sensor/Udoo/build/bin/CMakeFiles/CMakeTmp
 
-Run Build Command:/usr/bin/make "cmTryCompileExec920147152/fast"
-/usr/bin/make -f CMakeFiles/cmTryCompileExec920147152.dir/build.make CMakeFiles/cmTryCompileExec920147152.dir/build
-make[1]: Entering directory `/home/udooer/David/JY901sensor/Udoo/build/bin/CMakeFiles/CMakeTmp'
-/usr/bin/cmake -E cmake_progress_report /home/udooer/David/JY901sensor/Udoo/build/bin/CMakeFiles/CMakeTmp/CMakeFiles 1
-Building C object CMakeFiles/cmTryCompileExec920147152.dir/CheckFunctionExists.c.o
-/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTryCompileExec920147152.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-2.8/Modules/CheckFunctionExists.c
-Linking C executable cmTryCompileExec920147152
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec920147152.dir/link.txt --verbose=1
-/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTryCompileExec920147152.dir/CheckFunctionExists.c.o  -o cmTryCompileExec920147152 -rdynamic -lpthreads 
+Run Build Command:/usr/bin/make "cmTryCompileExec3462287438/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec3462287438.dir/build.make CMakeFiles/cmTryCompileExec3462287438.dir/build
+make[1]: Entering directory `/home/david/workspace/new/JY901sensor/Udoo/build/bin/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/david/workspace/new/JY901sensor/Udoo/build/bin/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec3462287438.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTryCompileExec3462287438.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-2.8/Modules/CheckFunctionExists.c
+Linking C executable cmTryCompileExec3462287438
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec3462287438.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTryCompileExec3462287438.dir/CheckFunctionExists.c.o  -o cmTryCompileExec3462287438 -rdynamic -lpthreads 
 /usr/bin/ld: cannot find -lpthreads
 collect2: error: ld returned 1 exit status
-make[1]: Leaving directory `/home/udooer/David/JY901sensor/Udoo/build/bin/CMakeFiles/CMakeTmp'
-make[1]: *** [cmTryCompileExec920147152] Error 1
-make: *** [cmTryCompileExec920147152/fast] Error 2
+make[1]: *** [cmTryCompileExec3462287438] Error 1
+make[1]: Leaving directory `/home/david/workspace/new/JY901sensor/Udoo/build/bin/CMakeFiles/CMakeTmp'
+make: *** [cmTryCompileExec3462287438/fast] Error 2
 
 

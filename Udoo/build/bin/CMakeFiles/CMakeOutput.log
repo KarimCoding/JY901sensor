@@ -1,30 +1,30 @@
 Determining if files pthread.h exist passed with the following output:
-Change Dir: /home/udooer/David/JY901sensor/Udoo/build/bin/CMakeFiles/CMakeTmp
+Change Dir: /home/david/workspace/new/JY901sensor/Udoo/build/bin/CMakeFiles/CMakeTmp
 
-Run Build Command:/usr/bin/make "cmTryCompileExec2001043275/fast"
-/usr/bin/make -f CMakeFiles/cmTryCompileExec2001043275.dir/build.make CMakeFiles/cmTryCompileExec2001043275.dir/build
-make[1]: Entering directory `/home/udooer/David/JY901sensor/Udoo/build/bin/CMakeFiles/CMakeTmp'
-/usr/bin/cmake -E cmake_progress_report /home/udooer/David/JY901sensor/Udoo/build/bin/CMakeFiles/CMakeTmp/CMakeFiles 1
-Building C object CMakeFiles/cmTryCompileExec2001043275.dir/CheckIncludeFiles.c.o
-/usr/bin/cc    -o CMakeFiles/cmTryCompileExec2001043275.dir/CheckIncludeFiles.c.o   -c /home/udooer/David/JY901sensor/Udoo/build/bin/CMakeFiles/CMakeTmp/CheckIncludeFiles.c
-Linking C executable cmTryCompileExec2001043275
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec2001043275.dir/link.txt --verbose=1
-/usr/bin/cc       CMakeFiles/cmTryCompileExec2001043275.dir/CheckIncludeFiles.c.o  -o cmTryCompileExec2001043275 -rdynamic 
-make[1]: Leaving directory `/home/udooer/David/JY901sensor/Udoo/build/bin/CMakeFiles/CMakeTmp'
+Run Build Command:/usr/bin/make "cmTryCompileExec3490043363/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec3490043363.dir/build.make CMakeFiles/cmTryCompileExec3490043363.dir/build
+make[1]: Entering directory `/home/david/workspace/new/JY901sensor/Udoo/build/bin/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/david/workspace/new/JY901sensor/Udoo/build/bin/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec3490043363.dir/CheckIncludeFiles.c.o
+/usr/bin/cc    -o CMakeFiles/cmTryCompileExec3490043363.dir/CheckIncludeFiles.c.o   -c /home/david/workspace/new/JY901sensor/Udoo/build/bin/CMakeFiles/CMakeTmp/CheckIncludeFiles.c
+Linking C executable cmTryCompileExec3490043363
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec3490043363.dir/link.txt --verbose=1
+/usr/bin/cc       CMakeFiles/cmTryCompileExec3490043363.dir/CheckIncludeFiles.c.o  -o cmTryCompileExec3490043363 -rdynamic 
+make[1]: Leaving directory `/home/david/workspace/new/JY901sensor/Udoo/build/bin/CMakeFiles/CMakeTmp'
 
 
 Determining if the function pthread_create exists in the pthread passed with the following output:
-Change Dir: /home/udooer/David/JY901sensor/Udoo/build/bin/CMakeFiles/CMakeTmp
+Change Dir: /home/david/workspace/new/JY901sensor/Udoo/build/bin/CMakeFiles/CMakeTmp
 
-Run Build Command:/usr/bin/make "cmTryCompileExec453437309/fast"
-/usr/bin/make -f CMakeFiles/cmTryCompileExec453437309.dir/build.make CMakeFiles/cmTryCompileExec453437309.dir/build
-make[1]: Entering directory `/home/udooer/David/JY901sensor/Udoo/build/bin/CMakeFiles/CMakeTmp'
-/usr/bin/cmake -E cmake_progress_report /home/udooer/David/JY901sensor/Udoo/build/bin/CMakeFiles/CMakeTmp/CMakeFiles 1
-Building C object CMakeFiles/cmTryCompileExec453437309.dir/CheckFunctionExists.c.o
-/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTryCompileExec453437309.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-2.8/Modules/CheckFunctionExists.c
-Linking C executable cmTryCompileExec453437309
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec453437309.dir/link.txt --verbose=1
-/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTryCompileExec453437309.dir/CheckFunctionExists.c.o  -o cmTryCompileExec453437309 -rdynamic -lpthread 
-make[1]: Leaving directory `/home/udooer/David/JY901sensor/Udoo/build/bin/CMakeFiles/CMakeTmp'
+Run Build Command:/usr/bin/make "cmTryCompileExec1685955616/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec1685955616.dir/build.make CMakeFiles/cmTryCompileExec1685955616.dir/build
+make[1]: Entering directory `/home/david/workspace/new/JY901sensor/Udoo/build/bin/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/david/workspace/new/JY901sensor/Udoo/build/bin/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec1685955616.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTryCompileExec1685955616.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-2.8/Modules/CheckFunctionExists.c
+Linking C executable cmTryCompileExec1685955616
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec1685955616.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTryCompileExec1685955616.dir/CheckFunctionExists.c.o  -o cmTryCompileExec1685955616 -rdynamic -lpthread 
+make[1]: Leaving directory `/home/david/workspace/new/JY901sensor/Udoo/build/bin/CMakeFiles/CMakeTmp'
 
 

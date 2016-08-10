@@ -47,10 +47,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/udooer/David/JY901sensor/Udoo
+CMAKE_SOURCE_DIR = /home/david/workspace/new/JY901sensor/Udoo
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/udooer/David/JY901sensor/Udoo/build
+CMAKE_BINARY_DIR = /home/david/workspace/new/JY901sensor/Udoo/build
 
 #=============================================================================
 # Target rules for target CMakeFiles/udoo.dir
@@ -59,7 +59,7 @@ CMAKE_BINARY_DIR = /home/udooer/David/JY901sensor/Udoo/build
 CMakeFiles/udoo.dir/all:
 	$(MAKE) -f CMakeFiles/udoo.dir/build.make CMakeFiles/udoo.dir/depend
 	$(MAKE) -f CMakeFiles/udoo.dir/build.make CMakeFiles/udoo.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/udooer/David/JY901sensor/Udoo/build/CMakeFiles  1 2 3 4 5 6 7
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/david/workspace/new/JY901sensor/Udoo/build/CMakeFiles  1 2 3 4 5 6 7
 	@echo "Built target udoo"
 .PHONY : CMakeFiles/udoo.dir/all
 
@@ -69,9 +69,9 @@ all: CMakeFiles/udoo.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/udoo.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/udooer/David/JY901sensor/Udoo/build/CMakeFiles 7
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/david/workspace/new/JY901sensor/Udoo/build/CMakeFiles 7
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/udoo.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/udooer/David/JY901sensor/Udoo/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/david/workspace/new/JY901sensor/Udoo/build/CMakeFiles 0
 .PHONY : CMakeFiles/udoo.dir/rule
 
 # Convenience name for target.
