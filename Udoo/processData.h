@@ -1,12 +1,30 @@
+#ifndef PROCESSDATA_H
+#define PROCESSDATA_H
+#include <errno.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <string.h>
+#include <signal.h>
+#include "packetIdentifier2.h"
+#include <iomanip>
+#include <unistd.h>
+#include <cstdlib>
+#include <new>
+#include "dataPkt.h"
+#include "consts.h"
+#include <string>
 #include <vector>
 #include <memory>
 
-void handleData(std::vector<dataStick>& buf,std::vector<string> &goodData,std::vector<string> &badData);
+
+
+
+#include <vector>
+#include <memory>
+void handleData(std::vector<dataStick>& buf,std::vector<string> &goodData,std::vector<string> &badData,std::string &writeBuff);
 
 //void handleData(std::vector<dataStick>& buf,std::vector<string> &goodData,std::vector<string> &badData);
 
-//void handleData(dataStick &pkt, std::vector<string> &goodData,std::vector<string> &badData);
-//void handleData(dataStick &pkt,std::ofstream& outF,std::ofstream& badD);
-//void handleData(dataStick pkt, std::ofstream& outF,bool VERBOSITY,std::ofstream& badData);
-//void handleData(dataStick pkt, char *fName);
+#endif /* PROCESSDATA_H */
 

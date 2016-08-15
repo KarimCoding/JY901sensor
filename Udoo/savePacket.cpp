@@ -106,26 +106,5 @@ void write_bad_dat(saveStruct &save,std::vector<string> &data,std::string &buf,u
     buf = buf+ "checksum should be: " + string(printStr);
     cout<<buf;
     data.push_back(buf);
-
-
-
-
-
-/*
-	printf("\n ******************bad data*************\n \n");
-    char printStr[999];
-	buf = buf+"\n";
-    for(int x=0; x <numberOfBytes ; x++)
-    {
-    	sprintf(printStr,"%02x ",save.data[x]);
-    	buf=buf + string(printStr);
-    }
-	buf = buf + "\n";
-	sprintf(printStr,"%02x\n",sum);
-	buf = buf+ "checksum should be: " + string(printStr);
-	cout<<buf;
-	data.push_back(buf);
-
-*/
 }
 

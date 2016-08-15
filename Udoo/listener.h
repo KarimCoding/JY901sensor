@@ -1,3 +1,9 @@
+#ifndef LISTENER_H
+#define LISTENER_H
+
+
+
+
 #include <errno.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -27,7 +33,7 @@
 #include <vector>
 #include <memory>
 #include <string>
-
+#include "saveStruct.h"
 
 using boost::asio::ip::udp;
 
@@ -56,3 +62,9 @@ class wifi
 		
 
 };
+
+
+
+
+#endif /* LISTENER_H */
+
