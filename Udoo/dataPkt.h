@@ -58,12 +58,12 @@ class dataStick
 
 		void print()//;
 		{
-        	cout<<pkt_header<<" with "<<numbytes<<endl;
+        //	cout<<pkt_header<<" with "<<numbytes<<endl;
             unsigned char output[MAXBUFLEN];// = (unsigned char*)malloc(len$
         	memcpy(output, data, numbytes);
         	for(int i = 0;i<dat.numbytes;i++)
         	{
-            	printf("%02x ",output[i]);
+            	printf("%02x ",data[i]);
             	if(i>0&&i%10==0)
                 	printf("\n");
         	}

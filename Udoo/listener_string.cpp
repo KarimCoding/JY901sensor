@@ -33,6 +33,7 @@ int wifi::listener(dataStick& pkt,udp::socket& socket)
     std::string pkt_header = remote_endpoint.address().to_string();
     pkt_header = pkt_header + " @ " + time;
     pkt.setData(dat,pkt_header,recv_buf.size() );
+	pkt.print();
     return 0;
 }
 

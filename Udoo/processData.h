@@ -22,7 +22,7 @@
 
 #include <vector>
 #include <memory>
-void handleData(std::vector<dataStick>& buf,std::vector<string> &goodData,std::vector<string> &badData,std::string &writeBuff);
+void handleData(std::vector<dataStick>& buf,std::vector<string> &badData,std::string &writeBuff);
 
 //void handleData(std::vector<dataStick>& buf,std::vector<string> &goodData,std::vector<string> &badData);
 

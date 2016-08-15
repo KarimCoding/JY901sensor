@@ -12,7 +12,7 @@ unsigned char sumCAC;
 bool flagon(false);
 
 //passing header by value as to not corrupt the data packet in previous function call
-void packetIdentifier2(unsigned char uc, std::vector<string> &goodData,std::vector<string> &badData,std::string &buf,std::string header)
+void packetIdentifier2(unsigned char uc,std::vector<string> &badData,std::string &buf,std::string header)
 {
 	unsigned char sum = 0;
 	saveStruct save;
@@ -40,13 +40,13 @@ void packetIdentifier2(unsigned char uc, std::vector<string> &goodData,std::vect
 		memcpy(save.data,saveArray,12);
 		save.data[11]='\0';
         if( checkSum(std::ref(save),std::ref(sum)))
-			savePacket(std::ref(save),std::ref(goodData),std::ref(buf));
+			savePacket(std::ref(save),std::ref(buf));
 
-		else{
+		else
+		{
 			//sending header by ref just to use same memory space no need to worry about corruption here
-			write_bad_dat(std::ref(save),std::ref(badData),std::ref(header),std::ref(sum));
-			printf("\nbad checksum\n");
-			}
+			write_bad_dat(std::ref(save),std::ref(badData),std::ref(header),sum);
+		}
 		flagon = false;
 		resultCheck = false;
     }   // End brace for if(result ...
