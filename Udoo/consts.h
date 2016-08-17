@@ -13,10 +13,10 @@
 //BUFFER CONFIG
 //#define 	MAXBUFLEN 	518
 //#define 	MAXBUFLEN	189
-#define 	MAXBUFLEN	378
+#define 	MAXBUFLEN	230
 #define 	MAXBUFSIZE	4
-#define		GBUFFSIZE	200
-#define		BBUFFSIZE	50
+#define		GBUFFSIZE	20
+#define		BBUFFSIZE	20
 //COMMANDS
 #define     SAVE    	0x00;
 #define     CALSW   	0x01;

@@ -15,7 +15,7 @@ std::mutex mtx;
 using namespace std;
 using boost::asio::ip::udp;
 std::string path;
-
+bool print_on(true);
 void collect(wifi& port,dataStick pkt,vector<dataStick>& buf, udp::socket& socket)
 {
 	if(buf.size()<MAXBUFSIZE)
@@ -49,7 +49,8 @@ void writeData(std::ofstream& outF,std::vector<string> &goodData,char fName[30])
     	outF.open(path+string(fName), ios::out|ios::app);
         while(goodData.size()>0)
         {
-        	cout<<goodData.front()<<"\n";
+			if(print_on)
+        		cout<<goodData.front()<<"\n";
             outF<<goodData.front()<<"\n";
             mtx.lock();
 			goodData.erase(goodData.begin());
