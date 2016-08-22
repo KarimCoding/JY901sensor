@@ -7,11 +7,11 @@ CMakeFiles/udoo.dir/checkSum.cpp.o: ../checkSum.cpp
 CMakeFiles/udoo.dir/checkSum.cpp.o: ../consts.h
 CMakeFiles/udoo.dir/checkSum.cpp.o: ../saveStruct.h
 
-CMakeFiles/udoo.dir/listener_string.cpp.o: ../consts.h
-CMakeFiles/udoo.dir/listener_string.cpp.o: ../dataPkt.h
-CMakeFiles/udoo.dir/listener_string.cpp.o: ../listener.h
-CMakeFiles/udoo.dir/listener_string.cpp.o: ../listener_string.cpp
-CMakeFiles/udoo.dir/listener_string.cpp.o: ../saveStruct.h
+CMakeFiles/udoo.dir/collector.cpp.o: ../collector.cpp
+CMakeFiles/udoo.dir/collector.cpp.o: ../consts.h
+CMakeFiles/udoo.dir/collector.cpp.o: ../dataPkt.h
+CMakeFiles/udoo.dir/collector.cpp.o: ../listener.h
+CMakeFiles/udoo.dir/collector.cpp.o: ../saveStruct.h
 
 CMakeFiles/udoo.dir/main.cpp.o: ../checkPacket.h
 CMakeFiles/udoo.dir/main.cpp.o: ../checkSum.h
@@ -23,13 +23,13 @@ CMakeFiles/udoo.dir/main.cpp.o: ../packetIdentifier2.h
 CMakeFiles/udoo.dir/main.cpp.o: ../processData.h
 CMakeFiles/udoo.dir/main.cpp.o: ../saveStruct.h
 
-CMakeFiles/udoo.dir/newpacketIdentifier2.cpp.o: ../checkPacket.h
-CMakeFiles/udoo.dir/newpacketIdentifier2.cpp.o: ../checkSum.h
-CMakeFiles/udoo.dir/newpacketIdentifier2.cpp.o: ../consts.h
-CMakeFiles/udoo.dir/newpacketIdentifier2.cpp.o: ../newpacketIdentifier2.cpp
-CMakeFiles/udoo.dir/newpacketIdentifier2.cpp.o: ../packetIdentifier2.h
-CMakeFiles/udoo.dir/newpacketIdentifier2.cpp.o: ../savePacket.h
-CMakeFiles/udoo.dir/newpacketIdentifier2.cpp.o: ../saveStruct.h
+CMakeFiles/udoo.dir/pktIden.cpp.o: ../checkPacket.h
+CMakeFiles/udoo.dir/pktIden.cpp.o: ../checkSum.h
+CMakeFiles/udoo.dir/pktIden.cpp.o: ../consts.h
+CMakeFiles/udoo.dir/pktIden.cpp.o: ../packetIdentifier2.h
+CMakeFiles/udoo.dir/pktIden.cpp.o: ../pktIden.cpp
+CMakeFiles/udoo.dir/pktIden.cpp.o: ../savePacket.h
+CMakeFiles/udoo.dir/pktIden.cpp.o: ../saveStruct.h
 
 CMakeFiles/udoo.dir/processData.cpp.o: ../checkPacket.h
 CMakeFiles/udoo.dir/processData.cpp.o: ../checkSum.h

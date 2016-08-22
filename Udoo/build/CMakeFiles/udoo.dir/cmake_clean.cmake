@@ -1,8 +1,8 @@
 FILE(REMOVE_RECURSE
   "CMakeFiles/udoo.dir/main.cpp.o"
-  "CMakeFiles/udoo.dir/listener_string.cpp.o"
+  "CMakeFiles/udoo.dir/collector.cpp.o"
   "CMakeFiles/udoo.dir/processData.cpp.o"
-  "CMakeFiles/udoo.dir/newpacketIdentifier2.cpp.o"
+  "CMakeFiles/udoo.dir/pktIden.cpp.o"
   "CMakeFiles/udoo.dir/checkPacket.cpp.o"
   "CMakeFiles/udoo.dir/checkSum.cpp.o"
   "CMakeFiles/udoo.dir/savePacket.cpp.o"
