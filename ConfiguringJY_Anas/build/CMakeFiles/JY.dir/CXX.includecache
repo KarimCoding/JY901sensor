@@ -1,0 +1,98 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/anas/Desktop/Demo (Tuesday August 23rd)/David/Command.cpp
+Command.h
+/home/anas/Desktop/Demo (Tuesday August 23rd)/David/Command.h
+constants.h
+/home/anas/Desktop/Demo (Tuesday August 23rd)/David/constants.h
+vector
+-
+iostream
+-
+cstring
+-
+
+/home/anas/Desktop/Demo (Tuesday August 23rd)/David/Command.h
+string
+-
+vector
+-
+
+/home/anas/Desktop/Demo (Tuesday August 23rd)/David/SocketSendTo.cpp
+SocketSendTo.h
+/home/anas/Desktop/Demo (Tuesday August 23rd)/David/SocketSendTo.h
+iostream
+-
+string
+-
+vector
+-
+Command.h
+/home/anas/Desktop/Demo (Tuesday August 23rd)/David/Command.h
+constants.h
+/home/anas/Desktop/Demo (Tuesday August 23rd)/David/constants.h
+stdlib.h
+-
+stdio.h
+-
+string.h
+-
+netdb.h
+-
+sys/socket.h
+-
+arpa/inet.h
+-
+time.h
+-
+unistd.h
+-
+
+/home/anas/Desktop/Demo (Tuesday August 23rd)/David/SocketSendTo.h
+Command.h
+/home/anas/Desktop/Demo (Tuesday August 23rd)/David/Command.h
+
+/home/anas/Desktop/Demo (Tuesday August 23rd)/David/constants.h
+vector
+-
+string
+-
+
+/home/anas/Desktop/Demo (Tuesday August 23rd)/David/main.cpp
+iostream
+-
+string
+-
+vector
+-
+Command.h
+/home/anas/Desktop/Demo (Tuesday August 23rd)/David/Command.h
+constants.h
+/home/anas/Desktop/Demo (Tuesday August 23rd)/David/constants.h
+stdlib.h
+-
+stdio.h
+-
+string.h
+-
+netdb.h
+-
+sys/socket.h
+-
+arpa/inet.h
+-
+SocketSendTo.h
+/home/anas/Desktop/Demo (Tuesday August 23rd)/David/SocketSendTo.h
+time.h
+-
+unistd.h
+-
+map
+-
+

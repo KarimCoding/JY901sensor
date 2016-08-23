@@ -1,0 +1,3 @@
+/home/anas/Desktop/Demo (Tuesday August 23rd)/David/build/CMakeFiles/edit_cache.dir
+/home/anas/Desktop/Demo (Tuesday August 23rd)/David/build/CMakeFiles/rebuild_cache.dir
+/home/anas/Desktop/Demo (Tuesday August 23rd)/David/build/CMakeFiles/JY.dir
