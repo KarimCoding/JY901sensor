@@ -12,4 +12,4 @@ set (CMAKE_SHARED_LINKER_FLAGS)
 
 SET(CMAKE_CXX_FLAGS ${CMAKE_CXX_FLAGS} "-std=c++11 -pthread")
 
-add_executable	(JY main.cpp Command.cpp Command.h SocketSendTo.cpp SocketSendTo.h constants.h)
+add_executable	(JY main.cpp Command.cpp Command.h SocketSendTo.cpp SocketSendTo.h constants.h UserInput.cpp UserInput.h)

@@ -114,3 +114,16 @@ void saveConfig_externalSocket (struct sockaddr_in remaddr, socklen_t addrlen, i
 
 }
 
+
+
+
+void SocketSendTo::commandSent(Command com, const char* IP_Address)
+{
+    cout<< com.getName()<<": Command"<< " [";
+    for (int i = 0 ; i<5; i++)
+    {
+        cout << hex <<(int) com.getCommandFormatIndex(i)<< " ";
+    }
+    cout <<"]"<< " Has been to: " << IP_Address << endl;
+}
+

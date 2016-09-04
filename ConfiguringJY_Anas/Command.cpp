@@ -3,6 +3,7 @@
 #include <vector>
 #include <iostream>
 #include <cstring>
+#include <iomanip>
 
 using namespace std;
 
@@ -13,6 +14,7 @@ unsigned char defaultVal    = 0x00;
 
 
 int findInVector (string item, vector <string> );
+int findInVector (int , vector <int> );
 string convertToUppercase(string );
 
 
@@ -32,6 +34,8 @@ Command::Command(string newName)
         commandFormat [2] = hexAddress;
         commandFormat [3] = defaultVal;
         commandFormat [4] = defaultVal;
+
+        if (findInVector(index,twoParamCommands) >= 0) {isTwoParam = true;}
 
 
     }
@@ -56,6 +60,19 @@ int findInVector (string item, vector <string> listOfItems)
     }
     return -1;
 }
+
+int findInVector (int item, vector <int> listOfItems)
+{
+    for (int x = 0; x<listOfItems.size(); x++ )
+    {
+        if (listOfItems.at(x)== item)
+        {
+            return x;
+        }
+    }
+    return -1;
+}
+
 
 string convertToUppercase(string lowercase)
 {
@@ -107,7 +124,7 @@ void Command::printCommand (Command comm)
 
 */
 
-vector<Command> Command::generateCommandList ()
+vector<Command> generateCommandList ()
 {
     int sizeOfList = commandName.size();
     vector <Command> commandList;
@@ -122,4 +139,49 @@ vector<Command> Command::generateCommandList ()
     }
 
     return commandList;
+}
+
+
+
+void Command::printAllCommands ()
+{
+    vector <Command > allCommands = generateCommandList ();
+
+    cout <<
+         setw(7) << std::left <<"Num "<<
+         setw(15) << std::left<< "Name "  <<
+         setw(10) << "Hex "<<
+         setw(30) << "Description"<<endl ;
+
+
+
+    for (int x=0; x< allCommands.size(); x ++)
+    {
+        cout << "------------------------------------------------------------------"<<endl;
+        Command temp_command = allCommands[x];
+        cout <<
+             setw(7) << std::left <<dec<<temp_command.getNumber() <<
+             setw(15) << std::left<< temp_command.getName()  <<
+             setw(10) << hex << (int) temp_command.getHexAddress()<<
+             setw(30) << temp_command.getDescription()<<
+
+
+             endl;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }

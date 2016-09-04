@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "/home/anas/Desktop/Demo (Tuesday August 23rd)/David"
+CMAKE_SOURCE_DIR = "/home/anas/Desktop/Final API"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "/home/anas/Desktop/Demo (Tuesday August 23rd)/David/build"
+CMAKE_BINARY_DIR = "/home/anas/Desktop/Final API/build"
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,9 +80,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/home/anas/Desktop/Demo (Tuesday August 23rd)/David/build/CMakeFiles" "/home/anas/Desktop/Demo (Tuesday August 23rd)/David/build/CMakeFiles/progress.marks"
+	$(CMAKE_COMMAND) -E cmake_progress_start "/home/anas/Desktop/Final API/build/CMakeFiles" "/home/anas/Desktop/Final API/build/CMakeFiles/progress.marks"
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start "/home/anas/Desktop/Demo (Tuesday August 23rd)/David/build/CMakeFiles" 0
+	$(CMAKE_COMMAND) -E cmake_progress_start "/home/anas/Desktop/Final API/build/CMakeFiles" 0
 .PHONY : all
 
 # The main clean target
@@ -177,6 +177,33 @@ SocketSendTo.cpp.s:
 	$(MAKE) -f CMakeFiles/JY.dir/build.make CMakeFiles/JY.dir/SocketSendTo.cpp.s
 .PHONY : SocketSendTo.cpp.s
 
+UserInput.o: UserInput.cpp.o
+
+.PHONY : UserInput.o
+
+# target to build an object file
+UserInput.cpp.o:
+	$(MAKE) -f CMakeFiles/JY.dir/build.make CMakeFiles/JY.dir/UserInput.cpp.o
+.PHONY : UserInput.cpp.o
+
+UserInput.i: UserInput.cpp.i
+
+.PHONY : UserInput.i
+
+# target to preprocess a source file
+UserInput.cpp.i:
+	$(MAKE) -f CMakeFiles/JY.dir/build.make CMakeFiles/JY.dir/UserInput.cpp.i
+.PHONY : UserInput.cpp.i
+
+UserInput.s: UserInput.cpp.s
+
+.PHONY : UserInput.s
+
+# target to generate assembly for a file
+UserInput.cpp.s:
+	$(MAKE) -f CMakeFiles/JY.dir/build.make CMakeFiles/JY.dir/UserInput.cpp.s
+.PHONY : UserInput.cpp.s
+
 main.o: main.cpp.o
 
 .PHONY : main.o
@@ -219,6 +246,9 @@ help:
 	@echo "... SocketSendTo.o"
 	@echo "... SocketSendTo.i"
 	@echo "... SocketSendTo.s"
+	@echo "... UserInput.o"
+	@echo "... UserInput.i"
+	@echo "... UserInput.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

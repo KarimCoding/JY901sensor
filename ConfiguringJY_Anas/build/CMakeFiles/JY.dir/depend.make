@@ -10,8 +10,15 @@ CMakeFiles/JY.dir/SocketSendTo.cpp.o: ../SocketSendTo.cpp
 CMakeFiles/JY.dir/SocketSendTo.cpp.o: ../SocketSendTo.h
 CMakeFiles/JY.dir/SocketSendTo.cpp.o: ../constants.h
 
+CMakeFiles/JY.dir/UserInput.cpp.o: ../Command.h
+CMakeFiles/JY.dir/UserInput.cpp.o: ../SocketSendTo.h
+CMakeFiles/JY.dir/UserInput.cpp.o: ../UserInput.cpp
+CMakeFiles/JY.dir/UserInput.cpp.o: ../UserInput.h
+CMakeFiles/JY.dir/UserInput.cpp.o: ../constants.h
+
 CMakeFiles/JY.dir/main.cpp.o: ../Command.h
 CMakeFiles/JY.dir/main.cpp.o: ../SocketSendTo.h
+CMakeFiles/JY.dir/main.cpp.o: ../UserInput.h
 CMakeFiles/JY.dir/main.cpp.o: ../constants.h
 CMakeFiles/JY.dir/main.cpp.o: ../main.cpp
 

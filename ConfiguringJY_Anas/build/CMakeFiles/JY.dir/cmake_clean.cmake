@@ -2,6 +2,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/JY.dir/main.cpp.o"
   "CMakeFiles/JY.dir/Command.cpp.o"
   "CMakeFiles/JY.dir/SocketSendTo.cpp.o"
+  "CMakeFiles/JY.dir/UserInput.cpp.o"
   "bin/JY.pdb"
   "bin/JY"
 )

@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "/home/anas/Desktop/Demo (Tuesday August 23rd)/David"
+CMAKE_SOURCE_DIR = "/home/anas/Desktop/Final API"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "/home/anas/Desktop/Demo (Tuesday August 23rd)/David/build"
+CMAKE_BINARY_DIR = "/home/anas/Desktop/Final API/build"
 
 # Include any dependencies generated for this target.
 include CMakeFiles/JY.dir/depend.make
@@ -59,16 +59,16 @@ include CMakeFiles/JY.dir/flags.make
 
 CMakeFiles/JY.dir/main.cpp.o: CMakeFiles/JY.dir/flags.make
 CMakeFiles/JY.dir/main.cpp.o: ../main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/anas/Desktop/Demo (Tuesday August 23rd)/David/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/JY.dir/main.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/JY.dir/main.cpp.o -c "/home/anas/Desktop/Demo (Tuesday August 23rd)/David/main.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/anas/Desktop/Final API/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/JY.dir/main.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/JY.dir/main.cpp.o -c "/home/anas/Desktop/Final API/main.cpp"
 
 CMakeFiles/JY.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/JY.dir/main.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/anas/Desktop/Demo (Tuesday August 23rd)/David/main.cpp" > CMakeFiles/JY.dir/main.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/anas/Desktop/Final API/main.cpp" > CMakeFiles/JY.dir/main.cpp.i
 
 CMakeFiles/JY.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/JY.dir/main.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/anas/Desktop/Demo (Tuesday August 23rd)/David/main.cpp" -o CMakeFiles/JY.dir/main.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/anas/Desktop/Final API/main.cpp" -o CMakeFiles/JY.dir/main.cpp.s
 
 CMakeFiles/JY.dir/main.cpp.o.requires:
 
@@ -83,16 +83,16 @@ CMakeFiles/JY.dir/main.cpp.o.provides.build: CMakeFiles/JY.dir/main.cpp.o
 
 CMakeFiles/JY.dir/Command.cpp.o: CMakeFiles/JY.dir/flags.make
 CMakeFiles/JY.dir/Command.cpp.o: ../Command.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/anas/Desktop/Demo (Tuesday August 23rd)/David/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/JY.dir/Command.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/JY.dir/Command.cpp.o -c "/home/anas/Desktop/Demo (Tuesday August 23rd)/David/Command.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/anas/Desktop/Final API/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/JY.dir/Command.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/JY.dir/Command.cpp.o -c "/home/anas/Desktop/Final API/Command.cpp"
 
 CMakeFiles/JY.dir/Command.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/JY.dir/Command.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/anas/Desktop/Demo (Tuesday August 23rd)/David/Command.cpp" > CMakeFiles/JY.dir/Command.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/anas/Desktop/Final API/Command.cpp" > CMakeFiles/JY.dir/Command.cpp.i
 
 CMakeFiles/JY.dir/Command.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/JY.dir/Command.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/anas/Desktop/Demo (Tuesday August 23rd)/David/Command.cpp" -o CMakeFiles/JY.dir/Command.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/anas/Desktop/Final API/Command.cpp" -o CMakeFiles/JY.dir/Command.cpp.s
 
 CMakeFiles/JY.dir/Command.cpp.o.requires:
 
@@ -107,16 +107,16 @@ CMakeFiles/JY.dir/Command.cpp.o.provides.build: CMakeFiles/JY.dir/Command.cpp.o
 
 CMakeFiles/JY.dir/SocketSendTo.cpp.o: CMakeFiles/JY.dir/flags.make
 CMakeFiles/JY.dir/SocketSendTo.cpp.o: ../SocketSendTo.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/anas/Desktop/Demo (Tuesday August 23rd)/David/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/JY.dir/SocketSendTo.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/JY.dir/SocketSendTo.cpp.o -c "/home/anas/Desktop/Demo (Tuesday August 23rd)/David/SocketSendTo.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/anas/Desktop/Final API/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/JY.dir/SocketSendTo.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/JY.dir/SocketSendTo.cpp.o -c "/home/anas/Desktop/Final API/SocketSendTo.cpp"
 
 CMakeFiles/JY.dir/SocketSendTo.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/JY.dir/SocketSendTo.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/anas/Desktop/Demo (Tuesday August 23rd)/David/SocketSendTo.cpp" > CMakeFiles/JY.dir/SocketSendTo.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/anas/Desktop/Final API/SocketSendTo.cpp" > CMakeFiles/JY.dir/SocketSendTo.cpp.i
 
 CMakeFiles/JY.dir/SocketSendTo.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/JY.dir/SocketSendTo.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/anas/Desktop/Demo (Tuesday August 23rd)/David/SocketSendTo.cpp" -o CMakeFiles/JY.dir/SocketSendTo.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/anas/Desktop/Final API/SocketSendTo.cpp" -o CMakeFiles/JY.dir/SocketSendTo.cpp.s
 
 CMakeFiles/JY.dir/SocketSendTo.cpp.o.requires:
 
@@ -129,11 +129,36 @@ CMakeFiles/JY.dir/SocketSendTo.cpp.o.provides: CMakeFiles/JY.dir/SocketSendTo.cp
 CMakeFiles/JY.dir/SocketSendTo.cpp.o.provides.build: CMakeFiles/JY.dir/SocketSendTo.cpp.o
 
 
+CMakeFiles/JY.dir/UserInput.cpp.o: CMakeFiles/JY.dir/flags.make
+CMakeFiles/JY.dir/UserInput.cpp.o: ../UserInput.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/anas/Desktop/Final API/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/JY.dir/UserInput.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/JY.dir/UserInput.cpp.o -c "/home/anas/Desktop/Final API/UserInput.cpp"
+
+CMakeFiles/JY.dir/UserInput.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/JY.dir/UserInput.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/anas/Desktop/Final API/UserInput.cpp" > CMakeFiles/JY.dir/UserInput.cpp.i
+
+CMakeFiles/JY.dir/UserInput.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/JY.dir/UserInput.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/anas/Desktop/Final API/UserInput.cpp" -o CMakeFiles/JY.dir/UserInput.cpp.s
+
+CMakeFiles/JY.dir/UserInput.cpp.o.requires:
+
+.PHONY : CMakeFiles/JY.dir/UserInput.cpp.o.requires
+
+CMakeFiles/JY.dir/UserInput.cpp.o.provides: CMakeFiles/JY.dir/UserInput.cpp.o.requires
+	$(MAKE) -f CMakeFiles/JY.dir/build.make CMakeFiles/JY.dir/UserInput.cpp.o.provides.build
+.PHONY : CMakeFiles/JY.dir/UserInput.cpp.o.provides
+
+CMakeFiles/JY.dir/UserInput.cpp.o.provides.build: CMakeFiles/JY.dir/UserInput.cpp.o
+
+
 # Object files for target JY
 JY_OBJECTS = \
 "CMakeFiles/JY.dir/main.cpp.o" \
 "CMakeFiles/JY.dir/Command.cpp.o" \
-"CMakeFiles/JY.dir/SocketSendTo.cpp.o"
+"CMakeFiles/JY.dir/SocketSendTo.cpp.o" \
+"CMakeFiles/JY.dir/UserInput.cpp.o"
 
 # External object files for target JY
 JY_EXTERNAL_OBJECTS =
@@ -141,9 +166,10 @@ JY_EXTERNAL_OBJECTS =
 bin/JY: CMakeFiles/JY.dir/main.cpp.o
 bin/JY: CMakeFiles/JY.dir/Command.cpp.o
 bin/JY: CMakeFiles/JY.dir/SocketSendTo.cpp.o
+bin/JY: CMakeFiles/JY.dir/UserInput.cpp.o
 bin/JY: CMakeFiles/JY.dir/build.make
 bin/JY: CMakeFiles/JY.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="/home/anas/Desktop/Demo (Tuesday August 23rd)/David/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable bin/JY"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="/home/anas/Desktop/Final API/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable bin/JY"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/JY.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -154,6 +180,7 @@ CMakeFiles/JY.dir/build: bin/JY
 CMakeFiles/JY.dir/requires: CMakeFiles/JY.dir/main.cpp.o.requires
 CMakeFiles/JY.dir/requires: CMakeFiles/JY.dir/Command.cpp.o.requires
 CMakeFiles/JY.dir/requires: CMakeFiles/JY.dir/SocketSendTo.cpp.o.requires
+CMakeFiles/JY.dir/requires: CMakeFiles/JY.dir/UserInput.cpp.o.requires
 
 .PHONY : CMakeFiles/JY.dir/requires
 
@@ -162,6 +189,6 @@ CMakeFiles/JY.dir/clean:
 .PHONY : CMakeFiles/JY.dir/clean
 
 CMakeFiles/JY.dir/depend:
-	cd "/home/anas/Desktop/Demo (Tuesday August 23rd)/David/build" && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" "/home/anas/Desktop/Demo (Tuesday August 23rd)/David" "/home/anas/Desktop/Demo (Tuesday August 23rd)/David" "/home/anas/Desktop/Demo (Tuesday August 23rd)/David/build" "/home/anas/Desktop/Demo (Tuesday August 23rd)/David/build" "/home/anas/Desktop/Demo (Tuesday August 23rd)/David/build/CMakeFiles/JY.dir/DependInfo.cmake" --color=$(COLOR)
+	cd "/home/anas/Desktop/Final API/build" && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" "/home/anas/Desktop/Final API" "/home/anas/Desktop/Final API" "/home/anas/Desktop/Final API/build" "/home/anas/Desktop/Final API/build" "/home/anas/Desktop/Final API/build/CMakeFiles/JY.dir/DependInfo.cmake" --color=$(COLOR)
 .PHONY : CMakeFiles/JY.dir/depend
 

@@ -13,7 +13,7 @@ class Command
     public:
         Command(string name);
         static void printCommand(Command comm);
-        static vector<Command> generateCommandList ();
+        static void printAllCommands ();
 
         std::string getName() { return name; }
         void setName(string val) { name = val; }
